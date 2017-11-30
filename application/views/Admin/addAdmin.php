@@ -5,7 +5,7 @@
         <div class="card-body">
           <div class="demo-grid" style="padding:20px">
             <form action="<?php echo base_url()?>admin/Dashboard/insertadmin" method="POST" enctype="multipart/form-data">
-
+            <!-- huuu-->
               <?php
               if($this->session->flashdata('success')){
                 echo '<div class="alert alert-success alert-dismissable">
