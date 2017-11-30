@@ -1,7 +1,7 @@
 <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-user"></i>   <?php echo $title; ?></div>
+          <i class="fa fa-coffee"></i>   <?php echo $title; ?></div>
         <div class="card-body">
           <div class="demo-grid" style="padding:20px">
             <?php if($this->session->flashdata('success')){

@@ -59,6 +59,14 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/headfoot/footer');
 	}
 
+	public function addMenu() {
+		$data['title'] = 'Add Menu';
+		$this->load->view('admin/headfoot/sider',$data);
+		$this->load->view('admin/headfoot/header');
+		$this->load->view('admin/addMenu', $data);
+		$this->load->view('admin/headfoot/footer');
+	}
+
 	public function addCategory() {
 		$newcategory = htmlspecialchars(strtoupper($this->input->post('newcategory')));
 		$datainsert = array('namaKategori' => $newcategory);

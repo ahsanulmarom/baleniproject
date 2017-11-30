@@ -43,7 +43,7 @@
               <a href="<?php echo base_url()?>admin/Dashboard/category">Manage Category</a>
             </li>
             <li>
-              <a href="#">Add Menu</a>
+              <a href="<?php echo base_url()?>admin/Dashboard/addMenu">Add Menu</a>
             </li>
             <li>
               <a href="#">Manage Menu</a>
