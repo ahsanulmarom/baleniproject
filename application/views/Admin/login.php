@@ -21,8 +21,12 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Admin Login</div>
       <div class="card-body">
-
-        <form action='<?php echo base_url()?>admin/Auth/masukadmin' method='POST'>
+        <?php if (isset($error)) {
+          echo '<div class="alert alert-danger waduh">
+          <strong>Waduh!</strong> '.$error.'
+          </div>';
+        } ?>        
+        <form action='<?php echo base_url()?>admin/Auth/loginadmin' method='POST'>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input class="form-control" type="email" aria-describedby="emailHelp" placeholder="Enter email" name="usernameAdmin" id="email">

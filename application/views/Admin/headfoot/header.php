@@ -77,7 +77,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <div style="color: #2395C2"> Hi, <?php echo $this->session->userdata('loggedin')['name']?> </div>
+           <a href="<?php echo base_url()?>admin/Dashboard" class="nav-link"> Hi, <?php echo $this->session->userdata('loggedin')['name']?> </a>
         </li>
         <li class="nav-item">
           <a href="<?php echo base_url()?>admin/Auth/logoutadmin" class="nav-link">
@@ -86,3 +86,12 @@
       </ul>
     </div>
   </nav>
+    <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="<?php echo base_url()?>admin/Dashboard">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active"><?php echo $title; ?></li>
+      </ol>

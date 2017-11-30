@@ -18,18 +18,25 @@ class Auth extends CI_Controller {
 		redirect('admin/Dashboard');
 	}
 
-	public function masukadmin() {
+	public function loginadmin() {
 		$usernameAdmin = htmlspecialchars($this->input->post('usernameAdmin'));
 		$passwordAdmin = htmlspecialchars($this->input->post('passwordAdmin'));
 		$isLogin = $this->Authmin_model->loginAdmin($usernameAdmin, $passwordAdmin);
 		if($isLogin == true) {
 			$loginadminData = array(
+				'id' => $isLogin[0]->id,
 				'username' => $isLogin[0]->username,
 				'name' => $isLogin[0]->adminName,
 				'role' => $isLogin[0]->role,
 				'time' => $isLogin[0]->lastLogin);
 			$this->session->set_userdata('loggedin', $loginadminData);
+			$timeLogin = array('lastLogin' => $this->Authmin_model->now());
+			$this->Authmin_model->updateData('id', $isLogin[0]->id, 'admin', $timeLogin);
 			$this->index();
+		} else {
+			$data['title'] = 'Baleni Admin Portal';
+			$data['error'] = 'Email dan Password salah!';
+			$this->load->view('admin/login', $data);
 		}
 	}
 
@@ -40,7 +47,7 @@ class Auth extends CI_Controller {
 	}
 
 	public function login() {
-		$data['title'] = 'Baleni Admin';
+		$data['title'] = 'Baleni Admin Portal';
 		if($this->session->userdata('loggedin')) {
 			redirect('admin/Dashboard');
 		} else {
