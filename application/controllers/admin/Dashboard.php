@@ -23,7 +23,7 @@ class Dashboard extends CI_Controller {
 	public function manageAdmin() {
 		$data['title'] = 'Manage Admin';
 		$dataadmin = array(
-			'admin'=> $this->Authmin_model->getAllData('admin'));
+			'admin'=> $this->Authmin_model->getAllData('admin', 'lastLogin', 'DESC'));
 		$this->load->view('admin/headfoot/sider',$data);
 		$this->load->view('admin/headfoot/header');
 		$this->load->view('admin/listadmin', $dataadmin);
@@ -33,7 +33,7 @@ class Dashboard extends CI_Controller {
 	public function manageUser() {
 		$data['title'] = 'Manage User';
 		$datauser = array(
-			'user'=> $this->Authmin_model->getAllData('user'));
+			'user'=> $this->Authmin_model->getAllData('user', 'lastLogin', 'DESC'));
 		$this->load->view('admin/headfoot/sider',$data);
 		$this->load->view('admin/headfoot/header');
 		$this->load->view('admin/listuser', $datauser);
@@ -51,7 +51,7 @@ class Dashboard extends CI_Controller {
 	public function category() {
 		$data['title'] = 'Manage Category';
 		$datacategory = array(
-			'kategori' => $this->Authmin_model->getAllData('kategori'),
+			'kategori' => $this->Authmin_model->getAllData('kategori', 'namaKategori', 'ASC'),
 			'title' => 'Manage Category');
 		$this->load->view('admin/headfoot/sider',$data);
 		$this->load->view('admin/headfoot/header');
@@ -61,10 +61,52 @@ class Dashboard extends CI_Controller {
 
 	public function addMenu() {
 		$data['title'] = 'Add Menu';
+		$datacategory = array(
+			'namakategori' => $this->Authmin_model->getAllData('kategori','namaKategori', 'ASC'),
+			'title' => 'Add Menu');
 		$this->load->view('admin/headfoot/sider',$data);
 		$this->load->view('admin/headfoot/header');
-		$this->load->view('admin/addMenu', $data);
+		$this->load->view('admin/addMenu', $datacategory);
 		$this->load->view('admin/headfoot/footer');
+	}
+
+	public function insertMenu() {
+		$kode = htmlspecialchars($this->input->post('kodemenu'));
+		$nama = htmlspecialchars(strtoupper($this->input->post('namamenu')));
+		$kategori = $this->input->post('kategorimenu');
+		$harga = $this->input->post('hargamenu');
+		$deskripsi = htmlspecialchars($this->input->post('deskripmenu'));
+
+		$config = array(
+				'upload_path'=> './assets/fotomenu/',
+				'allowed_types'=>'gif|jpg|png|jpeg',
+				'max_size'=>2048,
+				'overwrite'=>true,
+				'file_name'=> $kategori . '_' . $this->input->post('kodemenu'));
+		$this->upload->initialize($config);
+		$upload = $this->upload->do_upload('previewimage');
+
+		if($upload) {
+			$datainsert = array(
+				'kode' => $kode,
+				'nama' => $nama,
+				'kategori' => $kategori,
+				'harga' => $harga,
+				'deskripsi' => $deskripsi,
+				'image' => 'assets/fotomenu/'.$this->upload->data('file_name'));
+
+			$insert = $this->Authmin_model->InsertData('menu', $datainsert);
+			if($insert) {
+				$this->session->set_flashdata('success', ' '. $nama . " berhasil ditambahkan ke menu.");
+				redirect('admin/Dashboard/addMenu');
+			} else {
+				$this->session->set_flashdata('error','Menu gagal ditambahkan, cek kode makanan.');
+				redirect('admin/Dashboard/addMenu');
+			}
+		} else {
+				$this->session->set_flashdata('error','Gagal upload Gambar. Maksimal gambar adalah 2MB');
+				redirect('admin/Dashboard/addMenu');
+		}
 	}
 
 	public function addCategory() {
@@ -112,5 +154,21 @@ class Dashboard extends CI_Controller {
 		$this->Authmin_model->deleteData('admin', 'id', $id);
 		$this->session->set_flashdata('success','Admin berhasil Dihapus.');
 			redirect('admin/Dashboard/manageAdmin');
+	}
+
+	public function manageMenu() {
+		$data['title'] = 'Manage Menu';
+		$datamenu = array(
+			'menu' => $this->Authmin_model->getAllData('menu', 'nama', 'ASC'));
+		$this->load->view('admin/headfoot/sider',$data);
+		$this->load->view('admin/headfoot/header');
+		$this->load->view('admin/listMenu', $datamenu);
+		$this->load->view('admin/headfoot/footer');
+	}
+
+		public function deleteMenu($kode) {
+		$this->Authmin_model->deleteData('menu', 'kode', $kode);
+		$this->session->set_flashdata('success','menu berhasil Dihapus.');
+			redirect('admin/Dashboard/managemenu');
 	}
 }

@@ -23,12 +23,27 @@ class Authmin_model extends CI_Model {
 		}
 	}
 
-	public function getAllData($namaTabel) {
+	public function getAllData($namaTabel, $urut, $asc) {
 		$this->db->select('*');
 		$this->db->from($namaTabel);
+		$this->db->order_by($urut, $asc);
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
 			return $query->result_array();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function getSelData($namaTabel, $where, $wheredata) {
+		$this->db->select('*');
+		$this->db->from($namaTabel);
+		$this->db->where($where, $datawhere);
+		$query = $this->db->get();
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			return $query->result();
 		}
 		else{
 			return false;

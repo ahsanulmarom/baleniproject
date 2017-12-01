@@ -344,3 +344,14 @@ footer.sticky-footer {
 @media (min-width: 992px) {
   body.sidenav-toggled footer.sticky-footer {
     width: calc(100% - 55px); } }
+
+#image-preview{
+    display:none;
+    width : 200px;
+    height : 200px;
+}
+
+#image-load{
+    width : 100px;
+    height : 100px;
+}

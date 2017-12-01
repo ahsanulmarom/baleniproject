@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 30 Nov 2017 pada 05.11
+-- Generation Time: 01 Des 2017 pada 10.04
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `adminName`, `role`, `timeCreated`, `lastLogin`) VALUES
-(1, 'mimintamvan@baleni', '12345', 'Super Admin', 1, '2017-11-29 15:01:42', '2017-11-30 03:58:31'),
+(1, 'mimintamvan@baleni', '12345', 'Super Admin', 1, '2017-11-29 15:01:42', '2017-12-01 01:01:24'),
 (2, 'adminbiasa@gmail.com', '12345', 'Admin Biasa Aja Doang', 0, '2017-11-30 03:12:35', '2017-11-30 03:56:14');
 
 -- --------------------------------------------------------
@@ -60,7 +60,32 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id`, `namaKategori`) VALUES
-(1, 'SEAFOOD');
+(1, 'SEAFOOD'),
+(2, 'MAKANAN BERAT');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `menu`
+--
+
+CREATE TABLE `menu` (
+  `id` int(11) NOT NULL,
+  `kode` varchar(50) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `kategori` varchar(50) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `menu`
+--
+
+INSERT INTO `menu` (`id`, `kode`, `nama`, `kategori`, `harga`, `deskripsi`, `image`) VALUES
+(3, 'CHLK1000', 'RANTAI BAJA', 'SEAFOOD', 150000, 'makanan ini terdiri dari makanan yang sehat dan bergizi tinggi serta mampu menambah kesahatan anda hingga 10 tahun mendatang', 'assets/fotomenu/SEAFOOD_CHLK1000.jpg'),
+(7, 'DXTR1000', 'LALALALA', 'MAKANAN BERAT', 3000, 'asasasasa', 'assets/fotomenu/MAKANAN_BERAT_DXTR1000.jpg');
 
 -- --------------------------------------------------------
 
@@ -102,6 +127,13 @@ ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `kode` (`kode`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -121,7 +153,12 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `user`
 --
