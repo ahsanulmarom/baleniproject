@@ -8,7 +8,6 @@ class Home extends CI_Controller {
 		$this->load->helper('url');
 	}
 
-
 	public function signup(){
 
 	}
@@ -23,16 +22,23 @@ class Home extends CI_Controller {
 		$this->load->view("template/footer");
 	}
 
+	public function	indexlogin(){
+		$this->load->view("template/headerlogin");
+		$this->load->view("user/indexlogin"); 
+		$this->load->view("template/footer");
+	}
+
+
 	public function menu(){
 		$this->load->view("template/header"); 
 		$this->load->view("user/menu");
 		$this->load->view("template/footer");
 	}	
 
-	public function contact(){
+	public function profile(){
 		$this->load->view("template/header");
-		$this->load->view("user/contact");
-		$this->load->view("template/footer");
-	}	
+		$this->load->view("user/profile"); 
+		$this->load->view("template/footer"); 
+	}
 
 }

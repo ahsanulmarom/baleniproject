@@ -37,7 +37,7 @@
 	  	<div class="container">
 	  	
 		      <form class="form-login" action="<?php echo base_url('index.php/Login/do_login');?>" method="post">
-		        <h2 class="form-login-heading">sign in now</h2>
+		        <h2 class="form-login-heading">login now</h2>
 		        <div class="login-wrap">
 
 		            <input type="text" class="form-control" name="username" placeholder="User ID" autofocus>
@@ -49,11 +49,10 @@
 		
 		                </span>
 		            </label>
-		            <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
-		            <p> forgot password? </p>
+		            <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> LOGIN</button>
+		            <br>
+		            <a> forgot password? </a> 
 		            <hr>
-
-		
 		
 		        </div>
 		

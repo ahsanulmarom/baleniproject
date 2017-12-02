@@ -27,7 +27,7 @@
 					);
 	 
 				$this->session->set_userdata($data_session);
-				redirect(base_url('index.php/Home/index'));
+				redirect(base_url('index.php/Home/indexlogin'));
 	 
 			}else{
 				echo "Username dan password salah !";
