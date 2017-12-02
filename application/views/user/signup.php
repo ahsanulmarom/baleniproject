@@ -13,7 +13,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>LOGIN</title>
+    <title>SIGNUP</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url(); ?>assets/login/assets/css/bootstrap.css" rel="stylesheet">
@@ -27,52 +27,30 @@
     </head>
 
   <body>
+
 	  <div id="login-page">
 	  	<div class="container">
 	  	
-		      <form class="form-login" action="<?php echo base_url('index.php/Login/do_login');?>" method="post">
-		        <h2 class="form-login-heading">login now</h2>
+		      <form class="form-login" action="<?php echo base_url('index.php/Home/do_signup');?>" method="post">
+		        <h2 class="form-login-heading">join us now</h2>
 		        <div class="login-wrap">
 
 		            <input type="text" class="form-control" name="username" placeholder="User ID" autofocus>
 		            <br>
+		            <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" autofocus>
+		            <br>
+		            <input type="email" class="form-control" name="email" placeholder="Email" autofocus>
+		            <br>
 		            <input type="password" class="form-control" name="password" placeholder="Password">
+		            <br>
+		            <textarea name="alamat" id="alamat" required="required" class="form-control" rows="5" placeholder="Alamat"></textarea>
 		            <label class="checkbox">
 		                <span class="pull-right">
-	
-		
 		                </span>
 		            </label>
-		            <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> LOGIN</button>
-		            <br>
-		            <h5> <a href="#">Forgot password? </a> </h5>
-		            <h5> <a href="<?php echo base_url('index.php/Home/signup')?>"> I have no account! </a> <h5>
-		
-		        </div>
-		          <!-- Modal -->
-		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-		              <div class="modal-dialog">
-		                  <div class="modal-content">
-		                      <div class="modal-header">
-		                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                          <h4 class="modal-title">Forgot Password ?</h4>
-		                      </div>
-		                      <div class="modal-body">
-		                          <p>Enter your e-mail address below to reset your password.</p>
-		                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-		
-		                      </div>
-		                      <div class="modal-footer">
-		                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-		                          <button class="btn btn-theme" type="button">Submit</button>
-		                      </div>
-		                  </div>
-		              </div>
-		          </div>
-		          <!-- modal -->
-		
-		      </form>	  	
-	  	
+		            <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-heart"></i> SIGN UP</button>		
+		        </div>		
+ 		    </form>	  	
 	  	</div>
 	  </div>
 

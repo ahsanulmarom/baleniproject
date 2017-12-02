@@ -1,3 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>BALENI</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="
+        apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fontAwesome.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/hero-slider.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/owl-carousel.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/templatemo-style.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Spectral:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+
+        <script src="<?php echo base_url(); ?>assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+
 <body>
     <div class="header">
         <div class="container">
@@ -14,9 +38,8 @@
                 <!--/.navbar-header-->
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="<?php echo base_url(); ?>index.php/Home/index">Home</a></li>
+                        <li><a href="<?php echo base_url(); ?>index.php/Home/indexlogin">Home</a></li>
                         <li><a href="<?php echo base_url(); ?>index.php/Home/menu">Our Menus</a></li>
-                        <li><a href="<?php echo base_url(); ?>index.php/Home/contact">Contact Us</a></li>
                         <li><a href="<?php echo base_url(); ?>index.php/Home/profile">Profile</a></li>
                         <li><a href="<?php echo base_url(); ?>index.php/Home/profile">🛒</a></li>
                         <li><a class="logout" href="<?php echo base_url('index.php/Login/logout');?>">Logout</a></li>
@@ -29,3 +52,4 @@
         <!--/.container-->
     </div>
     <!--/.header-->
+

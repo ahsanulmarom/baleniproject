@@ -9,6 +9,8 @@ class M_login extends CI_Model{
 	$query=$this->db->get('menu');
 	 return $query->result_array();  
 	}
+
+	
 }
 
 
