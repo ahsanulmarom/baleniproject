@@ -9,17 +9,24 @@ class Home extends CI_Controller {
 	}
 
 
+	public function signup(){
+
+	}
+	
+	public function login(){
+		$this->load->view("user/login");
+	}
+
 	public function	index(){
 		$this->load->view("template/header");
 		$this->load->view("user/index"); 
 		$this->load->view("template/footer");
 	}
 
-
 	public function menu(){
 		$this->load->view("template/header"); 
 		$this->load->view("user/menu");
-		$this->load->view("template/header");
+		$this->load->view("template/footer");
 	}	
 
 	public function contact(){
@@ -27,4 +34,5 @@ class Home extends CI_Controller {
 		$this->load->view("user/contact");
 		$this->load->view("template/footer");
 	}	
+
 }

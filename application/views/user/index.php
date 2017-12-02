@@ -1,58 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-        <title>BALENI</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fontAwesome.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/hero-slider.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/owl-carousel.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/templatemo-style.css">
-
-        <link href="https://fonts.googleapis.com/css?family=Spectral:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    </head>
-
-<body>
-    <div class="header">
-        <div class="container">
-            <a href="#" class="navbar-brand scroll-top">Victory</a>
-            <nav class="navbar navbar-inverse" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <!--/.navbar-header-->
-                <div id="main-nav" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="menu.html">Our Menus</a></li>
-                        <li><a href="blog.html">Blog Entries</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-                <!--/.navbar-collapse-->
-            </nav>
-            <!--/.navbar-->
-        </div>
-        <!--/.container-->
-    </div>
-    <!--/.header-->
-
-
     <section class="banner">
         <div class="container">
             <div class="row">
@@ -75,7 +20,7 @@
             <div class="row">
                 <div class="col-md-3 col-md-offset-1">
                     <div class="first-image">
-                        <img src="img/cook_01.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/cook_01.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -93,7 +38,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="second-image">
-                        <img src="img/cook_02.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/cook_02.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -107,32 +52,32 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="service-item">
-                        <a href="menu.html">
-                        <img src="img/cook_breakfast.png" alt="Breakfast">
+                        <a href="<?php echo base_url(); ?>index.php/Home/menu">
+                        <img src="<?php echo base_url(); ?>assets/img/cook_breakfast.png" alt="Breakfast">
                         <h4>Breakfast</h4>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="service-item">
-                        <a href="menu.html">
-                        <img src="img/cook_lunch.png" alt="Lunch">
+                        <a href="<?php echo base_url(); ?>index.php/Home/menu">
+                        <img src="<?php echo base_url(); ?>assets/img/cook_lunch.png" alt="Lunch">
                         <h4>Lunch</h4>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="service-item">
-                        <a href="menu.html">
-                        <img src="img/cook_dinner.png" alt="Dinner">
+                        <a href="<?php echo base_url(); ?>index.php/Home/menu">
+                        <img src="<?php echo base_url(); ?>assets/img/cook_dinner.png" alt="Dinner">
                         <h4>Dinner</h4>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="service-item">
-                        <a href="menu.html">
-                        <img src="img/cook_dessert.png" alt="Desserts">
+                        <a href="<?php echo base_url(); ?>index.php/Home/menu">
+                        <img src="<?php echo base_url(); ?>assets/img/cook_dessert.png" alt="Desserts">
                         <h4>Desserts</h4>
                         </a>
                     </div>
@@ -153,7 +98,7 @@
                 </div>
                 <div class="col-md-4 col-md-offset-2 col-sm-12">
                     <div class="left-image">
-                        <img src="img/book_left_image.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/book_left_image.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-12">
@@ -253,7 +198,7 @@
                 <div class="col-md-4">
                     <div class="food-item">
                         <h2>Breakfast</h2>
-                        <img src="img/breakfast_item.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/breakfast_item.jpg" alt="">
                         <div class="price">$4.50</div>
                         <div class="text-content">
                             <h4>Kale Chips Art Party</h4>
@@ -264,7 +209,7 @@
                 <div class="col-md-4">
                     <div class="food-item">
                         <h2>Lunch</h2>
-                        <img src="img/lunch_item.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/lunch_item.jpg" alt="">
                         <div class="price">$7.50</div>
                         <div class="text-content">
                             <h4>Taiyaki Gastro Tousled</h4>
@@ -275,7 +220,7 @@
                 <div class="col-md-4">
                     <div class="food-item">
                         <h2>Dinner</h2>
-                        <img src="img/dinner_item.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/dinner_item.jpg" alt="">
                         <div class="price">$12.50</div>
                         <div class="text-content">
                             <h4>Batch Squid Jean Shorts</h4>
@@ -301,7 +246,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="blog-post">
-                        <img src="img/blog_post_01.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/blog_post_01.jpg" alt="">
                         <div class="date">26 Oct 2017</div>
                         <div class="right-content">
                             <h4>Stumptown Tofu Schlitz</h4>
@@ -315,7 +260,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="blog-post">
-                        <img src="img/blog_post_02.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/blog_post_02.jpg" alt="">
                         <div class="date">21 Oct 2017</div>
                         <div class="right-content">
                             <h4>Succulents Hashtag Folk</h4>
@@ -329,7 +274,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="blog-post">
-                        <img src="img/blog_post_03.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/blog_post_03.jpg" alt="">
                         <div class="date">11 Oct 2017</div>
                         <div class="right-content">
                             <h4>Knaus Sriracha Pinterest</h4>
@@ -343,7 +288,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="blog-post">
-                        <img src="img/blog_post_04.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>assets/img/blog_post_04.jpg" alt="">
                         <div class="date">03 Oct 2017</div>
                         <div class="right-content">
                             <h4>Crucifix Selvage Coat</h4>

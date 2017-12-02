@@ -14,23 +14,20 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <p>Designed by <a rel="nofollow" href="http://www.templatemo.com" target="_parent"><em>templatemo</em></a></p>
+                    <p>Developed by <a rel="nofollow" href="http://www.templatemo.com" target="_parent"><em>team #3</em></a></p>
                 </div>
             </div>
         </div>
     </footer>
 
 
-    
-
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>assets/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
-    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/vendor/bootstrap.min.js"></script>
 
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/plugins.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
