@@ -171,4 +171,16 @@ class Dashboard extends CI_Controller {
 		$this->session->set_flashdata('success','menu berhasil Dihapus.');
 			redirect('admin/Dashboard/managemenu');
 	}
+
+	public function editMenu($kode) {
+		$data['title'] = 'Edit Menu';
+		$dataSelMenu= array(
+			'kategori' => $this->Authmin_model->getAllData('kategori','namaKategori', 'ASC'),
+			'barang' => $this->Authmin_model->getSelData('menu', 'kode', $kode),
+			'title' => 'Edit Menu');
+		$this->load->view('admin/headfoot/sider',$data);
+		$this->load->view('admin/headfoot/header');
+		$this->load->view('admin/editMenu', $dataSelMenu);
+		$this->load->view('admin/headfoot/footer');
+	}
 }

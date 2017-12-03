@@ -36,11 +36,10 @@ class Authmin_model extends CI_Model {
 		}
 	}
 
-	public function getSelData($namaTabel, $where, $wheredata) {
+	public function getSelData($namaTabel, $where, $datawhere) {
 		$this->db->select('*');
 		$this->db->from($namaTabel);
 		$this->db->where($where, $datawhere);
-		$query = $this->db->get();
 		$query = $this->db->get();
 		if ($query->num_rows() == 1) {
 			return $query->result();

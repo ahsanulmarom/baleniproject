@@ -37,7 +37,7 @@
                   <td><?php echo $m['kategori']; ?></td>
                   <td>Rp <?php echo $m['harga']; ?></td>
                   <td>
-                    <p><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i> Edit menu</a></p>
+                    <p><a href="<?php echo site_url('admin/Dashboard/editmenu/'.$m['kode'])?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit menu</a></p>
                     <p><a href="<?php echo site_url('admin/Dashboard/deletemenu/'.$m['kode'])?>" onclick="javascript:confirmationDelete($(this));return false;"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus menu</a></p>
                   </td>
                 </tr>
