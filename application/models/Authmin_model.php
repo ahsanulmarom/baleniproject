@@ -49,7 +49,7 @@ class Authmin_model extends CI_Model {
 		}
 	}
 
-	public function insertData($namaTabel, $data) {
+	/* public function insertData($namaTabel, $data) {
 		try{
 			$hasil = $this->db->insert($namaTabel, $data);
 			if (!$hasil) {
@@ -60,7 +60,7 @@ class Authmin_model extends CI_Model {
 		} catch(Exception $e) {
 			return false;
 		}
-	}
+	} */
 
 	public function deleteData($namaTabel, $where, $data) {
 		$this->db->where($where, $data);
