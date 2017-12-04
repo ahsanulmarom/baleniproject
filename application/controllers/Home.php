@@ -97,4 +97,8 @@ class Home extends CI_Controller {
 		$this->load->view("template/footer"); 
 	}
 
+	public function shoppingcart(){
+		$this->load->view("user/shoppingcart");
+	}
+
 }

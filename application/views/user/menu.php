@@ -1,257 +1,81 @@
-    <section class="page-heading">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Our Menus</h1>
-                    <p>Curabitur at dolor sed felis lacinia ultricies sit amet vel sem. Vestibulum diam leo, sodales tempor lectus sed, varius gravida mi.</p>
-                </div>
+<div style="min-height: 100vh">
+<link href="<?php echo base_url()?>assets/css/profileuser.css" rel="stylesheet" type="text/css" media="all">
+<div class="bagian-str">
+    <h3>BALENI</h3>
+    <span class="garis" style="width: 100%; height: 3px; background-color: white"></span>
+</div>
+        <div class="isi-shop">
+            <div style="width: 70%; margin: auto;">
+        <?php if ($this->session->flashdata('error')) {
+            echo '<div class="alert alert-danger alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Oops!</strong>'.$this->session->flashdata('error').'
+</div>';
+        } ?>
             </div>
-        </div>
-    </section>
-
-
-
-    <section class="breakfast-menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="breakfast-menu-content">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="left-image">
-                                    <img src="img/breakfast_menu.jpg" alt="Breakfast">
-                                </div>
+        <div class="container" style="margin-top: 15px">
+            <div class="row mb40">
+            <div class="chute chute-center text-center">
+            <div class="col-md-3 mb5" style="margin-bottom: 20px;">
+                <div class="bagian-cari">
+                    <div class="title">
+                        <h4>Category</h4>
+                    </div>
+                    <ul>
+                        <li><a href="<?php echo base_url()."Home/menu/"?>">ALL CATEGORY</a><span class=""></span></li>
+                    <?php 
+                    if(empty($data)) {
+                        echo "Belum Ada kategori";
+                    } else {
+                    foreach ($data as $d) { ?>
+                        <li><a href="<?php echo base_url()."Home/detilcategory/".$d->nama ?>"><?php echo ucfirst(strtolower($d->nama)) ?></a><span class=""></span></li>
+                    <?php } 
+                    } ?>
+                    </ul>
+                    <form method="POST" action="<?php echo base_url()."Home/category_sort"?>">
+                    <select class="form-control" name="sort" id="sort">
+                        <option value="Default">Default</option>
+                        <option value="DESC">Paling Mahal</option>
+                        <option value="ASC">Paling Murah</option>
+                    </select>
+                    <input class="btn btn-primary" type="Submit" value="Urutkan">
+                    </form>
+                </div>      
+            </div>
+            <div class="col-md-9">
+            <div class="demo-grid row" style="margin-bottom: 0px;border:none;">
+            <div class="form-group bagian-cari" data-spy="affix" data-offset-top="197">
+                <form method="POST" action="<?= base_url()?>Home/cari">
+                    <input value="<?php echo isset($pencarian) ? $pencarian : ''; ?>" type="text" name="cari" class="form-control" placeholder="cari barang yang kamu inginkan disini">
+                    <button name="caribtn" type="submit" class="btn btn-src"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+            </div>
+                <?php foreach ($jualan as $j) { ?>
+                <div class="col-sm-4 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="thumbnail" style="margin: 0">
+                            <div class="gambar" style="background-image: url('<?php echo base_url()."$j->thumbnail" ?>');"></div>
+                            <h4></h4>
+                            <div class="caption">
+                                <h5><a href="<?php echo base_url()."Home/barang/".$j->id?>"><?php echo substr($j->judul, 0,20) ?></a></h5>
+                                <p><span class="blue">IDR <?php echo number_format($j->harga) ?></span> <span class="border"><?php echo ucfirst(strtolower($j->kategori)) ?></span></p>
                             </div>
-                            <div class="col-md-7">
-                                <h2>Breakfast Menu</h2>
-                                <div id="owl-breakfast" class="owl-carousel owl-theme">
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/breakfast_item.jpg" alt="">
-                                            <div class="price">$3.50</div>
-                                            <div class="text-content">
-                                                <h4>Kale Chips Art Party</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/lunch_item.jpg" alt="">
-                                            <div class="price">$7.25</div>
-                                            <div class="text-content">
-                                                <h4>Drink Vinegar Prism</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/dinner_item.jpg" alt="">
-                                            <div class="price">$11.50</div>
-                                            <div class="text-content">
-                                                <h4>Taiyaki Gastro Tousled</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="klik">
+                        <a href="<?php echo base_url()."Home/barang/".$j->id?>" class="btn btn-cck">
+                            More</a>
                         </div>
                     </div>
                 </div>
+                <?php } ?>      
             </div>
-        </div>
-    </section>
-
-
-
-    <section class="lunch-menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="lunch-menu-content">
-                        <div class="row">
-                            <div class="col-md-7">
-                                <h2>Lunch Menu</h2>
-                                <div id="owl-lunch" class="owl-carousel owl-theme">
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/lunch_item.jpg" alt="">
-                                            <div class="price">$6.50</div>
-                                            <div class="text-content">
-                                                <h4>Mumble Ditch Corn</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/breakfast_item.jpg" alt="">
-                                            <div class="price">$11.75</div>
-                                            <div class="text-content">
-                                                <h4>Wayfare Lomo Core</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/dinner_item.jpg" alt="">
-                                            <div class="price">$16.50</div>
-                                            <div class="text-content">
-                                                <h4>Taiyaki Gastro Tousled</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="left-image">
-                                    <img src="img/lunch_menu.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="pagination">
+                    <?php echo $this->pagination->create_links();?>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="dinner-menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="dinner-menu-content">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="left-image">
-                                    <img src="img/dinner_menu.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                                <h2>Dinner Menu</h2>
-                                <div id="owl-dinner" class="owl-carousel owl-theme">
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/dinner_item.jpg" alt="">
-                                            <div class="price">$8.25</div>
-                                            <div class="text-content">
-                                                <h4>Meal Apples Almonds</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/lunch_item.jpg" alt="">
-                                            <div class="price">$12.50</div>
-                                            <div class="text-content">
-                                                <h4>Ditch Corn Art</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/breakfast_item.jpg" alt="">
-                                            <div class="price">$16.00</div>
-                                            <div class="text-content">
-                                                <h4>Kale Chips Art Party</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
             </div>
         </div>
-    </section>
-
-
-
-    <section id="book-table">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="heading">
-                        <h2>Book Your Table Now</h2>
-                    </div>
-                </div>
-                <div class="col-md-4 col-md-offset-2">
-                    <div class="left-image">
-                        <img src="img/book_left_image.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="right-info">
-                        <h4>Reservation</h4>
-                        <form id="form-submit" action="" method="get">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <select required name='day' onchange='this.form.()'>
-                                            <option value="">Select day</option>
-                                            <option value="Monday">Monday</option>
-                                            <option value="Tuesday">Tuesday</option>
-                                            <option value="Wednesday">Wednesday</option>
-                                            <option value="Thursday">Thursday</option>
-                                            <option value="Friday">Friday</option>
-                                            <option value="Saturday">Saturday</option>
-                                            <option value="Sunday">Sunday</option>
-                                        </select>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <select required name='hour' onchange='this.form.()'>
-                                            <option value="">Select hour</option>
-                                            <option value="10-00">10:00</option>
-                                            <option value="12-00">12:00</option>
-                                            <option value="14-00">14:00</option>
-                                            <option value="16-00">16:00</option>
-                                            <option value="18-00">18:00</option>
-                                            <option value="20-00">20:00</option>
-                                            <option value="22-00">22:00</option>
-                                        </select>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <input name="name" type="name" class="form-control" id="name" placeholder="Full name" required="">
-                                    </fieldset> 
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <input name="phone" type="phone" class="form-control" id="phone" placeholder="Phone number" required="">
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <select required class="person" name='persons' onchange='this.form.()'>
-                                            <option value="">How many persons?</option>
-                                            <option value="1-Person">1 Person</option>
-                                            <option value="2-Persons">2 Persons</option>
-                                            <option value="3-Persons">3 Persons</option>
-                                            <option value="4-Persons">4 Persons</option>
-                                            <option value="5-Persons">5 Persons</option>
-                                            <option value="6-Persons">6 Persons</option>
-                                        </select>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <button type="submit" id="form-submit" class="btn">Book Table</button>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
-    </section>
+</div>
+<?php $this->load->view("home/footer"); ?>
