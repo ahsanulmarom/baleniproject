@@ -14,9 +14,13 @@ class Dashboard extends CI_Controller {
 
 	public function index() {
 		$data['title'] = 'Baleni Dashboard';
+		$dataload = array(
+			'topmenu' => $this->Authmin_model->getTopMenu(),
+			'title' => 'Baleni Dashboard',
+			'total' => $this->Authmin_model->getTotalOrderMenu());
 		$this->load->view('admin/headfoot/sider',$data);
 		$this->load->view('admin/headfoot/header');
-		$this->load->view('admin/dashboard');
+		$this->load->view('admin/dashboard',$dataload);
 		$this->load->view('admin/headfoot/footer');
 	}
 

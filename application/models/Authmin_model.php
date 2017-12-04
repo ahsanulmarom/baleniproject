@@ -104,5 +104,28 @@ class Authmin_model extends CI_Model {
 		$dateTime = date_create('now', $dtz)->format('Y-m-d H:i:s');
 		return$dateTime;
 	}
+
+	public function getTopMenu() {
+		$this->db->select('*');
+		$this->db->join('menu', 'detil_order.kodebarang=menu.kode');
+		$this->db->from('detil_order');
+		$this->db->group_by('kodebarang');
+		$this->db->order_by('kuantitas', 'DESC');
+		$this->db->limit(7);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result_array();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function getTotalOrderMenu() {
+		$this->db->select_sum('kuantitas');
+		$this->db->from('detil_order');
+		$query = $this->db->get();
+		return $query->row()->kuantitas;
+	}
 }
 ?>
