@@ -176,6 +176,7 @@ class Dashboard extends CI_Controller {
 		$data['title'] = 'Edit Menu';
 		$dataSelMenu= array(
 			'kategori' => $this->Authmin_model->getAllData('kategori','namaKategori', 'ASC'),
+			'kategoripil' => $this->Authmin_model->getData('kategori'),
 			'barang' => $this->Authmin_model->getSelData('menu', 'kode', $kode),
 			'title' => 'Edit Menu');
 		$this->load->view('admin/headfoot/sider',$data);
@@ -183,4 +184,84 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/editMenu', $dataSelMenu);
 		$this->load->view('admin/headfoot/footer');
 	}
+
+	public function updateMenu() {
+		$kode = htmlspecialchars($this->input->post('kodemenu'));
+		$nama = htmlspecialchars(strtoupper($this->input->post('namamenu')));
+		$kategori = $this->input->post('kategorimenu');
+		$harga = $this->input->post('hargamenu');
+		$deskripsi = htmlspecialchars($this->input->post('deskripmenu'));
+
+		$config = array(
+				'upload_path'=> './assets/fotomenu/',
+				'allowed_types'=>'gif|jpg|png|jpeg',
+				'max_size'=>2048,
+				'overwrite'=>true,
+				'file_name'=> $kategori . '_' . $this->input->post('kodemenu'));
+		$this->upload->initialize($config);
+		$upload = $this->upload->do_upload('previewimage');
+
+		if($upload) {
+			$dataupdate = array(
+				'nama' => $nama,
+				'kategori' => $kategori,
+				'harga' => $harga,
+				'deskripsi' => $deskripsi,
+				'image' => 'assets/fotomenu/'.$this->upload->data('file_name'));
+
+			$update = $this->Authmin_model->updateData('kode', $kode, 'menu', $dataupdate);
+			$this->session->set_flashdata('success', ' '. $nama . " berhasil diupdate.");
+			redirect('admin/Dashboard/addMenu');
+		} else {
+				$this->session->set_flashdata('error','Gagal upload Gambar. Maksimal gambar adalah 2MB');
+				redirect('admin/Dashboard/addMenu');
+		}
+	}
+
+	public function manageorders() {
+		$data['title'] = 'Manage Order';
+		$dataorder = array(
+			'orderan' => $this->Authmin_model->getorder(),
+			'title' => 'Manage Order');
+		$this->load->view('admin/headfoot/sider',$data);
+		$this->load->view('admin/headfoot/header');
+		$this->load->view('admin/listorder', $dataorder);
+		$this->load->view('admin/headfoot/footer');
+	}
+
+	public function terimaorders($kode) {
+		$dataupdate = array(
+			'status' => 'Menunggu Pembayaran');
+		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
+		redirect('admin/Dashboard/manageorders');
+	}
+
+	public function tolakorders($kode) {
+		$dataupdate = array(
+			'status' => 'Pesanan Ditolak/Dibatalkan');
+		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
+		redirect('admin/Dashboard/manageorders');
+	}
+
+	public function antarorders($kode) {
+		$dataupdate = array(
+			'status' => 'Pesanan Dalam Pengantaran');
+		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
+		redirect('admin/Dashboard/manageorders');
+	}
+
+	public function bayarorders($kode) {
+		$dataupdate = array(
+			'status' => 'Pesanan Dalam Proses');
+		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
+		redirect('admin/Dashboard/manageorders');
+	}
+
+	public function doneorders($kode) {
+		$dataupdate = array(
+			'status' => 'Pesanan Telah Selesai');
+		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
+		redirect('admin/Dashboard/manageorders');
+	}
+
 }

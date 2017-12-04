@@ -4,7 +4,7 @@
           <i class="fa fa-coffee"></i>   <?php echo $title; ?></div>
         <div class="card-body">
           <div class="demo-grid" style="padding:20px">
-            <form action="<?php echo base_url()?>admin/Dashboard/insertMenu" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo site_url('admin/Dashboard/updateMenu/'.$barang[0]->kode)?>" method="POST" enctype="multipart/form-data">
 
               <?php
               if($this->session->flashdata('success')){
@@ -34,8 +34,8 @@
                 <tr>
                   <td style="padding: 5px">Kategori</td>
                   <td style="padding: 5px"><select class="form-control" name="kategorimenu" title="namaKategori">
-                    <?php foreach($kategori as $k){?>
-                    <option <?php if($k['namaKategori'] == $barang[0]->kategori){ echo 'selected="selected"'; } ?> value="<?php echo $k->namaKategori; ?>"><?php echo $k['namaKategori']; ?></option>
+                    <?php foreach($kategoripil as $kp){?>
+                    <option <?php if($kp->namaKategori == $barang[0]->kategori){ echo 'selected="selected"'; } ?> value="<?php echo $kp->namaKategori; ?>"><?php echo $kp->namaKategori; ?></option>
                     <?php }?>
                   </select>
                 </tr>
@@ -49,7 +49,7 @@
                 </tr>
                 <tr style="padding: 5px">
                   <td></td>
-                  <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="submit" name="submit" value="Add Menu" /></td>
+                  <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="submit" name="submit" value="Update Menu" /></td>
                 </tr>
               </table>
             </form>

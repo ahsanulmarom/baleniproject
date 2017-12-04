@@ -23,6 +23,7 @@ class Authmin_model extends CI_Model {
 		}
 	}
 
+
 	public function getAllData($namaTabel, $urut, $asc) {
 		$this->db->select('*');
 		$this->db->from($namaTabel);
@@ -30,6 +31,18 @@ class Authmin_model extends CI_Model {
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
 			return $query->result_array();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function getData($namaTabel) {
+		$this->db->select('*');
+		$this->db->from($namaTabel);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
 		}
 		else{
 			return false;
@@ -49,7 +62,21 @@ class Authmin_model extends CI_Model {
 		}
 	}
 
-	/* public function insertData($namaTabel, $data) {
+	public function getOrder() {
+		$this->db->select('*');
+		$this->db->join('detil_order', 'order.kode_order=detil_order.orderid');
+		$this->db->join('menu', 'detil_order.kodebarang=menu.kode');
+		$this->db->from('order');
+		$this->db->order_by('tanggalkirim');
+		$query = $this->db->get();
+		if($query->num_rows() > 0) {
+			return $query->result_array();
+		} else {
+			return false;
+		}
+	}
+
+	 public function insertData($namaTabel, $data) {
 		try{
 			$hasil = $this->db->insert($namaTabel, $data);
 			if (!$hasil) {
@@ -60,7 +87,7 @@ class Authmin_model extends CI_Model {
 		} catch(Exception $e) {
 			return false;
 		}
-	} */
+	}
 
 	public function deleteData($namaTabel, $where, $data) {
 		$this->db->where($where, $data);
