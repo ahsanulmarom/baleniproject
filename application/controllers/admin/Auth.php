@@ -28,6 +28,7 @@ class Auth extends CI_Controller {
 				'username' => $isLogin[0]->username,
 				'name' => $isLogin[0]->adminName,
 				'role' => $isLogin[0]->role,
+				'created' => $isLogin[0]->timeCreated,
 				'time' => $isLogin[0]->lastLogin);
 			$this->session->set_userdata('loggedin', $loginadminData);
 			$timeLogin = array('lastLogin' => $this->Authmin_model->now());

@@ -78,7 +78,7 @@
         </li> -->
         
         <li class="nav-item">
-           <a href="<?php echo base_url()?>admin/Dashboard" class="nav-link"> Hi, <?php echo $this->session->userdata('loggedin')['name']?> </a>
+           <a href="#" class="nav-link"> Hi, <?php echo $this->session->userdata('loggedin')['name']?> </a>
         </li>
         <li class="nav-item">
           <a href="<?php echo base_url()?>admin/Auth/logoutadmin" class="nav-link">
