@@ -39,9 +39,9 @@
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="<?php echo base_url(); ?>index.php/Home/indexlogin">Home</a></li>
-                        <li><a href="<?php echo base_url(); ?>index.php/Home/menu">Our Menus</a></li>
+                        <li><a href="<?php echo base_url(); ?>index.php/Home/category">Our Menus</a></li>
                         <li><a href="<?php echo base_url(); ?>index.php/Home/profile">Profile</a></li>
-                        <li><a href="<?php echo base_url(); ?>index.php/Home/profile">🛒</a></li>
+                        <li><a href="<?php echo base_url(); ?>index.php/Home/shoppingcart">🛒</a></li>
                         <li><a class="logout" href="<?php echo base_url('index.php/Login/logout');?>">Logout</a></li>
                     </ul>
                 </div>
