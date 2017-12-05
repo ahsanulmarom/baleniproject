@@ -1,6 +1,6 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <!-- <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-fw fa-envelope"></i>
             <span class="d-lg-none">Messages
               <span class="badge badge-pill badge-primary">12 New</span>
@@ -75,9 +75,10 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item small" href="#">View all alerts</a>
           </div>
-        </li>
+        </li> -->
+        
         <li class="nav-item">
-           <a href="<?php echo base_url()?>admin/Dashboard" class="nav-link"> Hi, <?php echo $this->session->userdata('loggedin')['name']?> </a>
+           <a href="#" class="nav-link"> Hi, <?php echo $this->session->userdata('loggedin')['name']?> </a>
         </li>
         <li class="nav-item">
           <a href="<?php echo base_url()?>admin/Auth/logoutadmin" class="nav-link">

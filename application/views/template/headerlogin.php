@@ -38,11 +38,19 @@
                 <!--/.navbar-header-->
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
+<<<<<<< HEAD
                         <li><a href="<?php echo base_url(); ?>/Home/indexlogin">Home</a></li>
                         <li><a href="<?php echo base_url(); ?>/Home/menu">Our Menus</a></li>
                         <li><a href="<?php echo base_url(); ?>/Home/profile">Profile</a></li>
                         <li><a href="<?php echo base_url(); ?>/Home/profile">🛒</a></li>
                         <li><a class="logout" href="<?php echo base_url('index.php/Login/logout');?>">Logout</a></li>
+=======
+                        <li><a href="<?php echo base_url(); ?>Home/indexlogin">Home</a></li>
+                        <li><a href="<?php echo base_url(); ?>Home/category">Our Menus</a></li>
+                        <li><a href="<?php echo base_url(); ?>Home/profile">Profile</a></li>
+                        <li><a href="<?php echo base_url(); ?>Home/shoppingcart">🛒</a></li>
+                        <li><a class="logout" href="<?php echo base_url('login/logout')?>">Logout</a></li>
+>>>>>>> 50d6cfebd393ccb1bdb9039cbb090b861ce8b001
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->

@@ -31,19 +31,21 @@
 	  <div id="login-page">
 	  	<div class="container">
 	  	
+<<<<<<< HEAD
 		      <form class="form-login" action="<?php echo base_url('index.php/Home/do_signup');?>" role="form" enctype="multipart/form-data" method="post" >
+=======
+		      <form class="form-login" action="<?php echo base_url('Home/do_signup');?>" method="post">
+>>>>>>> 50d6cfebd393ccb1bdb9039cbb090b861ce8b001
 		        <h2 class="form-login-heading">join us now</h2>
 		        <div class="login-wrap">
-
-		            <input type="text" class="form-control" name="username" placeholder="User ID" autofocus>
-		            <br>
-		            <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" autofocus>
+		            <input type="text" class="form-control" name="username" placeholder="Username" autofocus>
 		            <br>
 		            <input type="email" class="form-control" name="email" placeholder="Email" autofocus>
 		            <br>
 		            <input type="password" class="form-control" name="password" placeholder="Password">
-		            <br>
-		            <textarea name="alamat" id="alamat" required="required" class="form-control" rows="5" placeholder="Alamat"></textarea>
+                    <br>
+                    <input type="password" class="form-control" name="password" placeholder="Retype Password">
+                    <label class="checkbox">
 		            <label class="checkbox">
 		                <span class="pull-right">
 		                </span>

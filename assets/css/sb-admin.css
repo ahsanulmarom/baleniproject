@@ -351,6 +351,11 @@ footer.sticky-footer {
     height : 200px;
 }
 
+#image-editpreview{
+    width : 200px;
+    height : 200px;
+}
+
 #image-load{
     width : 100px;
     height : 100px;
