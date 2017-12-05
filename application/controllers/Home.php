@@ -15,11 +15,11 @@ class Home extends CI_Controller {
 	public function do_signup() {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$username = $_POST['username'];
-		$email = $_POST['email'];
-		$password = $_POST['password']; 
-		$nama = $_POST['nama'];
-		$alamat = $_POST['alamat'];
+		$username = $this->input->post('username');
+		$email = $this->input->post('email');
+		$password = $this->input->post('password'); 
+		$nama = $this->input->post('nama');
+		$alamat = $this->input->post('alamat');
 		$data_insert = array(
 			'username' => $username, 
 			'email' => $email, 
@@ -28,11 +28,13 @@ class Home extends CI_Controller {
 			'alamat' => $alamat,
 			);
 
-		$res = $this->db->insert('profile',$data_insert);
+		$res = $this->db->insert('user', $data_insert);
 		if($res>=1){
 			redirect('user/indexlogin');
 		}else{
 			echo "<h2> TETOT </h2>";
+			var_dump($data_insert);
+			var_dump($res);
 		}
 		
 		/*

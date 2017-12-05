@@ -31,7 +31,7 @@
 	  <div id="login-page">
 	  	<div class="container">
 	  	
-		      <form class="form-login" action="<?php echo base_url('index.php/Home/do_signup');?>" method="post">
+		      <form class="form-login" action="<?php echo base_url('index.php/Home/do_signup');?>" role="form" enctype="multipart/form-data" method="post" >
 		        <h2 class="form-login-heading">join us now</h2>
 		        <div class="login-wrap">
 
