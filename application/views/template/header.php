@@ -38,15 +38,10 @@
                 <!--/.navbar-header-->
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-<<<<<<< HEAD
+
                         <li><a href="<?php echo base_url(); ?>/Home/index">Home</a></li>
                         <li><a href="<?php echo base_url(); ?>/Home/login">Our Menus</a></li>
                         <li><a href="<?php echo base_url(); ?>/Home/login">Login/Signup</a></li>
-=======
-                        <li><a href="<?php echo base_url(); ?>Home/index">Home</a></li>
-                        <li><a href="<?php echo base_url(); ?>Home/category">Our Menus</a></li>
-                        <li><a href="<?php echo base_url(); ?>Home/login">Login/Signup</a></li>
->>>>>>> 50d6cfebd393ccb1bdb9039cbb090b861ce8b001
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->

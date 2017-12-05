@@ -10,19 +10,7 @@
     <div class="chute chute-center text-center">
     	<h2>My Profile</h2>
     </div>
-    	<div class="row mb40" style="margin-bottom: 20px;">
-    		<div class="chute chute-center text-center">
-    		<div class="col-md-4 mb5">
-				<div class="demo-grid">
-					<img height=250px width=250px src="<?php echo base_url()."$foto"?>"/><br />
-					<a id="gp" href="#">General Profile</a><br />
-					<a id="cp" href="#">Change Password</a><br />
-                    <a id="do" href="#">Daftar Order</a><br />
-				</div>
-			</div>
-			</div>
-			<div class="col-md-8 mb5">
-                <div class="demo-grid form-over">
+    	
                         <?php
                             if ($this->session->flashdata('error')) {
                                 echo '<div class="alert alert-danger alert-dismissable">
@@ -43,19 +31,17 @@
                                     <td><?php echo $username; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Nama</td>
-                                    <td><?php echo $nama; ?></td>
+                                    <td>email</td>
+                                    <td><?php echo $email; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Alamat</td>
+                                    <td>alamat</td>
                                     <td><?php echo $alamat; ?><br>
-                                        <?php echo $kec; ?> - <?php echo $kotkab; ?><br>
-                                        <?php echo $prop; ?>  <?php echo $kodepos; ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>No HP</td>
-                                    <td><?php echo $notelp; ?></td>
+                                    <td>nama</td>
+                                    <td><?php echo $nama; ?></td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -252,7 +238,7 @@
 </div>
 
 
-<?php $this->load->view('home/footer'); ?>
+<!-- <?php $this->load->view('home/footer'); ?> -->
 
 
 <!-- Modal Edit SLIDER -->

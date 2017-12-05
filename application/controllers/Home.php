@@ -5,12 +5,7 @@ class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('m_login');
-
-		$this->load->model('Home_model');
-		$this->load->model('Product_model');
-		$this->load->library('pagination');
-         // $loggedin = $this->session->userdata('masukin');
-
+		$this->load->model('mymodel');
 		$this->load->helper('url');
 	}
 
@@ -19,7 +14,6 @@ class Home extends CI_Controller {
 	}
 
 	public function do_signup() {
-<<<<<<< HEAD
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$username = $this->input->post('username');
@@ -27,61 +21,23 @@ class Home extends CI_Controller {
 		$password = $this->input->post('password'); 
 		$nama = $this->input->post('nama');
 		$alamat = $this->input->post('alamat');
-=======
-		
-		$username = $_POST['username'];
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-		$nama = $_POST['nama'];
-		$alamat = $_POST['alamat'];
-
->>>>>>> 50d6cfebd393ccb1bdb9039cbb090b861ce8b001
 		$data_insert = array(
 			'username' => $username, 
 			'email' => $email, 
 			'password' => $password, 
 			'nama' => $nama, 
-			'alamat' => $alamat,
+			'alamat' => $alamat
 			);
 
 		$res = $this->db->insert('user', $data_insert);
 		if($res>=1){
-			redirect('user/indexlogin');
+			redirect('Home/indexlogin');
 		}else{
 			echo "<h2> TETOT </h2>";
 			var_dump($data_insert);
 			var_dump($res);
 		}
 		
-		/*
-		if($password == $repassword && count($x) > 3) {
-		$InsertUser = array(
-			'username' => $username,
-			'password' => $password,
-			'email' => $email
-		);
-
-		$InsertProfile = array(
-			'username' => $username,
-			'nama' => $nama,
-		);
-		
-		$hasil = $this->Home_model->InsertData('user', $InsertUser);
-		$hasil1 = $this->Home_model->InsertData('profile', $InsertProfile);
-		if($hasil > 0 && $hasil1 > 0) {
-			// send email
-        		$this->Home_model->sendEmail($this->input->post('emaildaftar'));
-                // successfully sent mail
-                $this->session->set_flashdata('success','Akun berhasil dibuat');
-                redirect('Home/indexlogin');
-		} else {
-			$this->session->set_flashdata('error','Cek kembali data inputan anda');
-			redirect('Home/signup');
-		} 
-		} else {
-			$this->session->set_flashdata('error','Cek kembali data inputan anda');
-			redirect('Home/signup');
-		} */
 	}
 	
 	public function login(){
@@ -105,111 +61,30 @@ class Home extends CI_Controller {
 		$this->load->view("template/footer");
 	}
 
-<<<<<<< HEAD
 	public function menu(){
 		$this->load->view("template/headerlogin"); 
 		$this->load->view("user/menu");
 		$this->load->view("template/footer");
 	}	
-=======
-
-	// public function menu(){
-	// 	$this->load->view("template/headerlogin"); 
-	// 	$this->load->view("user/menu");
-	// 	$this->load->view("template/footer");
-	// }	
->>>>>>> 50d6cfebd393ccb1bdb9039cbb090b861ce8b001
 
 	public function profile(){
 		$this->load->view("template/headerlogin");
 		$this->load->view("user/profile"); 
 		$this->load->view("template/footer"); 
 	}
-<<<<<<< HEAD
-=======
 
-	public function shoppingcart(){
-		$this->load->view("user/shoppingcart");
-	}
-
-
-	//Display Menu by Category
-	public function category() {
+	public function viewProfile(){
+		$session = (string)($this->session->userdata('nama'));
+		$profil = $this->mymodel->GetProfile("where username = '$session'");
 		$data = array(
-			'data' => $this->Home_model->getKategori(),
-			'menu' => $this->Product_model->_getData());
-
-		if (empty($this->session->userdata('masukin'))) {
-			$this->load->view("template/header");
-		} else {
-			$this->load->view("template/header");
-		}
-		$this->load->view("user/category", $data);
+			"username" => $profil[0]['username'],
+			"email" => $profil[0]['email'],
+			"nama" => $profil[0]['nama'],
+			"alamat" => $profil[0]['alamat'],
+			 );
+		$this->load->view('user/Profile', $data);
+		// var_dump($session);
+		// var_dump($data);
+		// var_dump($profil);
 	}
-
-
-
-	public function detilcategory($kategori) {
-		$config['base_url'] = base_url().'Home/detilcategory/'.$kategori;
-		$config['total_rows'] = count($this->Home_model->data_category_record($kategori));
-		$config['per_page'] = 30;
-		// STYLING 
-		$config['full_tag_open'] = '<ul class="pagination">';
-        $config['full_tag_close'] = '</ul>';
-        $config['first_link'] = false;
-        $config['last_link'] = false;
-        $config['first_tag_open'] = '<li>';
-        $config['first_tag_close'] = '</li>';
-        $config['prev_link'] = '&laquo';
-        $config['prev_tag_open'] = '<li class="prev">';
-        $config['prev_tag_close'] = '</li>';
-        $config['next_link'] = '&raquo';
-        $config['next_tag_open'] = '<li>';
-        $config['next_tag_close'] = '</li>';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li class="active"><a href="#">';
-        $config['cur_tag_close'] = '</a></li>';
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-		$offset = $this->uri->segment(4);
-		$this->pagination->initialize($config);
-
-		$data = array(
-			'data' => $this->Home_model->getKategori(),
-			'menu' => $this->Home_model->getdetilKategori($kategori,$config['per_page'],$offset));
-
-		if(empty($this->Home_model->getdetilKategori($kategori,$config['per_page'],$offset))) {
-			$this->session->set_flashdata('error','Kategori barang tidak ditemukan!');
-			$this->category();
-		} else {
-			if (empty($this->session->userdata('masukin'))) {
-				$this->load->view("template/header");
-			} else {
-				$this->load->view("template/headerlogin");
-			}
-		$this->load->view("user/category", $data);
-		}
-	}
-
-
-//DETAIL MENU
-//MENU()=BARANG()
-public function menu($id) {
-		if (empty($this->session->userdata('masukin'))) {
-			redirect('home/signup');
-		} else {
-		// $barang = $this->Home_model->getBarang($id);
-		// $kota = $this->Home_model->cariKota();
-		// $kode = $barang[0]->kode;
-		// $get = $this->Product_model->gambarDet($kode);
-		// $data = array('barang' => $barang[0],
-		// 	'kota'=>$kota,
-		// 	'gambar'=>$get);
-		// $this->load->view("home/barang", $data);
-	}
-	}
-
-
->>>>>>> 50d6cfebd393ccb1bdb9039cbb090b861ce8b001
 }

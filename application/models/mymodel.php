@@ -1,9 +1,13 @@
 <?php
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	Class Mymodel extends CI_Model{
 
-public function InsertData($tabelName,$data){
+	function InsertData($tabelName,$data){
 		$res = $this->db->insert($tabelName,$data);
 		return $res;
 	}
-
+	function GetProfile($where){
+			$data = $this->db->get('user '. $where);
+			return $data->result_array();
+	}
+}
 ?>
