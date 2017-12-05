@@ -114,7 +114,7 @@ class Dashboard extends CI_Controller {
 	}
 
 	public function addCategory() {
-		$newcategory = htmlspecialchars(strtoupper($this->input->post('newcategory')));
+		$newcategory = htmlspecialchars(strtoupper(str_replace (" ", "", $this->input->post('newcategory'))));
 		$datainsert = array('namaKategori' => $newcategory);
 		$hasil = $this->Authmin_model->InsertData('kategori', $datainsert);
 		if($hasil) {

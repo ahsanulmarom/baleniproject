@@ -34,7 +34,7 @@
 		        <h2 class="form-login-heading">login now</h2>
 		        <div class="login-wrap">
 
-		            <input type="text" class="form-control" name="username" placeholder="User ID" autofocus>
+		            <input type="text" class="form-control" name="username" placeholder="username" autofocus>
 		            <br>
 		            <input type="password" class="form-control" name="password" placeholder="Password">
 		            <label class="checkbox">
@@ -45,8 +45,7 @@
 		            </label>
 		            <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> LOGIN</button>
 		            <br>
-		            <h5> <a href="#">Forgot password? </a> </h5>
-		            <h5> <a href="<?php echo base_url('index.php/Home/signup')?>"> I have no account! </a> <h5>
+		            <h5> <a href="<?php echo base_url('Home/signup')?>"> I have no account! </a> <h5>
 		
 		        </div>
 		          <!-- Modal -->

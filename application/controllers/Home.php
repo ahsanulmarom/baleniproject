@@ -23,8 +23,6 @@ class Home extends CI_Controller {
 		$username = $_POST['username'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		/* $x = str_split($_POST['password']);
-		$password = md5("~4h5@N;" . $_POST['password'] . "-13uRh4n,"); */ 
 		$nama = $_POST['nama'];
 		$alamat = $_POST['alamat'];
 
@@ -115,7 +113,7 @@ class Home extends CI_Controller {
 			'menu' => $this->Product_model->_getData());
 
 		if (empty($this->session->userdata('masukin'))) {
-			$this->load->view("template/headerlogin");
+			$this->load->view("template/header");
 		} else {
 			$this->load->view("template/header");
 		}
@@ -124,7 +122,7 @@ class Home extends CI_Controller {
 
 
 
-	public function detilcategory(){
+	public function detilcategory($kategori) {
 		$config['base_url'] = base_url().'Home/detilcategory/'.$kategori;
 		$config['total_rows'] = count($this->Home_model->data_category_record($kategori));
 		$config['per_page'] = 30;
@@ -158,15 +156,14 @@ class Home extends CI_Controller {
 			$this->session->set_flashdata('error','Kategori barang tidak ditemukan!');
 			$this->category();
 		} else {
-		
 			if (empty($this->session->userdata('masukin'))) {
 				$this->load->view("template/header");
 			} else {
 				$this->load->view("template/headerlogin");
 			}
 		$this->load->view("user/category", $data);
+		}
 	}
-}
 
 
 //DETAIL MENU

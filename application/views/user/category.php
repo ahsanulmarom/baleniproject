@@ -43,7 +43,7 @@
                 <div class="col-sm-4 col-md-4">
                     <div class="panel panel-default">
                         <div class="thumbnail" style="margin: 0">
-                            <div class="gambar" style="background-image: url('<?php echo base_url()."$j->image" ?>');" id="image-load"></div>
+                            <img height=200px width=200px src="<?php echo base_url() . $j->image ?>"> </img>
                             <h4></h4>
                             <div class="caption">
                                 <h5><a href="<?php echo base_url()."Home/menu/".$j->id?>"><?php echo substr($j->nama, 0,20) ?></a></h5>
