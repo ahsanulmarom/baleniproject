@@ -5,7 +5,7 @@ class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('m_login');
-		
+
 		$this->load->model('Home_model');
 		$this->load->model('Product_model');
 		$this->load->library('pagination');
@@ -115,7 +115,7 @@ class Home extends CI_Controller {
 			'menu' => $this->Product_model->_getData());
 
 		if (empty($this->session->userdata('masukin'))) {
-			$this->load->view("template/header");
+			$this->load->view("template/headerlogin");
 		} else {
 			$this->load->view("template/header");
 		}
@@ -152,7 +152,7 @@ class Home extends CI_Controller {
 
 		$data = array(
 			'data' => $this->Home_model->getKategori(),
-			'jualan' => $this->Home_model->getdetilKategori($kategori,$config['per_page'],$offset));
+			'menu' => $this->Home_model->getdetilKategori($kategori,$config['per_page'],$offset));
 
 		if(empty($this->Home_model->getdetilKategori($kategori,$config['per_page'],$offset))) {
 			$this->session->set_flashdata('error','Kategori barang tidak ditemukan!');
@@ -160,13 +160,31 @@ class Home extends CI_Controller {
 		} else {
 		
 			if (empty($this->session->userdata('masukin'))) {
-				$this->load->view("home/navigasi");
+				$this->load->view("template/header");
 			} else {
-				$this->load->view("home/navigasilogin");
+				$this->load->view("template/headerlogin");
 			}
-		$this->load->view("home/category", $data);
+		$this->load->view("user/category", $data);
 	}
 }
+
+
+//DETAIL MENU
+//MENU()=BARANG()
+public function menu($id) {
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('home/signup');
+		} else {
+		// $barang = $this->Home_model->getBarang($id);
+		// $kota = $this->Home_model->cariKota();
+		// $kode = $barang[0]->kode;
+		// $get = $this->Product_model->gambarDet($kode);
+		// $data = array('barang' => $barang[0],
+		// 	'kota'=>$kota,
+		// 	'gambar'=>$get);
+		// $this->load->view("home/barang", $data);
+	}
+	}
 
 
 }

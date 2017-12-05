@@ -32,5 +32,19 @@ public function getKategori() {
 			return false;
 		}
 	}
+
+	public function getdetilKategori($kategori,$number,$offset) {
+	$query = $this->db->limit($number,$offset)
+			->select('*')
+			->from('menu')
+			->where('kategori', $kategori)
+			->order_by('harga','DESC')
+			->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}else{
+			return false;
+		}
+	}
 }
 ?>
