@@ -13,15 +13,13 @@ class Home extends CI_Controller {
 	}
 
 	public function do_signup() {
-		
+		$this->load->helper('form');
+		$this->load->library('form_validation');
 		$username = $_POST['username'];
 		$email = $_POST['email'];
-		$password = $_POST['password'];
-		/* $x = str_split($_POST['password']);
-		$password = md5("~4h5@N;" . $_POST['password'] . "-13uRh4n,"); */ 
+		$password = $_POST['password']; 
 		$nama = $_POST['nama'];
 		$alamat = $_POST['alamat'];
-
 		$data_insert = array(
 			'username' => $username, 
 			'email' => $email, 
@@ -73,9 +71,14 @@ class Home extends CI_Controller {
 	}
 
 	public function	index(){
-		$this->load->view("template/header");
-		$this->load->view("user/index"); 
-		$this->load->view("template/footer");
+		if($this->session->userdata('status') != 'login'){
+			$this->load->view("template/header");
+			$this->load->view("user/index"); 
+			$this->load->view("template/footer");
+		}else{ 
+			redirect("Home/indexlogin"); 
+		}
+		
 	}
 
 	public function	indexlogin(){
@@ -83,7 +86,6 @@ class Home extends CI_Controller {
 		$this->load->view("user/indexlogin"); 
 		$this->load->view("template/footer");
 	}
-
 
 	public function menu(){
 		$this->load->view("template/headerlogin"); 
@@ -96,5 +98,4 @@ class Home extends CI_Controller {
 		$this->load->view("user/profile"); 
 		$this->load->view("template/footer"); 
 	}
-
 }
