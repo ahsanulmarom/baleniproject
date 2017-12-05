@@ -5,6 +5,12 @@ class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('m_login');
+		
+		$this->load->model('Home_model');
+		$this->load->model('Product_model');
+		$this->load->library('pagination');
+         // $loggedin = $this->session->userdata('masukin');
+
 		$this->load->helper('url');
 	}
 
@@ -85,11 +91,11 @@ class Home extends CI_Controller {
 	}
 
 
-	public function menu(){
-		$this->load->view("template/headerlogin"); 
-		$this->load->view("user/menu");
-		$this->load->view("template/footer");
-	}	
+	// public function menu(){
+	// 	$this->load->view("template/headerlogin"); 
+	// 	$this->load->view("user/menu");
+	// 	$this->load->view("template/footer");
+	// }	
 
 	public function profile(){
 		$this->load->view("template/headerlogin");
@@ -100,5 +106,67 @@ class Home extends CI_Controller {
 	public function shoppingcart(){
 		$this->load->view("user/shoppingcart");
 	}
+
+
+	//Display Menu by Category
+	public function category() {
+		$data = array(
+			'data' => $this->Home_model->getKategori(),
+			'menu' => $this->Product_model->_getData());
+
+		if (empty($this->session->userdata('masukin'))) {
+			$this->load->view("template/header");
+		} else {
+			$this->load->view("template/header");
+		}
+		$this->load->view("user/category", $data);
+	}
+
+
+
+	public function detilcategory(){
+		$config['base_url'] = base_url().'Home/detilcategory/'.$kategori;
+		$config['total_rows'] = count($this->Home_model->data_category_record($kategori));
+		$config['per_page'] = 30;
+		// STYLING 
+		$config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = false;
+        $config['last_link'] = false;
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['prev_link'] = '&laquo';
+        $config['prev_tag_open'] = '<li class="prev">';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_link'] = '&raquo';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+		$offset = $this->uri->segment(4);
+		$this->pagination->initialize($config);
+
+		$data = array(
+			'data' => $this->Home_model->getKategori(),
+			'jualan' => $this->Home_model->getdetilKategori($kategori,$config['per_page'],$offset));
+
+		if(empty($this->Home_model->getdetilKategori($kategori,$config['per_page'],$offset))) {
+			$this->session->set_flashdata('error','Kategori barang tidak ditemukan!');
+			$this->category();
+		} else {
+		
+			if (empty($this->session->userdata('masukin'))) {
+				$this->load->view("home/navigasi");
+			} else {
+				$this->load->view("home/navigasilogin");
+			}
+		$this->load->view("home/category", $data);
+	}
+}
+
 
 }
