@@ -2,11 +2,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <p>Copyright &copy; 2017 Victory Template</p>
+                    <p>Copyright &copy; 2017 Baleni</p>
                 </div>
                 <div class="col-md-4">
                     <ul class="social-icons">
-                        <li><a rel="nofollow" href="http://www.facebook.com/templatemo" target="_parent"><i class="fa fa-facebook"></i></a></li>
+                        <li><a rel="nofollow" href="#" target="_parent"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                         <li><a href="#"><i class="fa fa-rss"></i></a></li>
@@ -14,7 +14,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <p>Developed by <a rel="nofollow" href="http://www.templatemo.com" target="_parent"><em>team #3</em></a></p>
+                    <p>Developed by <a rel="nofollow" href="#" target="_parent"><em>AM-Nis-SJ</em></a></p>
                 </div>
             </div>
         </div>

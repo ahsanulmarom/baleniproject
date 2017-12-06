@@ -30,12 +30,13 @@
 
 	  <div id="login-page">
 	  	<div class="container">
-	  	
-		      <form class="form-login" action="<?php echo base_url('/Home/do_signup');?>" role="form" enctype="multipart/form-data" method="post" >
-
-		      <form class="form-login" action="<?php echo base_url('Home/do_signup');?>" method="post">
-
-		        <h2 class="form-login-heading">join us now</h2>
+            <?php if (isset($error)) {
+          echo '<div class="alert alert-danger waduh">
+          <strong>Waduh!</strong> '.$error.'
+          </div>';
+        } ?>
+		      <form class="form-login" action="<?php echo base_url('Home/do_signup');?>" role="form" enctype="multipart/form-data" method="post" >
+		        <h2 class="form-login-heading">Join Us Now!</h2>
 		        <div class="login-wrap">
 		            <input type="text" class="form-control" name="username" placeholder="Username" autofocus>
 		            <br>
@@ -43,11 +44,7 @@
 		            <br>
 		            <input type="password" class="form-control" name="password" placeholder="Password">
                     <br>
-                    <input type="password" class="form-control" name="password" placeholder="Retype Password">
-                    <br>
-                    <input type="text" class="form-control" name="nama" placeholder="nama">
-                    <br>
-                    <input type="text" class="form-control" name="alamat" placeholder="alamat">
+                    <input type="password" class="form-control" name="repassword" placeholder="Retype Password">
                     <br>
                     <label class="checkbox">
 		            <label class="checkbox">
