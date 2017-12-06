@@ -111,6 +111,12 @@ class Home extends CI_Controller {
 		$this->load->view("template/footer"); 
 	}
 
+	public function shoppingCart(){
+		$this->load->view("template/headerlogin");
+		$this->load->view("user/shoppingcart");
+		$this->load->view("template/footer");
+	}
+
 	public function viewProfile(){
 		$session = (string)($this->session->userdata('nama'));
 		$profil = $this->mymodel->GetProfile("where username = '$session'");

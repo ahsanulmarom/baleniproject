@@ -39,10 +39,10 @@
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
 
-                        <li><a href="<?php echo base_url(); ?>/Home/indexlogin">Home</a></li>
-                        <li><a href="<?php echo base_url(); ?>/Home/menu">Our Menus</a></li>
-                        <li><a href="<?php echo base_url(); ?>/Home/viewProfile"><?php echo "Adios ! " .  $this->session->userdata('nama') ?></a></li>
-                        <li><a href="<?php echo base_url(); ?>/Home/profile">🛒</a></li>
+                        <li><a href="<?php echo base_url(); ?>Home/indexlogin">Home</a></li>
+                        <li><a href="<?php echo base_url(); ?>Home/menu">Our Menus</a></li>
+                        <li><a href="<?php echo base_url(); ?>Home/viewProfile"><?php echo "Adios ! " .  $this->session->userdata('nama') ?></a></li>
+                        <li><a href="<?php echo base_url(); ?>Home/shoppingcart">🛒</a></li>
                         <li><a class="logout" href="<?php echo base_url('/Login/logout');?>">Logout</a></li>
 
                     </ul>
