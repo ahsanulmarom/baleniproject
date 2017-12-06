@@ -6,6 +6,9 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->model('m_login');
 		$this->load->model('mymodel');
+		$this->load->model('Home_model');
+		$this->load->model('Product_model');
+
 		$this->load->helper('url');
 	}
 
@@ -62,10 +65,45 @@ class Home extends CI_Controller {
 	}
 
 	public function menu(){
+		// $barang = $this->Home_model->getbarang($id);
+		// $get = $this->Product_model->gambarDet($id);
+		// $kode = $barang[0]->kode;
+		// $data = array(
+		// 	'nama' => $nama[0],
+		// 	'kategori'=>$kategori,
+		// 	'gambar'=>$get);		
 		$this->load->view("template/headerlogin"); 
 		$this->load->view("user/menu");
 		$this->load->view("template/footer");
 	}	
+
+	// public function menu($id) {
+	// 	if (empty($this->session->userdata('masukin'))) {
+	// 		redirect('Home/signup');
+	// 	} else {
+	// 	$barang = $this->Home_model->getBarang($id);
+	// 	$kota = $this->Home_model->cariKota();
+	// 	$kode = $barang[0]->kode;
+	// 	$get = $this->Product_model->gambarDet($kode);
+	// 	$data = array('barang' => $barang[0],
+	// 		'kota'=>$kota,
+	// 		'gambar'=>$get);
+	// 	$this->load->view("user/menu", $data);
+	// 	}
+	// }
+
+	public function gambarDet($kode) {
+		$this->db->select('*');
+		$this->db->where('jid',$kode);
+		$this->db->from('jualan_review');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
 
 	public function profile(){
 		$this->load->view("template/headerlogin");

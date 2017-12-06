@@ -46,5 +46,22 @@ public function getKategori() {
 			return false;
 		}
 	}
+
+	public function getbarang($id) {
+		$query = $this->db->select('*')
+			->from('menu')
+			->where('kode', $id)
+			->limit(1)
+			->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}else{
+			return false;
+		}
+	}
+
+
+
+
 }
 ?>

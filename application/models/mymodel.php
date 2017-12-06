@@ -9,5 +9,6 @@
 			$data = $this->db->get('user '. $where);
 			return $data->result_array();
 	}
+
 }
 ?>
