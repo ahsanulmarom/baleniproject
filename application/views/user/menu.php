@@ -26,11 +26,20 @@
                                 <h2><?php echo $m['nama']; ?></h2>
                                 <div id="owl-breakfast" class="owl-carousel owl-theme">
                                 </div>
+                                <table>
                                 <tr>
                                     <td>Harga</td>
                                     <td><span class="badge badge-info"><?php echo 'Rp ' . $m['harga']?></span></td>
                                 </tr>
-                                Kategori : <?php echo 'Rp ' . $m['kategori']?>
+                                <tr>
+                                    <td>Kategori</td>
+                                    <td><?php echo $m['kategori']?></td>
+                                </tr>
+                                <tr>
+                                    <td>Deskripsi</td>
+                                    <td><?php echo $m['deskripsi']?></td>
+                                </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
