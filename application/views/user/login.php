@@ -29,8 +29,12 @@
   <body>
 	  <div id="login-page">
 	  	<div class="container">
-	  	
-		      <form class="form-login" action="<?php echo base_url('index.php/Login/do_login');?>" method="post">
+	  		<?php if (isset($error)) {
+          echo '<div class="alert alert-danger waduh">
+          <strong>Waduh!</strong> '.$error.'
+          </div>';
+        } ?>
+		      <form class="form-login" action="<?php echo base_url('Home/do_login');?>" method="post">
 		        <h2 class="form-login-heading">login now</h2>
 		        <div class="login-wrap">
 
@@ -45,7 +49,7 @@
 		            </label>
 		            <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> LOGIN</button>
 		            <br>
-		            <h5> <a href="<?php echo base_url('Home/signup')?>"> I have no account! </a> <h5>
+		            <h5> <a href="<?php echo base_url('Home/signup')?>"> I have no account!  Click Here to register!</a> <h5>
 		
 		        </div>
 		          <!-- Modal -->

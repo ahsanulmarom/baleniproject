@@ -6,39 +6,7 @@
                     <h2>Asian Restaurant</h2>
                     <p>Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.</p>
                     <div class="primary-button">
-                        <a href="#" class="scroll-link" data-id="book-table">Order Right Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <section class="cook-delecious">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-md-offset-1">
-                    <div class="first-image">
-                        <img src="<?php echo base_url(); ?>assets/img/cook_01.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="cook-content">
-                        <h4>We cook delecious</h4>
-                        <div class="contact-content">
-                            <span>You can call us on:</span>
-                            <h6>+ 1234 567 8910</h6>
-                        </div>
-                        <span>or</span>
-                        <div class="primary-white-button">
-                            <a href="#" class="scroll-link" data-id="book-table">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="second-image">
-                        <img src="<?php echo base_url(); ?>assets/img/cook_02.jpg" alt="">
+                        <a href="<?php echo base_url()?>Home_Dashboard/menu" >Order Right Now</a>
                     </div>
                 </div>
             </div>
@@ -49,37 +17,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="section-heading">
-                        <h2>Message</h2>
-                    </div>
-                    <form id="contact" action="" method="post">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                                </fieldset>
-                                <fieldset>
-                                    <input name="email" type="text" class="form-control" id="email" placeholder="Your email..." required="">
-                                </fieldset>
-                                <fieldset>
-                                    <input name="phone" type="text" class="form-control" id="phone" placeholder="Your phone..." required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-md-6">
-                                <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
-                                </fieldset>
-                                <fieldset>
-                                    <button type="submit" id="form-submit" class="btn">Send Message</button>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-6">
                     <div class="section-heading contact-info">
                         <h2>Contact Info</h2>
                         <p>Pellentesque nec orci in erat venenatis viverra. Vivamus in lorem et leo feugiat ullamcorper. Donec volutpat fermentum erat non aliquet. Cras fermentum, risus a blandit sodales, erat turpis eleifend lacus, venenatis mollis leo lorem vel eros. Quisque et sem tempus, feugiat urna iaculis, tempor metus.<br><br><em>30 Raffles Ave, <br>Singapore 039803</em></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="section-heading">
+                        <img src="<?php echo base_url(); ?>assets/img/logo.jpg" class="img-responsive" alt=""> 
+
                     </div>
                 </div>
             </div>
@@ -88,7 +34,7 @@
 
 
 
-    <section class="map">
+    <!--<section class="map">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -98,10 +44,10 @@
             2. Click on your location point
             3. Click "Share" and choose "Embed map" tab
             4. Copy only URL and paste it within the src="" field below
-        -->
+        
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7895.485196115994!2d103.85995441789784!3d1.2880401763270322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7fb4e58ad9cd826e!2sSingapore+Flyer!5e0!3m2!1sen!2sth!4v1505825620371" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
-    </section>    
+    </section>    -->

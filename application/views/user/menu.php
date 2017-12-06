@@ -13,50 +13,39 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
+                    <?php if(!empty($menu)) { 
+                        foreach ($menu as $m) { ?>
                     <div class="breakfast-menu-content">
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="left-image">
-                                    <img src="<?php echo base_url(); ?>assets/img/breakfast_menu.jpg" alt="Breakfast">
+                                    <img src="<?php echo base_url() . $m['image']; ?>" alt="$m['nama']">
                                 </div>
                             </div>
                             <div class="col-md-7">
-                                <h2>Breakfast Menu</h2>
+                                <h2><?php echo $m['nama']; ?></h2>
                                 <div id="owl-breakfast" class="owl-carousel owl-theme">
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="<?php echo base_url(); ?>assets/img/breakfast_item.jpg" alt="">
-                                            <div class="price">$3.50</div>
-                                            <div class="text-content">
-                                                <h4>Kale Chips Art Party</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="<?php echo base_url(); ?>assets/img/lunch_item.jpg" alt="">
-                                            <div class="price">$7.25</div>
-                                            <div class="text-content">
-                                                <h4>Drink Vinegar Prism</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="<?php echo base_url(); ?>assets/img/dinner_item.jpg" alt="">
-                                            <div class="price">$11.50</div>
-                                            <div class="text-content">
-                                                <h4>Taiyaki Gastro Tousled</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
+                                <table>
+                                <tr>
+                                    <td>Harga</td>
+                                    <td><span class="badge badge-info"><?php echo 'Rp ' . $m['harga']?></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Kategori</td>
+                                    <td><?php echo $m['kategori']?></td>
+                                </tr>
+                                <tr>
+                                    <td>Deskripsi</td>
+                                    <td><?php echo $m['deskripsi']?></td>
+                                </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
+                    <br>
+                    <?php }
+                }?>
                 </div>
             </div>
         </div>
