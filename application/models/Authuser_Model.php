@@ -1,3 +1,4 @@
+
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
@@ -24,5 +25,10 @@ class Authuser_model extends CI_Model {
 			return false;
 		}
 	}
+
+	function GetProfile($where){
+			$data = $this->db->get('user '. $where);
+			return $data->result_array();
+	}		
 }
 ?>

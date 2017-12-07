@@ -95,11 +95,10 @@ class Home extends CI_Controller {
 			}
 		}
 
-<<<<<<< HEAD
 	public function shoppingCart(){
-		$this->load->view("template/headerlogin");
+		$this->load->view("user/headfoot/headerlogin");
 		$this->load->view("user/shoppingcart");
-		$this->load->view("template/footer");
+		$this->load->view("user/headfoot/footer");
 	}
 
 	public function viewProfile(){
@@ -115,11 +114,11 @@ class Home extends CI_Controller {
 		// var_dump($session);
 		// var_dump($data);
 		// var_dump($profil);
-=======
+	}	
+
 	public function logout(){
 		$this->session->unset_userdata('masukin');
 		$this->session->sess_destroy();
 		redirect('Home/index');
->>>>>>> 9b858eae240bac25f4a439db1c4628e86aa09090
 	}
 }

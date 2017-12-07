@@ -3,7 +3,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1>Our Menus</h1>
-                    <p>Curabitur at dolor sed felis lacinia ultricies sit amet vel sem. Vestibulum diam leo, sodales tempor lectus sed, varius gravida mi.</p>
+                    <p>BALENI menawarkan makanan - makanan yang fresh from the oven. Selain beragam menu, BALENI juga memiliki cita rasa khas yang sangat menyirikan Indonesia.</p>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
                                     <td><?php echo $m['kategori']?></td>
                                 </tr>
                                 <tr>
-                                    <td>Deskripsi</td>
+                                    <td>Deskripsi </td>
                                     <td><?php echo $m['deskripsi']?></td>
                                 </tr>
                                 </table>

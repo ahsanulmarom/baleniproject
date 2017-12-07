@@ -3,20 +3,21 @@
 		<div class="container-fluid text-center" style="margin-top: 20px;">
 			<ol class="breadcrumb">
 				
-                <li class="active"><a href="#">Beli Lagi</a></li>
+                <li class="active"><a href="category">Beli Lagi</a></li>
 				<li class="active"><a href="#">Keranjang</a></li>
 			</ol>
 		</div>
-	<!-- grow -->
-	<div class="grow">
-		<div class="container">
-			<h2>Checkout</h2>
-		</div>
-	</div>
-	<!-- grow -->
 <div class="container">
 	<div class="check">	 
-			 <h1>My Shopping Bag (2)</h1>
+			<div>
+				<h1>
+				<?php 
+				$cart_cek = $this->cart->contents();
+				if (empty($cart_cek)) {
+					echo 'Shopping Cart Kosong!';
+				} ?>
+				</h1>
+			</div>
 		 <div class="col-md-9 cart-items">
 			
 				<script>$(document).ready(function(c) {
@@ -31,20 +32,14 @@
 				 <div class="close1"> </div>
 				 <div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
-							 <img src="<?php echo base_url(); ?>/assets/img/pic1.jpg" class="img-responsive" alt=""/>
+							 <img src="<?php echo base_url(); ?>/assets/img/cook_01.jpg" class="img-responsive" alt=""/>
 						</div>
 					   <div class="cart-item-info">
 						<h3><a href="#">Mountain Hopper(XS R034)</a><span>Model No: 3578</span></h3>
 						<ul class="qty">
 							<li><p>Size : 5</p></li>
 							<li><p>Qty : 1</p></li>
-						</ul>
-						
-							 <div class="delivery">
-							 <p>Service Charges : Rs.100.00</p>
-							 <span>Delivered in 2-3 business days</span>
-							 <div class="clearfix"></div>
-				        </div>	
+						</ul>	
 					   </div>
 					   <div class="clearfix"></div>
 											
@@ -62,7 +57,7 @@
 				 <div class="close2"> </div>
 				  <div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
-							 <img src="<?php echo base_url(); ?>assets/img/pic2.jpg" class="img-responsive" alt=""/>
+							 <img src="<?php echo base_url(); ?>assets/img/cook_02.jpg" class="img-responsive" alt=""/>
 						</div>
 					   <div class="cart-item-info">
 						<h3><a href="#">Mountain Hopper(XS R034)</a><span>Model No: 3578</span></h3>
@@ -70,25 +65,23 @@
 							<li><p>Size : 5</p></li>
 							<li><p>Qty : 1</p></li>
 						</ul>
-							 <div class="delivery">
-							 <p>Service Charges : Rs.100.00</p>
-							 <span>Delivered in 2-3 business days</span>
-							 <div class="clearfix"></div>
-				        </div>	
 					   </div>
 					   <div class="clearfix"></div>
 											
 				  </div>
 			  </div>		
 		 </div>
+		  
 		  <div class="col-md-3 cart-total">
+			
 			 <a class="continue" href="#">Kembali berbelanja</a>
 			 <div class="price-details">
-				 <h3>Price Details</h3>
+
+				 <h3>Detail Harga</h3>
 				 <span>Total</span>
 				 <input type="hidden" name="services" id="o_servis">
 				 <span class="total1" id="b_subtot"><?= isset($total)? number_format($total): '0'; ?></span> 
-				 <span>Delivery Charges</span>
+				 <span>Ongkos Kirim</span>
 				 <input class="b_ongkir" type="hidden" name="ongkir" value="">
 				 <span class="b_ongkir"  ></span>
 				 <div class="clearfix"></div>				 

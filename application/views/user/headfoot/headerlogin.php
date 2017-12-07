@@ -38,20 +38,11 @@
                 <!--/.navbar-header-->
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-
-<<<<<<< HEAD:application/views/template/headerlogin.php
-                        <li><a href="<?php echo base_url(); ?>Home/indexlogin">Home</a></li>
-                        <li><a href="<?php echo base_url(); ?>Home/menu">Our Menus</a></li>
-                        <li><a href="<?php echo base_url(); ?>Home/viewProfile"><?php echo "Adios ! " .  $this->session->userdata('nama') ?></a></li>
-                        <li><a href="<?php echo base_url(); ?>Home/shoppingcart">🛒</a></li>
-                        <li><a class="logout" href="<?php echo base_url('/Login/logout');?>">Logout</a></li>
-=======
-                        <li><a href="<?php echo base_url()?>Home/indexlogin">Home</a></li>
+                         <li><a href="<?php echo base_url()?>Home/indexlogin">Home</a></li>
                         <li><a href="<?php echo base_url()?>Home_Dashboard/menu">Our Menus</a></li>
                         <li><a href="#"><?php echo "Adios ! " .  $this->session->userdata('masukin')['username'] ?></a></li>
-                        <li><a href="#">🛒</a></li>
+                        <li><a href="<?php echo base_url(); ?>Home/shoppingcart">🛒</a></li>
                         <li><a class="logout" href="<?php echo base_url()?>Home/logout">Logout</a></li>
->>>>>>> 9b858eae240bac25f4a439db1c4628e86aa09090:application/views/user/headfoot/headerlogin.php
 
                     </ul>
                 </div>
