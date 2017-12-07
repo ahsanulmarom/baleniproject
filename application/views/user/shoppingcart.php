@@ -72,7 +72,7 @@
 				<table>
 					<tr>
 						<td style="padding: 5px">Nama Penerima</td>
-						<td style="padding: 10px"><input type="text" name="nama" value="<?php echo $this->session->userdata('masukin')['nama']?>" readonly="" class="form-control"></td>
+						<td style="padding: 10px"><input type="text" name="nama" value="<?php echo $this->session->userdata('masukin')['username']?>" readonly="" class="form-control"></td>
 					</tr>
 					<tr>
 						<td style="padding: 5px">Alamat Penerima</td>
