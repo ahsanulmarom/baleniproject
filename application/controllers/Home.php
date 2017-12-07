@@ -95,6 +95,27 @@ class Home extends CI_Controller {
 			}
 		}
 
+	public function shoppingCart(){
+		$this->load->view("user/headfoot/headerlogin");
+		$this->load->view("user/shoppingcart");
+		$this->load->view("user/headfoot/footer");
+	}
+
+	public function viewProfile(){
+		$session = (string)($this->session->userdata('nama'));
+		$profil = $this->mymodel->GetProfile("where username = '$session'");
+		$data = array(
+			"username" => $profil[0]['username'],
+			"email" => $profil[0]['email'],
+			"nama" => $profil[0]['nama'],
+			"alamat" => $profil[0]['alamat'],
+			 );
+		$this->load->view('user/Profile', $data);
+		// var_dump($session);
+		// var_dump($data);
+		// var_dump($profil);
+	}	
+
 	public function logout(){
 		$this->session->unset_userdata('masukin');
 		$this->session->sess_destroy();
