@@ -11,7 +11,7 @@ class Home extends CI_Controller {
 	}
 
 	public function	index() {
-		if($this->session->userdata('status') != 'login'){
+		if($this->session->userdata('masukin')['status'] != 'login'){
 			$this->load->view("user/headfoot/header");
 			$this->load->view("user/index"); 
 			$this->load->view("user/headfoot/footer");

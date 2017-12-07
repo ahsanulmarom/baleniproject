@@ -36,7 +36,7 @@
                                     <td><?php echo $m['kategori']?></td>
                                 </tr>
                                 <tr>
-                                    <td>Deskripsi</td>
+                                    <td style="margin: 100px">Deskripsi</td>
                                     <td><?php echo $m['deskripsi']?></td>
                                 </tr>
                                 </table>
