@@ -8,6 +8,11 @@ class Home extends CI_Controller {
 		$this->load->helper('url');
 
 		$loggedin = $this->session->userdata('masukin');
+		if ($loggedin) {
+			$this->indexlogin();
+		} else{
+			$this->index();
+		}
 	}
 
 	public function	index() {

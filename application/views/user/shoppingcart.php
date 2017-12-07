@@ -80,11 +80,7 @@
 				 <h3>Detail Harga</h3>
 				 <span>Total</span>
 				 <input type="hidden" name="services" id="o_servis">
-				 <span class="total1" id="b_subtot"><?= isset($total)? number_format($total): '0'; ?></span> 
-				 <span>Ongkos Kirim</span>
-				 <input class="b_ongkir" type="hidden" name="ongkir" value="">
-				 <span class="b_ongkir"  ></span>
-				 <div class="clearfix"></div>				 
+				 <span class="total1" id="b_subtot"><?= isset($total)? number_format($total): '0'; ?></span> 		 
 			 </div>	
 			 <ul class="total_price">
 			   <li class="last_price"> <h4>TOTAL</h4></li>	
