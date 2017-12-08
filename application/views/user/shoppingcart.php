@@ -135,7 +135,7 @@
 
 		<script>
         $(document).ready(function(){
-   		$("#kabupaten").click(function (){
+   		$("#kabupaten").change(function (){
                 var url = <?php echo site_url('Wilayah/add_ajax_kec');?>/ + $(this).val();
                 $('#kecamatan').load(url);
                 return false;
