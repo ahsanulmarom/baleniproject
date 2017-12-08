@@ -19,7 +19,7 @@ class Order extends CI_Controller {
 			'deskripsi'=>$this->input->post('deskripsi')
 			);
 		$this->cart->insert($addtocart);
-		redirect('Home/shoppingcart');
+		redirect('Home_Dashboard/shoppingcart');
 	}
 
 	function remove($rowid){
@@ -33,7 +33,7 @@ class Order extends CI_Controller {
 			$this->cart->update($data);
 		}
 
-		redirect('Home/shoppingcart');
+		redirect('Home_Dashboard/shoppingcart');
 	}
 
 	function update_cart(){
@@ -54,7 +54,7 @@ class Order extends CI_Controller {
 
 		$this->cart->update($data);
 	}
-	redirect('Home/shoppingcart');
+	redirect('Home_Dashboard/shoppingcart');
 	// var_dump($cart_info);
 	}
 }
