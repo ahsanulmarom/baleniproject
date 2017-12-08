@@ -29,7 +29,7 @@
                                 <table>
                                 <tr>
                                     <td>Harga</td>
-                                    <td><span class="badge badge-info"><?php echo 'Rp ' . $m['harga']?></span></td>
+                                    <td><span class="badge badge-info"><?php echo 'Rp ' . number_format($m['harga'],2)?></span></td>
                                 </tr>
                                 <tr>
                                     <td>Kategori</td>

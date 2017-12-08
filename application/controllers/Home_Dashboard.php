@@ -39,4 +39,14 @@ class Home_Dashboard extends CI_Controller {
 			 );
 		$this->load->view('user/Profile', $data);
 	}
+
+	public function shoppingcart() {
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/login');
+		} else {
+			$sess = $this->session->userdata('masukin')['user'];
+			$data['detail'] = $this->Home_model->ambildetiluser($sess)[0];
+			$this->load->view("home/shoppingcart",$data);
+		}
+	}
 }
