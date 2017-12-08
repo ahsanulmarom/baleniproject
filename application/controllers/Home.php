@@ -93,12 +93,6 @@ class Home extends CI_Controller {
 				$data['error'] = 'Password Salah!';
 				$this->load->view('user/login', $data);
 			}
-		}
-
-	public function shoppingCart(){
-		$this->load->view("user/headfoot/headerlogin");
-		$this->load->view("user/shoppingcart");
-		$this->load->view("user/headfoot/footer");
 	}
 
 	public function viewProfile(){
