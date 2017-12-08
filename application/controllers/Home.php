@@ -35,6 +35,7 @@ class Home extends CI_Controller {
 		$this->load->library('form_validation');
 		$username = $this->input->post('username');
 		$email = $this->input->post('email');
+		$nama = $this->input->post('name');
 		$password = $this->input->post('password'); 
 		$repassword = $this->input->post('repassword');
 
@@ -42,11 +43,13 @@ class Home extends CI_Controller {
 			if($password == $repassword) {
 				$data_insert = array(
 					'username' => $username, 
+					'nama' => $nama,
 					'email' => $email, 
 					'password' => $password);
 
 				$datasession = array(
 					'username' => $username,
+					'nama' => $nama,
 					'email' => $email);
 
 				$res = $this->db->insert('user', $data_insert);

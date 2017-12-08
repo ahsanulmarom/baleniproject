@@ -40,6 +40,8 @@
 		        <div class="login-wrap">
 		            <input type="text" class="form-control" name="username" placeholder="Username" autofocus>
 		            <br>
+                    <input type="text" class="form-control" name="name" placeholder="Your Name" autofocus>
+                    <br>
 		            <input type="email" class="form-control" name="email" placeholder="Email" autofocus>
 		            <br>
 		            <input type="password" class="form-control" name="password" placeholder="Password">

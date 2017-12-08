@@ -44,9 +44,10 @@ class Home_Dashboard extends CI_Controller {
 		if (empty($this->session->userdata('masukin'))) {
 			redirect('Home/login');
 		} else {
-			//$sess = $this->session->userdata('masukin')['user'];
-			//$data['detail'] = $this->Home_model->ambildetiluser($sess)[0];,$data
-			$this->load->view("user/shoppingcart");
+			$sess = $this->session->userdata('masukin')['username'];
+			$data['detail'] = $this->Authuser_Model->ambildetiluser($sess)[0];
+			$data['kabupaten']=$this->Authuser_Model->get_all_kabupaten();
+			$this->load->view("user/shoppingcart", $data);
 		}
 	}
 }
