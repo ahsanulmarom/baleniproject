@@ -4,7 +4,7 @@
 <div style="min-height: 80vh">
 		<div class="container-fluid text-center" style="margin-top: 20px;">
 			<ol class="breadcrumb">
-				<li><a href="category">Beli Lagi</a></li>
+				<li><a href="<?php echo base_url()?>Home_Dashboard/menu">Beli Lagi</a></li>
 				<li class="active"><a href="#">Keranjang</a></li>
 			</ol>
 		</div>
@@ -85,7 +85,6 @@
 						<td>
 						<select class="form-control" name="propinsi_tujuan" id="propinsi_tujuan">
 						<option value="" selected="" disabled="">Pilih Provinsi</option>
-						<?php $this->load->view('rajaongkir/getProvince'); ?>
 					</select>
 						</td>
 					</tr>
@@ -99,7 +98,7 @@
 					</tr>
 					<tr>
 						<td style="padding: 5px">No Telepon Penerima</td>
-						<td style="padding: 10px"><input class="form-control" type="text" name="telp" readonly="" value="<?php echo $detail->noTelp ?>"></td>
+						<td style="padding: 10px"><input class="form-control" type="text" name="telp" readonly="" value=""></td>
 					</tr>
 					<tr>
 						<td style="padding: 5px">Pilihan Pengiriman</td>
@@ -170,7 +169,7 @@
 			</div>
 
 				<div class="elemen">
-					<a href="category" class="btn btn-primary">Lanjut Belanja</a>
+					<a href="<?php echo base_url()?>assets/css/shoppingcart.css" class="btn btn-primary">Lanjut Belanja</a>
 					<button class="btn btn-success" <?php if (empty($cart_cek)) {
 					echo 'disabled';
 				} ?> href="">Lanjut Bayar</button>
@@ -182,7 +181,11 @@
 		</div>
 </div>		
 		<!-- JavaScript includes -->
+<<<<<<< HEAD
 		<?php $this->load->view("user/headfoot/footer")?>
+=======
+		<!-- <?php $this->load->view("user/headfoot/footer")?> -->
+>>>>>>> 28d5230aa190048e2d6b05d1e8b8c6d19062eed4
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
 		<script src="<?php echo base_url()?>assets/js/shoppingcart.js"></script>
 
