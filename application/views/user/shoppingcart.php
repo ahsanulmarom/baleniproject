@@ -1,3 +1,4 @@
+<?php $this->load->view("user/headerlogin")?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/shoppingcart.css"/>
 <div style="min-height: 80vh">
 		<div class="container-fluid text-center" style="margin-top: 20px;">
@@ -167,10 +168,10 @@
 			</div>
 
 				<div class="elemen">
-					<a href="<?php echo base_url()?>assets/css/shoppingcart.css" class="btn btn-primary">Lanjut Belanja</a>
+					<a href="<?php echo base_url()?>Home_Dashboard/menu" class="btn btn-primary">Lanjut Belanja</a>
 					<button class="btn btn-success" <?php if (empty($cart_cek)) {
 					echo 'disabled';
-				} ?> href="">Lanjut Bayar</button>
+				} ?> href="<?php echo base_url()?>Home_Dashboard/review">Lanjut Bayar</button>
 				</div>
 
 			</div>
