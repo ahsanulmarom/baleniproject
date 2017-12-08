@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-<?php $this->load->view("user/headerlogin")?>
-=======
 <?php $this->load->view("user/headfoot/headerlogin")?>
 
->>>>>>> 104a626d92fdc8a6978fe6c8ecde54c4f2afe412
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/shoppingcart.css"/>
 <div style="min-height: 80vh">
 		<div class="container-fluid text-center" style="margin-top: 20px;">
@@ -70,6 +66,7 @@
 				<?php } ?>
 			</div>
 			</div>
+
 		<form method="POST" action="<?php echo base_url();?>Order/save_to_db">		
 			<div class="col-md-5 col-sm-12">
 			<input type="hidden" name="subtotal" value="<?= isset($total)? $total: ''; ?>">
@@ -81,26 +78,33 @@
 					</tr>
 					<tr>
 						<td style="padding: 5px">Alamat Penerima</td>
-						<td style="padding: 10px"><textarea style="max-width: 300px;min-width: 300px;min-height: 80px" class="form-control" name="alamat" required="" placeholder="Masukkan alamat anda"></textarea></td>
+						<td style="padding: 10px"><input type="text" class="form-control" name="alamat" required="" placeholder="Nama Jalan dan Nomor Rumah"></td>
 					</tr>
 					<tr>
 						<td style="padding: 5px">Kota</td>
 						<td style="padding: 10px">
 							<select name="kab" class="form-control" id="kabupaten">
-				    			<option value=""> -- Pilih Kota -- </option>
-				    			<?php foreach($kabupaten as $kab){
-				    				echo '<option value="'.$kab->id.'">'.$kab->nama. var_dump($kab->id).'</option>';
-				    			} ?>
-				    		</select>
+								<option>-- PIlih Kota --</option>
+								<?php foreach($provinsi as $prov){
+									echo '<option value="'.$prov->id.'">'.$prov->nama.'</option>';
+								} ?>
+							</select>
+						</td>
 				    </tr>
 				    <tr>
 						<td style="padding: 5px">Kecamatan</td>
 							<td style="padding: 10px">
 							<select name="kec" class="form-control" id="kecamatan">
-				    			<option> -- Pilih Kecamatan -- </option>
+				    			<option>Pilih Kota Terlebih Dahulu</option>
 				    		</select>
-							</select>
 						</td>
+					</tr>
+					<tr>
+						<td style="padding: 5px">Kelurahan</td>
+							<td style="padding: 10px">
+							<select name="des" class="form-control" id="desa">
+				    			<option>Pilih Kecamatan Terlebih Dahulu</option>
+				    		</select>
 						</td>
 					</tr>
 					<tr>
@@ -124,7 +128,7 @@
 					<a href="<?php echo base_url()?>Home_Dashboard/menu" class="btn btn-primary">Lanjut Belanja</a>
 					<button class="btn btn-success" <?php if (empty($cart_cek)) {
 					echo 'disabled';
-				} ?> href="<?php echo base_url()?>Home_Dashboard/review">Lanjut Bayar</button>
+				} ?> href="">Lanjut Bayar</button>
 				</div>
 
 			</div>
@@ -133,15 +137,24 @@
 		</div>
 </div>		
 		<!-- JavaScript includes -->
-		<?php $this->load->view("user/headfoot/footer")?>
-		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
 		<script src="<?php echo base_url()?>assets/js/shoppingcart.js"></script>
+		<?php $this->load->view("user/headfoot/footer")?>
 
-		<script>
+	<script src="<?php echo base_url()?>assets/js/jquery.min.js"></script>
+	<script>
         $(document).ready(function(){
-   		$("#kabupaten").change(function (){
-                var url = <?php echo site_url('Wilayah/add_ajax_kec');?>/ + $(this).val();
+			$("#kabupaten").change(function (){
+                var url = "<?php echo site_url('Order/add_ajax_kec');?>/"+$(this).val();
                 $('#kecamatan').load(url);
                 return false;
-            });
+            })
+			
+			$("#kecamatan").change(function (){
+                var url = "<?php echo site_url('Order/add_ajax_des');?>/"+$(this).val();
+                $('#desa').load(url);
+                return false;
+            })
+        });
+    </script>
+
     	</script>
