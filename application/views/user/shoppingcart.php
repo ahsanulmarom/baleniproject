@@ -134,10 +134,10 @@
 		<script src="<?php echo base_url()?>assets/js/shoppingcart.js"></script>
 
 		<script>
-			$("#kabupaten").click(function(){
-				$.post("<?php echo base_url(); ?>Wilayah/add_ajax_kec/"+$('#kabupaten').val(),function(obj){
-				$('#kecamatan').html(obj);
-				});
-			
-			});
+        $(document).ready(function(){
+   		$("#kabupaten").click(function (){
+                var url = <?php echo site_url('Wilayah/add_ajax_kec');?>/ + $(this).val();
+                $('#kecamatan').load(url);
+                return false;
+            });
     	</script>
