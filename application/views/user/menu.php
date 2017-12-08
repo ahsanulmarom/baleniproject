@@ -26,7 +26,8 @@
                                 <h2><?php echo $m['nama']; ?></h2>
                                 <div id="owl-breakfast" class="owl-carousel owl-theme">
                                 </div>
-                                <table>
+                                 <form method="post" action="<?php echo base_url()?>Order/add">
+                                <table width="400px">
                                 <tr>
                                     <td>Harga</td>
                                     <td><span class="badge badge-info"><?php echo 'Rp ' . number_format($m['harga'],2)?></span></td>
@@ -39,7 +40,27 @@
                                     <td>Deskripsi </td>
                                     <td><?php echo $m['deskripsi']?></td>
                                 </tr>
-                                </table>
+                            <tr>
+                                <input type="hidden" name="name" value="<?php echo $m['nama']?>">
+                                <input type="hidden" name="price" value="<?php echo $m['harga']?>">
+                                <input type="hidden" name="id" value="<?php echo $m['kode']?>">
+
+                                <td>Banyaknya</td>
+                                <td style="padding: 5px"><input type="number" min="0" max="1000" class="form-control" name="qty"></td>
+                            </tr>
+                            <tr>
+                                <td>Pesan</td>
+                                <td style="padding: 5px"><textarea name="deskripsi" type="text" class="form-control" placeholder="Tuliskan request khusus anda, ex: Pedas, Cabai 3"></textarea></td>
+                            </tr>
+                            <tr>
+                                <div class="chute chute-center text-center">
+                                <td></td>
+                                <td style="padding: 5px"><input type="submit" class="btn btn-primary" name="submit" value="Add to Cart Now"></td>
+                                </div>
+                            </tr>
+                        </table>
+                    </form>
+
                             </div>
                         </div>
                     </div>

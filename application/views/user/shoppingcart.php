@@ -1,3 +1,5 @@
+<?php $this->load->view("user/headfoot/headerlogin")?>
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/shoppingcart.css"/>
 <div style="min-height: 80vh">
 		<div class="container-fluid text-center" style="margin-top: 20px;">
@@ -180,7 +182,7 @@
 		</div>
 </div>		
 		<!-- JavaScript includes -->
-		<?php $this->load->view("home/footer")?>
+		<?php $this->load->view("user/headfoot/footer")?>
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
 		<script src="<?php echo base_url()?>assets/js/shoppingcart.js"></script>
 
