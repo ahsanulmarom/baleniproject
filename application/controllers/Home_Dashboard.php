@@ -41,6 +41,19 @@ class Home_Dashboard extends CI_Controller {
 	}
 
 	public function shoppingcart() {
+		$this->load->view("user/headfoot/headerlogin");
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/login');
+		} else {
+			$sess = $this->session->userdata('masukin')['username'];
+			$data['detail'] = $this->Home_model->ambildetiluser($sess)[0];
+			$this->load->view("user/shoppingcart",$data);
+		}
+		$this->load->view("user/headfoot/footer");
+	}
+
+	public function review() {
+		$this->load->view('user/headfoot/headerlogin');
 		if (empty($this->session->userdata('masukin'))) {
 			redirect('Home/login');
 		} else {
@@ -49,5 +62,10 @@ class Home_Dashboard extends CI_Controller {
 			$data['kabupaten']=$this->Authuser_Model->get_all_kabupaten();
 			$this->load->view("user/shoppingcart", $data);
 		}
+		$this->load->view('headfoot/footer');
+	}
+
+	public function konfirm(){
+		
 	}
 }
