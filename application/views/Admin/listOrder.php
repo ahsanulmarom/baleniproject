@@ -17,7 +17,7 @@
                   <th>Kode Pesan</th>
                   <th>Pemesan</th>
                   <th>Tanggal Pesan</th>
-                  <th colspan=2>Menu Pesanan</th>
+                  <th colspan=3>Menu Pesanan</th>
                   <th>Alamat Kirim</th>
                   <th>Tanggal Kirim</th>
                   <th>Harga Total</th>
@@ -32,7 +32,7 @@
                   <td><?php echo $o['kode_order'] ?></td>
                   <td><?php echo $o['usercustomer'] ?></td>
                   <td><?php echo $o['tanggalorder'] ?></td>
-                  <td><?php echo $o['nama'] ?> </td><td><?php echo $o['kuantitas'] ?></td>
+                  <td><?php echo $o['nama'] ?> </td><td><?php echo $o['kuantitas'] ?></td><td><?php echo $o['deskripsi_order'] ?></td>
                   <td><?php echo $o['alamat']; ?></td>
                   <td><?php echo $o['tanggalkirim']; ?></td>
                   <td><?php echo $o['totalbayar']; ?></td>

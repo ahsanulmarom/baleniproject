@@ -41,7 +41,6 @@ class Home_Dashboard extends CI_Controller {
 	}
 
 	public function shoppingcart() {
-		$this->load->view("user/headfoot/headerlogin");
 		if (empty($this->session->userdata('masukin'))) {
 			redirect('Home/login');
 		} else {
@@ -49,7 +48,6 @@ class Home_Dashboard extends CI_Controller {
 			$data['detail'] = $this->Authuser_Model->ambildetiluser($sess)[0];
 			$this->load->view("user/shoppingcart",$data);
 		}
-		$this->load->view("user/headfoot/footer");
 	}
 
 	public function review() {
