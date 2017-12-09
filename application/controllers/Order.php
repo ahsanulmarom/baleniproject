@@ -70,7 +70,7 @@ class Order extends CI_Controller {
 
     function add_ajax_des($id_kec){
       $query = $this->db->get_where('wilayah_desa',array('kecamatan_id'=>$id_kec));
-      $data = "<option value=''> - Pilih Desa - </option>";
+      $data = "<option value=''> - Pilih Kelurahan - </option>";
       foreach ($query->result() as $value) {
           $data .= "<option value='".$value->id."'>".$value->nama."</option>";
       }
