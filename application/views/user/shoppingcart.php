@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-<?php $this->load->view("user/headerlogin")?>
-=======
-<?php $this->load->view("user/headfoot/headerlogin")?>
-
->>>>>>> 104a626d92fdc8a6978fe6c8ecde54c4f2afe412
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/shoppingcart.css"/>
 <div style="min-height: 80vh">
 		<div class="container-fluid text-center" style="margin-top: 20px;">
@@ -133,7 +127,6 @@
 		</div>
 </div>		
 		<!-- JavaScript includes -->
-		<?php $this->load->view("user/headfoot/footer")?>
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
 		<script src="<?php echo base_url()?>assets/js/shoppingcart.js"></script>
 

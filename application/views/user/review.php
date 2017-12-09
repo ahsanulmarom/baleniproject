@@ -1,13 +1,10 @@
-
 <link href="<?php echo base_url()?>assets/css/profileuser.css" rel="stylesheet" type="text/css" media="all">
 		<div class="container">
 			<div class="row mb40">
     		<div class="chute chute-center text-center">
 			<div class="col-md-12 mb5">
 				<div class="demo-grid">
-					<h2><strong>Terima kasih telah mempercayai kami</strong></h2>
-					<h3>Kode order anda: <em><?php echo $kode; ?></em></h3>
-					<p>Silahkan cek detail pembayaran anda dibawah ini.</p>
+					<strong>Silahkan lihat dan konfirmasi detil pesananmu</strong>
 					<div class="secdiri table-responsive">
 						<table class="table table-condensed no-border" style="text-align: left">
 							<tr class="no-border">
@@ -41,11 +38,9 @@
 						</table>
 					</div>
 				<!-- 	<?= var_dump(strcmp($status,"Belum dibayar"));?> -->
-
-
     
     <div class="row">
-    	<div class="col-md-12">
+    	<div class="col-md-6">
     		<div class="paneledit panel-default">
     			<div class="panel-heading">
     				<h3 class="panel-title"><strong>Rangkuman Order</strong></h3>
@@ -80,19 +75,6 @@
     								<td class="thick-line text-center"><strong>Subtotal</strong></td>
     								<td class="thick-line text-right">IDR <?= number_format($tot1,2) ?></td>
     							</tr>
-    							<tr>
-    								<td style="border: none;"></td>
-    								<td style="border: none;"></td>
-    								<td class="no-line text-center"><strong>Ongkir</strong></td>
-    								<td class="no-line text-right">IDR <?= number_format($ongkir,2); ?></td>
-    							</tr>
-    							<tr>
-    								<td style="border: none;"></td>
-    								<td style="border: none;"></td>
-    								<?php $total = $tot1+$ongkir;?>
-    								<td class="no-line text-center"><strong>Total</strong></td>
-    								<td class="no-line text-right">IDR <?= number_format($total,2);?></td>
-    							</tr>
     						</tbody>
     					</table>
     				</div>
@@ -101,26 +83,12 @@
     	</div>
     </div>
 
-					<p>Pembayaran dapat dilakukan di</p>
+					<p>Silahkan Melakukan Pembayaran Melalui:</p>
 					<div class="col-md-4">
 						<div class="demo-grid">
 							<img height=50px width=50px src="https://www.alamatbank.com/wp-content/uploads/2014/11/logo-bni-300x250.gif"/>
-							<p><strong>0287171911</strong></p>
-							<p>Delian Mahardika Candra</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="demo-grid">
-							<img height=50px width=50px src="https://media.glassdoor.com/sqll/40419/bank-mandiri-squarelogo-1400178763868.png"/>
-							<p><strong>130-00-0010947-3</strong></p>
-							<p>Deliar Mahardika C</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="demo-grid">
-							<img height=50px width=50px src="https://centralasialelang.com/imgBank/bank119.png"/>
-							<p><strong>000501001641300</strong></p>
-							<p>Deliar Mahardika C</p>
+							<p><strong>0635482462</strong></p>
+							<p>Incik Zairina</p>
 						</div>
 					</div>
 					<br /><br />
@@ -129,7 +97,7 @@
 					<?php if (strcmp($status,"Belum dibayar")!=0) {
 						echo '';
 					}else{
-						echo '<a href="'.base_url().'home/confirm/'.$kode.'"><button class="btn btn-primary">Konfirmasikan Pembayaran</button></a>';
+						echo '<a href="'.base_url().'Home_Dashboard/confirm'.$kode.'"><button class="btn btn-primary">Konfirmasikan Pembayaran</button></a>';
 					}?>
 					
 				</div>

@@ -37,10 +37,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 5px">Jumlah Bayar Seharusnya</td>
-                                    <td style="padding: 5px"><input class="form-control" type="text" name="jumlahbayarharusnya" value="<?php echo $total ?>" readonly/></td>
-                                </tr>
-                                <tr>
                                     <td style="padding: 5px">Jumlah Bayar</td>
                                     <td style="padding: 5px"><input class="form-control" type="text" name="jumlahbayar" required/></td>
                                 </tr>

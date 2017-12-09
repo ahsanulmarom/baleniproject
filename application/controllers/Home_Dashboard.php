@@ -30,7 +30,7 @@ class Home_Dashboard extends CI_Controller {
 
 	public function viewProfile(){
 		$session = (string)($this->session->userdata('nama'));
-		$profil = $this->mymodel->GetProfile("where username = '$session'");
+		$profil = $this->Authuser_Model->GetProfile("where username = '$session'");
 		$data = array(
 			"username" => $profil[0]['username'],
 			"email" => $profil[0]['email'],
@@ -46,7 +46,7 @@ class Home_Dashboard extends CI_Controller {
 			redirect('Home/login');
 		} else {
 			$sess = $this->session->userdata('masukin')['username'];
-			$data['detail'] = $this->Home_model->ambildetiluser($sess)[0];
+			$data['detail'] = $this->Authuser_Model->ambildetiluser($sess)[0];
 			$this->load->view("user/shoppingcart",$data);
 		}
 		$this->load->view("user/headfoot/footer");
@@ -59,13 +59,28 @@ class Home_Dashboard extends CI_Controller {
 		} else {
 			$sess = $this->session->userdata('masukin')['username'];
 			$data['detail'] = $this->Authuser_Model->ambildetiluser($sess)[0];
-			$data['kabupaten']=$this->Authuser_Model->get_all_kabupaten();
-			$this->load->view("user/shoppingcart", $data);
+			// $data['kabupaten']=$this->Authuser_Model->get_all_kabupaten();
+			$this->load->view("user/review", $data);
 		}
-		$this->load->view('headfoot/footer');
+		// $review = $this->Authuser_Model->getAllData("where username = '$sess" ); 
+	 //    $usname = $orid[0]->username; 
+	 //    $uname = $this->session->userdata('masukin')['user']; 
+	 //    $barang = $this->Home_model->hasil_beli($orid[0]->id);  
+		// 	$i = array( 
+	 //      'kode'=>$kodeorder, 
+	 //      'nama'=>$orid[0]->nama, 
+	 //      'alamat'=>$orid[0]->addrr, 
+	 //      'metod'=>$orid[0]->metode, 
+	 //      'kontak'=>$orid[0]->noTelp, 
+	 //      'email'=>$orid[0]->email, 
+	 //      'status'=>$orid[0]->status_bayar, 
+	 //      'barang'=>$barang, 
+	 //      'ongkir'=>$orid[0]->biaya); 
+		$this->load->view('user/headfoot/footer');
 	}
 
 	public function confirm($kode="") {
+	$this->load->view('user/headfoot/headerlogin');
 		if (empty($this->session->userdata('masukin'))) {
 			redirect('Home/index');
 		} else {
@@ -87,8 +102,7 @@ class Home_Dashboard extends CI_Controller {
 		}
 		$this->load->view("home/confirm", $detilorder);
 	}
-	}
 
-		
 	}
+	$this->load->view('user/headfoot/fotoer');
 }
