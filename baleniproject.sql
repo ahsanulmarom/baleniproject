@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 09 Des 2017 pada 01.22
+-- Generation Time: 09 Des 2017 pada 16.58
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -41,8 +41,30 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `adminName`, `role`, `timeCreated`, `lastLogin`) VALUES
-(1, 'mimintamvan@baleni', '12345', 'Super Admin', 1, '2017-11-29 15:01:42', '2017-12-07 03:36:34'),
+(1, 'mimintamvan@baleni', '12345', 'Super Admin', 1, '2017-11-29 15:01:42', '2017-12-09 12:26:49'),
 (2, 'adminbiasa@gmail.com', '12345', 'Admin Biasa Aja Doang', 0, '2017-11-30 03:12:35', '2017-12-09 00:01:09');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `buktibayar`
+--
+
+CREATE TABLE `buktibayar` (
+  `id` int(11) NOT NULL,
+  `kode` varchar(15) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `namabayar` varchar(100) NOT NULL,
+  `jumlahbayar` int(11) NOT NULL,
+  `image` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `buktibayar`
+--
+
+INSERT INTO `buktibayar` (`id`, `kode`, `username`, `namabayar`, `jumlahbayar`, `image`) VALUES
+(4, '562', 'ahsanulmarom', 'Ahsan', 350562, 'assets/buktibayar/BAYAR_562.jpg');
 
 -- --------------------------------------------------------
 
@@ -64,10 +86,10 @@ CREATE TABLE `detil_order` (
 --
 
 INSERT INTO `detil_order` (`id`, `orderid`, `kodebarang`, `kuantitas`, `harga`, `deskripsi_order`) VALUES
-(1, 'COBA123', 'DXTR1000', 100, '2000000', 'Cabai 1'),
-(2, 'COBA123', 'BOTL1000', 12, '19000', 'Pedas tanpa cabai'),
-(6, 'Cyezx9u', 'BOTL1000', 31, '10000', 'qwqwq'),
-(7, 'Cyezx9u', 'ORMN1000', 30, '50000', 'qeq');
+(1, '562', 'DXTR1000', 100, '2000000', 'Cabai 1'),
+(2, '562', 'BOTL1000', 12, '19000', 'Pedas tanpa cabai'),
+(6, '710', 'BOTL1000', 31, '10000', 'qwqwq'),
+(7, '710', 'ORMN1000', 30, '50000', 'qeq');
 
 -- --------------------------------------------------------
 
@@ -126,18 +148,19 @@ CREATE TABLE `order` (
   `tanggalorder` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `usercustomer` varchar(50) NOT NULL,
   `alamat` varchar(100) NOT NULL,
+  `noTelp` varchar(20) NOT NULL,
   `tanggalkirim` datetime NOT NULL,
   `totalbayar` int(11) NOT NULL,
-  `status` varchar(40) NOT NULL DEFAULT 'Belum Dikonfirmasi'
+  `status` varchar(40) NOT NULL DEFAULT 'Menunggu Pembayaran'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `order`
 --
 
-INSERT INTO `order` (`id`, `kode_order`, `tanggalorder`, `usercustomer`, `alamat`, `tanggalkirim`, `totalbayar`, `status`) VALUES
-(1, 'COBA123', '2017-12-03 09:32:57', 'ahsanulmarom', 'ITS Surabaya', '2017-12-31 18:00:00', 350000, 'Pesanan Telah Selesai'),
-(4, 'Cyezx9u', '2017-12-09 00:21:08', 'ahsanulmarom', 'uhhikj, Cakung Timur,  Cakung, Kota Jakarta Timur', '2017-12-25 15:00:00', 1810000, 'Belum Dikonfirmasi');
+INSERT INTO `order` (`id`, `kode_order`, `tanggalorder`, `usercustomer`, `alamat`, `noTelp`, `tanggalkirim`, `totalbayar`, `status`) VALUES
+(1, '562', '2017-12-03 09:32:57', 'ahsanulmarom', 'ITS Surabaya', '08986767688', '2017-12-31 18:00:00', 350562, 'Pembayaran Telah Dilakukan'),
+(4, '710', '2017-12-09 00:21:08', 'ahsanulmarom', 'uhhikj, Cakung Timur,  Cakung, Kota Jakarta Timur', '868768768768', '2017-12-25 15:00:00', 1810710, 'Menunggu Pembayaran');
 
 -- --------------------------------------------------------
 
@@ -509,6 +532,13 @@ ALTER TABLE `admin`
   ADD UNIQUE KEY `username` (`username`);
 
 --
+-- Indexes for table `buktibayar`
+--
+ALTER TABLE `buktibayar`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `kode` (`kode`);
+
+--
 -- Indexes for table `detil_order`
 --
 ALTER TABLE `detil_order`
@@ -569,6 +599,11 @@ ALTER TABLE `wilayah_kecamatan`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `buktibayar`
+--
+ALTER TABLE `buktibayar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `detil_order`
 --
