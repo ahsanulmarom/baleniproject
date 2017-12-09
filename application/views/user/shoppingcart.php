@@ -111,6 +111,10 @@
 						<td style="padding: 5px">No Telepon Penerima</td>
 						<td style="padding: 10px"><input class="form-control" type="text" name="telp" required></td>
 					</tr>
+					<tr>
+						<td style="padding: 5px">Tanggal Kirim</td>
+						<td style="padding: 10px"><input class="form-control" type="datetime-local" name="tglkirim" placeholder="mm/dd/yyyy hh:mm" required></td>
+					</tr>
 				</table>
 				
 

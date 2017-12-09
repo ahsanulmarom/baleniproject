@@ -45,6 +45,19 @@ class Authuser_model extends CI_Model {
 		}
 	}	
 
+	public function insertData($namaTabel, $data) {
+		try{
+			$hasil = $this->db->insert($namaTabel, $data);
+			if (!$hasil) {
+				throw new Exception('error in query');
+				return false;
+			}
+			return $hasil;
+		} catch(Exception $e) {
+			return false;
+		}
+	}
+
 	function cekrand($kode){
 		$this->db->where('kode_order', $kode);
         $this->db->from('order');

@@ -5,6 +5,7 @@ class Order extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Authuser_Model');
+		$this->load->model('WilayahGet_Model');
 		$this->load->helper('url');
 
 		$loggedin = $this->session->userdata('masukin');
@@ -77,10 +78,14 @@ class Order extends CI_Controller {
   	}
 
 	function save_to_db(){
-		$user = $this->Home_model->ambildetiluser($this->session->userdata('masukin')['user']);
-		$this->form_validation->set_rules('alamat','Alamat Penerima','required|trim|min_length[8]');
+		$user = $this->Authuser_Model->ambildetiluser($this->session->userdata('masukin')['username']);
+		$kelurahan = $this->WilayahGet_Model->getKelurahan($this->input->post('des'));
+		$kecamatan = $this->WilayahGet_Model->getKecamatan($this->input->post('kec'));
+		$kota = $this->WilayahGet_Model->getKota($this->input->post('kab'));
+		$this->form_validation->set_rules('alamat','Alamat Penerima','required|trim|min_length[5]');
 		$nama = $this->input->post('nama');
-		$alamat = $this->input->post('alamat').', '.$this->input->post('daerah');
+		$alamat = $this->input->post('alamat').', '.$kelurahan[0]->nama.', '.$kecamatan[0]->nama.', '.$kota[0]->nama;
+		$tanggalkirim = $this->input->post('tglkirim');
 		$telp = $this->input->post('telp');
 		do{
 		        $kode = $this->randString(7);
@@ -92,29 +97,31 @@ class Order extends CI_Controller {
 				'usercustomer'=>$this->session->userdata('masukin')['username'],
 				'kode_order'=>$kode,
 				'alamat'=>$alamat,
-				'subtotal'=>$this->input->post('subtotal'));
-			$orid = $this->Home_model->insert_order($order,'order');
+				'tanggalkirim'=> $tanggalkirim,
+				'totalbayar'=>$this->input->post('subtotal'));
+			$orid = $this->Authuser_Model->insertData('order',$order);
 			if ($cart = $this->cart->contents()) {
 				foreach ($cart as $c) {
 					$detil = array(
-						'orderid'=>$orid,
-						'kode'=>$c['id'],
+						'orderid'=>$kode,
+						'kodebarang'=>$c['id'],
 						'kuantitas'=>$c['qty'],
 						'harga'=>$c['price'],
-						'deskripsi'=>$c['deskripsi']);
-				$this->Home_model->insert_order($detil,'detil_order');
+						'deskripsi_order'=>$c['deskripsi']);
+				$this->Authuser_Model->insertData('detil_order',$detil);
 				}
 			$this->cart->destroy();
 			}
 		}else{
 			echo validation_errors();
-			redirect('Home/shoppingcart');
+			//redirect('Home/shoppingcart');
 		}
-		redirect('Home/review/'.$kode);
+		//redirect('Home/review/'.$kode);
+		echo "sukses";
 	}
 
 	function randString($panjang){
-		 $characters = '012345678909876543211234567890';
+		 $characters = 'QWERTYUIOPLKJHGFDSAZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnm';
 		 $string = '';
 		 $max = strlen($characters) - 1;
 		 for ($i = 0; $i < $panjang; $i++) {
