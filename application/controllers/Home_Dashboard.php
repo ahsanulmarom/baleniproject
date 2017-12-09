@@ -46,6 +46,7 @@ class Home_Dashboard extends CI_Controller {
 		} else {
 			$sess = $this->session->userdata('masukin')['username'];
 			$data['detail'] = $this->Authuser_Model->ambildetiluser($sess)[0];
+			$data['kota'] = $this->Authuser_Model->get_all_kabupaten();
 			$this->load->view("user/shoppingcart",$data);
 		}
 	}
@@ -102,5 +103,4 @@ class Home_Dashboard extends CI_Controller {
 	}
 
 	}
-	$this->load->view('user/headfoot/fotoer');
 }

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-=======
 <?php $this->load->view("user/headfoot/headerlogin")?>
-
->>>>>>> ddd40437d5409d8215d1fa91dc9690db74d3a5c5
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/shoppingcart.css"/>
 <div style="min-height: 80vh">
 		<div class="container-fluid text-center" style="margin-top: 20px;">
@@ -31,7 +27,7 @@
 				<table id="cart" class="table table-hover table-condensed">
 					<tr>
 						<td style="width:auto;">QTY</td>
-						<td style="width:auto;">PRODUK</td>
+						<td style="width:auto;">MENU</td>
 						<td style="width:auto;">HARGA</td>
 						<td style="width:auto;">TOTAL</td>
 						<td style="width:auto;">Aksi</td>
@@ -87,8 +83,8 @@
 						<td style="padding: 5px">Kota</td>
 						<td style="padding: 10px">
 							<select name="kab" class="form-control" id="kabupaten">
-								<option>-- PIlih Kota --</option>
-								<?php foreach($provinsi as $prov){
+								<option>-- Pilih Kota --</option>
+								<?php foreach($kota as $prov){
 									echo '<option value="'.$prov->id.'">'.$prov->nama.'</option>';
 								} ?>
 							</select>
@@ -144,10 +140,7 @@
 		</div>
 </div>		
 		<!-- JavaScript includes -->
-<<<<<<< HEAD
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
-=======
->>>>>>> ddd40437d5409d8215d1fa91dc9690db74d3a5c5
 		<script src="<?php echo base_url()?>assets/js/shoppingcart.js"></script>
 		<?php $this->load->view("user/headfoot/footer")?>
 
@@ -167,5 +160,3 @@
             })
         });
     </script>
-
-    	</script>

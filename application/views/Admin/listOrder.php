@@ -37,7 +37,7 @@
                   <td><?php echo $o['tanggalkirim']; ?></td>
                   <td><?php echo $o['totalbayar']; ?></td>
                   <td><?php echo $o['status']; ?>
-                <?php if($o['status'] == 'Belom Dikonfirmasi') {?>
+                <?php if($o['status'] == 'Belum Dikonfirmasi') {?>
                     <br>
                     <a href="<?php echo site_url('admin/Dashboard/terimaorders/' . $o['kode_order']) ?>" style="width: auto" data-toggle="tooltip" title="Terima Pesanan" 
                     class="btn btn-primary" onclick="javascript:confirmationTerima($(this));return false;"><i class="fa fa-fw fa-check"></i></a>
