@@ -66,7 +66,7 @@
 			</div>
 			</div>
 
-		<form method="POST" action="<?php echo base_url();?>Order/save_to_db">		
+		<form method="POST" action="<?php echo base_url();?>Order/saveOrder">		
 			<div class="col-md-5 col-sm-12">
 			<input type="hidden" name="subtotal" value="<?= isset($total)? $total: ''; ?>">
 			<div class="" style="margin-bottom: 20px;">

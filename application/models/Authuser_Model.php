@@ -71,5 +71,31 @@ class Authuser_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	function getSomeOrder_byKode($param){
+		$query = $this->db->select('*')
+			->join('user','user.username=order.usercustomer')
+			->where('kode_order',$param)
+			->from('order')
+			->get();
+		return ($query->num_rows() >0)? $query->result() : false;
+	}
+
+	function hasil_beli($id){
+		$this->db->select('*');
+		$this->db->join('menu','menu.kode=detil_order.kodebarang');
+		$this->db->where('orderid',$id);
+		$this->db->from('detil_order');
+		$query = $this->db->get();
+		if($query->num_rows() >0) {
+			return $query->result();
+		}
+		return false;
+	}
+
+	public function updateData($where, $wheredata, $namaTabel, $data) {
+		$this->db->where($where, $wheredata);
+		$this->db->update($namaTabel, $data);
+	}
 }
 ?>

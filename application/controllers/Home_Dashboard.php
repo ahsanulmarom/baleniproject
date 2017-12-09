@@ -51,56 +51,49 @@ class Home_Dashboard extends CI_Controller {
 		}
 	}
 
-	public function review() {
-		$this->load->view('user/headfoot/headerlogin');
-		if (empty($this->session->userdata('masukin'))) {
-			redirect('Home/login');
-		} else {
-			$sess = $this->session->userdata('masukin')['username'];
-			$data['detail'] = $this->Authuser_Model->ambildetiluser($sess)[0];
-			// $data['kabupaten']=$this->Authuser_Model->get_all_kabupaten();
-			$this->load->view("user/review", $data);
-		}
-		// $review = $this->Authuser_Model->getAllData("where username = '$sess" ); 
-	 //    $usname = $orid[0]->username; 
-	 //    $uname = $this->session->userdata('masukin')['user']; 
-	 //    $barang = $this->Home_model->hasil_beli($orid[0]->id);  
-		// 	$i = array( 
-	 //      'kode'=>$kodeorder, 
-	 //      'nama'=>$orid[0]->nama, 
-	 //      'alamat'=>$orid[0]->addrr, 
-	 //      'metod'=>$orid[0]->metode, 
-	 //      'kontak'=>$orid[0]->noTelp, 
-	 //      'email'=>$orid[0]->email, 
-	 //      'status'=>$orid[0]->status_bayar, 
-	 //      'barang'=>$barang, 
-	 //      'ongkir'=>$orid[0]->biaya); 
-		$this->load->view('user/headfoot/footer');
-	}
-
-	public function confirm($kode="") {
-	$this->load->view('user/headfoot/headerlogin');
+	public function review($kodeorder) { 
 		if (empty($this->session->userdata('masukin'))) {
 			redirect('Home/index');
 		} else {
-	if (empty($kode)) { 
-      redirect('Home/category'); 
-    }
-		if(!$this->Home_model->getOrderJasa1($kode)) {
-			$order = $this->Home_model->getOrder1($kode);
-			$detilorder = array(
-				'kode' => $order[0]->kode_order,
-				'total' => $order[0]->subtotal+$order[0]->biaya
-				);
-		} else if (!$this->Home_model->getOrder1($kode)) {
-			$order = $this->Home_model->getOrderJasa1($kode);
-			$detilorder = array(
-				'kode' => $order[0]->kode,
-				'total' => $order[0]->total
-				);
+			if (empty($kodeorder)) { 
+				redirect('Home/category'); 
+			} 
+			$orid = $this->Authuser_Model->getSomeOrder_byKode($kodeorder); 
+			$usname = $orid[0]->username; 
+			$uname = $this->session->userdata('masukin')['username']; 
+			$barang = $this->Authuser_Model->hasil_beli($orid[0]->kode_order);  
+			$i = array( 
+				'kode'=>$kodeorder, 
+				'nama'=>$orid[0]->nama, 
+				'alamat'=>$orid[0]->alamat,  
+				'kontak'=>$orid[0]->noTelp,  
+				'status'=>$orid[0]->status,
+				'tanggalkirim'=> $orid[0]->tanggalkirim,
+				'barang'=>$barang);
+			if (empty($this->session->userdata('masukin'))) { 
+				redirect('Home/login'); 
+			}elseif ($usname != $uname) { 
+				redirect('Home_Dashboard/menu'); 
+			}else{ 
+				$this->load->view("user/review",$i); 
+			} 
 		}
-		$this->load->view("home/confirm", $detilorder);
-	}
+	} 
+
+	public function confirm($kode) {
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/index');
+		} else {
+		if (empty($kode)) { 
+      		redirect('Home_Dashboard/menu'); 
+    	}
+    	$order = $this->Authuser_Model->getSomeOrder_byKode($kode);
+    	$detilorder = array(
+    		'kode' => $order[0]->kode_order,
+    		'total' => $order[0]->totalbayar
+				);
+		$this->load->view("user/konfirmasi", $detilorder);
+		}
 
 	}
 }

@@ -233,13 +233,6 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/headfoot/footer');
 	}
 
-	public function terimaorders($kode) {
-		$dataupdate = array(
-			'status' => 'Menunggu Pembayaran');
-		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
-		redirect('admin/Dashboard/manageorders');
-	}
-
 	public function tolakorders($kode) {
 		$dataupdate = array(
 			'status' => 'Pesanan Ditolak/Dibatalkan');

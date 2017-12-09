@@ -77,7 +77,7 @@ class Order extends CI_Controller {
       echo $data;
   	}
 
-	function save_to_db(){
+	function saveOrder(){
 		$user = $this->Authuser_Model->ambildetiluser($this->session->userdata('masukin')['username']);
 		$kelurahan = $this->WilayahGet_Model->getKelurahan($this->input->post('des'));
 		$kecamatan = $this->WilayahGet_Model->getKecamatan($this->input->post('kec'));
@@ -88,7 +88,7 @@ class Order extends CI_Controller {
 		$tanggalkirim = $this->input->post('tglkirim');
 		$telp = $this->input->post('telp');
 		do{
-		        $kode = $this->randString(7);
+		        $kode = $this->randString(3);
 		        $num = $this->Authuser_Model->cekrand($kode);
 			} while($num>=1);
 
@@ -97,8 +97,9 @@ class Order extends CI_Controller {
 				'usercustomer'=>$this->session->userdata('masukin')['username'],
 				'kode_order'=>$kode,
 				'alamat'=>$alamat,
+				'noTelp'=>$telp,
 				'tanggalkirim'=> $tanggalkirim,
-				'totalbayar'=>$this->input->post('subtotal'));
+				'totalbayar'=>($this->input->post('subtotal')+$kode));
 			$orid = $this->Authuser_Model->insertData('order',$order);
 			if ($cart = $this->cart->contents()) {
 				foreach ($cart as $c) {
@@ -114,19 +115,59 @@ class Order extends CI_Controller {
 			}
 		}else{
 			echo validation_errors();
-			//redirect('Home/shoppingcart');
+			redirect('Home_Dashboard/shoppingcart');
 		}
-		//redirect('Home/review/'.$kode);
-		echo "sukses";
+		redirect('Home_Dashboard/review/'.$kode);
 	}
 
 	function randString($panjang){
-		 $characters = 'QWERTYUIOPLKJHGFDSAZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnm';
+		 $characters = '1234567890';
 		 $string = '';
 		 $max = strlen($characters) - 1;
 		 for ($i = 0; $i < $panjang; $i++) {
 		      $string .= $characters[mt_rand(0, $max)];
 		 }
 		 return $string;
+	}
+
+	public function saveBayar() {
+		$kode = htmlspecialchars($this->input->post('kode'));
+		$nama = htmlspecialchars($this->input->post('namabayar'));
+		$jumlah = $this->input->post('jumlahbayar');
+
+		$config = array(
+				'upload_path'=> './assets/buktibayar/',
+				'allowed_types'=>'gif|jpg|png|jpeg',
+				'max_size'=>2048,
+				'overwrite'=>true,
+				'file_name'=> 'BAYAR_' . $this->input->post('kode'));
+		$this->upload->initialize($config);
+		$upload = $this->upload->do_upload('buktibayar');
+
+		if($upload) {
+			$datainsert = array(
+				'kode' => $kode,
+				'username' => $this->session->userdata('masukin')['username'],
+				'namabayar' => $nama,
+				'jumlahbayar' => $jumlah,
+				'image' => 'assets/buktibayar/'.$this->upload->data('file_name'));
+
+			$insert = $this->Authuser_Model->InsertData('buktibayar', $datainsert);
+
+			$dataupdate = array(
+				'status' => 'Pembayaran Telah Dilakukan');
+			$update = $this->Authuser_Model->updateData('kode_order', $kode, 'order', $dataupdate);
+
+			if($insert) {
+				$this->session->set_flashdata('success', 'Pesanan ' . $kode . " berhasil dikonfirmasi. Pembayaran Anda menunggu konfirmasi admin.");
+				redirect('Home_Dashboard/confirm/'.$kode);
+			} else {
+				$this->session->set_flashdata('error','Gagal Konfirmasi Pembayaran, pastikan isian benar! Cek Status Pesanan Anda!');
+				redirect('Home_Dashboard/confirm/'.$kode);
+			}
+		} else {
+				$this->session->set_flashdata('error','Gagal upload bukti bayar. Maksimal gambar adalah 2MB');
+				redirect('Home_Dashboard/confirm/'.$kode);
+		}
 	}
 }
