@@ -64,7 +64,30 @@ class Home_Dashboard extends CI_Controller {
 		$this->load->view('headfoot/footer');
 	}
 
-	public function konfirm(){
+	public function confirm($kode="") {
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/index');
+		} else {
+	if (empty($kode)) { 
+      redirect('Home/category'); 
+    }
+		if(!$this->Home_model->getOrderJasa1($kode)) {
+			$order = $this->Home_model->getOrder1($kode);
+			$detilorder = array(
+				'kode' => $order[0]->kode_order,
+				'total' => $order[0]->subtotal+$order[0]->biaya
+				);
+		} else if (!$this->Home_model->getOrder1($kode)) {
+			$order = $this->Home_model->getOrderJasa1($kode);
+			$detilorder = array(
+				'kode' => $order[0]->kode,
+				'total' => $order[0]->total
+				);
+		}
+		$this->load->view("home/confirm", $detilorder);
+	}
+	}
+
 		
 	}
 }
