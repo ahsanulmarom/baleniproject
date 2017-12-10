@@ -22,24 +22,6 @@ class Home_Dashboard extends CI_Controller {
 		$this->load->view("user/headfoot/footer");
 	}	
 
-	public function profile(){
-		$this->load->view("template/headerlogin");
-		$this->load->view("user/profile"); 
-		$this->load->view("template/footer"); 
-	}
-
-	public function viewProfile(){
-		$session = (string)($this->session->userdata('nama'));
-		$profil = $this->Authuser_Model->GetProfile("where username = '$session'");
-		$data = array(
-			"username" => $profil[0]['username'],
-			"email" => $profil[0]['email'],
-			"nama" => $profil[0]['nama'],
-			"alamat" => $profil[0]['alamat'],
-			 );
-		$this->load->view('user/Profile', $data);
-	}
-
 	public function shoppingcart() {
 		if (empty($this->session->userdata('masukin'))) {
 			redirect('Home/login');
@@ -95,5 +77,17 @@ class Home_Dashboard extends CI_Controller {
 		$this->load->view("user/konfirmasi", $detilorder);
 		}
 
+	}
+
+	public function history() {
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/index');
+		} else {
+			$user = $this->session->userdata('masukin')['username'];
+			$order = array(
+				'orderan' => $this->Authuser_Model->getOrderUser($user)
+				);
+			$this->load->view('user/orderhistory', $order);
+		}
 	}
 }

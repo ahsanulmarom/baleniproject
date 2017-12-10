@@ -51,7 +51,10 @@
     						if(!empty($barang)) {
     						 foreach($barang as $b) { ?>
     							<tr>
-    								<td><?php echo $b->nama ?></td>
+    								<td><?php echo strtoupper($b->nama) ?>
+                                        <br>
+                                        <?php echo strtolower($b->deskripsi_order) ?>
+                                    </td>
     								<td class="text-center">IDR <?= number_format($b->harga,2) ?></td>
     								<td class="text-center"><?= $b->kuantitas ?></td>
     								<?php $tot =($b->harga)*($b->kuantitas);  $tot1 = $tot1 + ($b->harga)*($b->kuantitas);?>
@@ -79,23 +82,26 @@
     	</div>
     </div>
 
-					<p>Silahkan Melakukan Pembayaran Melalui:</p>
-					<div class="col-md-12">
-						<div class="demo-grid">
-							<img height=50px width=50px src="https://www.alamatbank.com/wp-content/uploads/2014/11/logo-bni-300x250.gif"/>
-							<p><strong>0635482462</strong></p>
-							<p>Incik Zairina</p>
-						</div>
 					</div>
 					<br /><br />
-					<h4>Segera lakukan pembayaran. Batas pembayaran adalah ......</h4>
-
-					<?php if (strcmp($status,"Menunggu Pembayaran")!=0) {
-						echo '';
-					}else{
-						echo '<a href="'.base_url().'Home_Dashboard/confirm/'.$kode.'"><button class="btn btn-primary">Konfirmasikan Pembayaran</button></a>';
+                    <?php if (strcmp($status,"Menunggu Pembayaran")!=0) { ?>
+                    <div class="col-md-12">
+                        <div class="demo-grid">
+					<h4>Terima kasih sudah melakukan pembayaran. Pantau terus proses pesanan anda.</h4>
+                        </div>
+                    </div>
+					<?php echo '';
+					}else{ ?>
+                    <p>Silahkan Melakukan Pembayaran Melalui:</p>
+                    <div class="col-md-12">
+                        <div class="demo-grid">
+                            <img height=50px width=50px src="https://www.alamatbank.com/wp-content/uploads/2014/11/logo-bni-300x250.gif"/>
+                            <p><strong>0635482462</strong></p>
+                            <p>Incik Zairina</p>
+                        </div>
+                    <h4>Segera lakukan pembayaran. Pesanan tidak akan diproses jika tidak melakukan pembayaran.</h4>
+					<?php echo '<a href="'.base_url().'Home_Dashboard/confirm/'.$kode.'"><button class="btn btn-primary">Konfirmasikan Pembayaran</button></a>';
 					}?>
-					
 				</div>
 			</div>
 			</div>

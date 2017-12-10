@@ -97,5 +97,16 @@ class Authuser_model extends CI_Model {
 		$this->db->where($where, $wheredata);
 		$this->db->update($namaTabel, $data);
 	}
+
+	public function getOrderUser($username) {
+		$this->db->select('*');
+		$this->db->where('usercustomer',$username);
+		$this->db->from('order');
+		$query = $this->db->get();
+		if($query->num_rows() >0) {
+			return $query->result_array();
+		}
+		return false;
+	}
 }
 ?>

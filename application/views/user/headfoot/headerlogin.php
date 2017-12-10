@@ -40,7 +40,7 @@
                     <ul class="nav navbar-nav">
                          <li><a href="<?php echo base_url()?>Home/indexlogin">Home</a></li>
                         <li><a href="<?php echo base_url()?>Home_Dashboard/menu">Our Menus</a></li>
-                        <li><a href="#"><?php echo "Adios ! " .  $this->session->userdata('masukin')['username'] ?></a></li>
+                        <li><a href="<?php echo base_url()?>Home_Dashboard/history"><?php echo "Adios ! " .  $this->session->userdata('masukin')['username'] ?></a></li>
                         <li><a href="<?php echo base_url(); ?>Home_Dashboard/shoppingcart">🛒</a></li>
                         <li><a class="logout" href="<?php echo base_url()?>Home/logout">Logout</a></li>
 
