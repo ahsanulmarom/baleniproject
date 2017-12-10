@@ -41,11 +41,12 @@ class Home extends CI_Controller {
 
 		if(strlen($password) > 5) {
 			if($password == $repassword) {
+				$passenc = md5("m@120maH5An~7@mv4N" . $password . "5uKs3ZzZk4PepE3le@~~");
 				$data_insert = array(
 					'username' => $username, 
 					'nama' => $nama,
 					'email' => $email, 
-					'password' => $password);
+					'password' => $passenc);
 
 				$datasession = array(
 					'username' => $username,
@@ -77,9 +78,10 @@ class Home extends CI_Controller {
 	public function do_login() {
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
+			$passenc = md5("m@120maH5An~7@mv4N" . $password . "5uKs3ZzZk4PepE3le@~~");
 			$where = array(
 				'username' => $username,
-				'password' => $password
+				'password' => $passenc
 				);
 			$cek = $this->Authuser_Model->cek_login("user",$where)->num_rows();
 

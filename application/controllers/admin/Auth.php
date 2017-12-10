@@ -21,7 +21,8 @@ class Auth extends CI_Controller {
 	public function loginadmin() {
 		$usernameAdmin = htmlspecialchars($this->input->post('usernameAdmin'));
 		$passwordAdmin = htmlspecialchars($this->input->post('passwordAdmin'));
-		$isLogin = $this->Authmin_model->loginAdmin($usernameAdmin, $passwordAdmin);
+		$passenc = md5("m@120maH5An~7@mv4N" . $passwordAdmin . "5uKs3ZzZk4PepE3le@~~");
+		$isLogin = $this->Authmin_model->loginAdmin($usernameAdmin, $passenc);
 		if($isLogin == true) {
 			$loginadminData = array(
 				'id' => $isLogin[0]->id,

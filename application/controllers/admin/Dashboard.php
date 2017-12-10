@@ -44,14 +44,6 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/headfoot/footer');
 	}
 
-	public function addAdmin() {
-		$data['title'] = 'Add Admin';
-		$this->load->view('admin/headfoot/sider',$data);
-		$this->load->view('admin/headfoot/header');
-		$this->load->view('admin/addAdmin');
-		$this->load->view('admin/headfoot/footer');
-	}
-
 	public function category() {
 		$data['title'] = 'Manage Category';
 		$datacategory = array(
@@ -132,15 +124,24 @@ class Dashboard extends CI_Controller {
 			redirect('admin/Dashboard/category');
 	}
 
+	public function addAdmin() {
+		$data['title'] = 'Add Admin';
+		$this->load->view('admin/headfoot/sider',$data);
+		$this->load->view('admin/headfoot/header');
+		$this->load->view('admin/addAdmin');
+		$this->load->view('admin/headfoot/footer');
+	}
+
 	public function insertAdmin() {
 		$email = htmlspecialchars($this->input->post('emailnewadmin'));
 		$password = htmlspecialchars($this->input->post('passwordnewadmin'));
+		$passenc = md5("m@120maH5An~7@mv4N" . $password . "5uKs3ZzZk4PepE3le@~~");
 		$name = htmlspecialchars($this->input->post('namenewadmin'));
 		$role = $this->input->post('rolenewadmin');
 
 		$datainsert = array(
 			'username' => $email,
-			'password' => $password,
+			'password' => $passenc,
 			'adminName' => $name,
 			'role' => $role);
 

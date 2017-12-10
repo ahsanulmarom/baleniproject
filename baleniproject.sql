@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 09 Des 2017 pada 16.58
+-- Generation Time: 10 Des 2017 pada 05.22
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -41,8 +41,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `adminName`, `role`, `timeCreated`, `lastLogin`) VALUES
-(1, 'mimintamvan@baleni', '12345', 'Super Admin', 1, '2017-11-29 15:01:42', '2017-12-09 12:26:49'),
-(2, 'adminbiasa@gmail.com', '12345', 'Admin Biasa Aja Doang', 0, '2017-11-30 03:12:35', '2017-12-09 00:01:09');
+(1, 'mimintamvan@baleni', '2779d16cd82a84b1efe928fbd758f6c2', 'Super Admin', 1, '2017-11-29 15:01:42', '2017-12-10 04:17:56'),
+(2, 'adminbiasa@gmail.com', '2779d16cd82a84b1efe928fbd758f6c2', 'Admin Biasa Aja Doang', 0, '2017-11-30 03:12:35', '2017-12-09 00:01:09'),
+(3, 'testenc@gmail.com', '2779d16cd82a84b1efe928fbd758f6c2', 'Test Enc', 0, '2017-12-10 04:16:33', '2017-12-10 04:16:33');
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,7 @@ CREATE TABLE `detil_order` (
 --
 
 INSERT INTO `detil_order` (`id`, `orderid`, `kodebarang`, `kuantitas`, `harga`, `deskripsi_order`) VALUES
-(1, '562', 'DXTR1000', 100, '2000000', 'Cabai 1'),
+(1, '562', 'DXTR1000', 10, '2000000', 'Cabai 1'),
 (2, '562', 'BOTL1000', 12, '19000', 'Pedas tanpa cabai'),
 (6, '710', 'BOTL1000', 31, '10000', 'qwqwq'),
 (7, '710', 'ORMN1000', 30, '50000', 'qeq');
@@ -183,8 +184,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `nama`, `timeCreated`, `lastLogin`) VALUES
-(1, 'ahsanulmarom', 'usertamvan@gmail.com', '12345', 'Ahsanul Marom', '2017-11-29 14:28:42', '2017-11-29 15:05:48'),
-(5, 'user1', 'user1@gmail.com', '123456789', 'User 1', '2017-12-06 14:30:43', '2017-12-06 14:30:43');
+(1, 'ahsanulmarom', 'ahsanulmarom@gmail.com', '2779d16cd82a84b1efe928fbd758f6c2', 'Ahsanul Marom', '2017-11-29 14:28:42', '2017-11-29 15:05:48'),
+(6, 'userenc', 'user1@gmail.com', '50bfb44558265ad517f1906032aad168', 'User Enc', '2017-12-10 04:22:02', '2017-12-10 04:22:02');
 
 -- --------------------------------------------------------
 
@@ -598,7 +599,7 @@ ALTER TABLE `wilayah_kecamatan`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `buktibayar`
 --
@@ -628,7 +629,7 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
