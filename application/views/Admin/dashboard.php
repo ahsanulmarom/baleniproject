@@ -106,7 +106,7 @@
       <div class="col-md-6 chit-chat-layer1-left">
                <div class="work-progres">
                             <div class="chit-chat-heading">
-                                 <div class="card-header"><i class="fa fa-coffee"></i> Top 7 Menus </div>
+                                 <div class="card-header"><i class="fa fa-coffee"></i> Top 5 Menus </div>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover">
@@ -124,9 +124,9 @@
                                 <tr>
                                   <td>#</td>
                                   <td><?php echo $tp['nama']; ?></td>
-                                  <td style="text-align: center"><?php echo $tp['kuantitas']; ?></td>
+                                  <td style="text-align: center"><?php echo $tp['sum(kuantitas)']; ?></td>
                                   <td><span class="badge badge-info">
-                                    <?php echo number_format((($tp['kuantitas']/$total)*100),2) . '%'; ?>
+                                    <?php echo number_format((($tp['sum(kuantitas)']/$total)*100),2) . '%'; ?>
                                   </span></td>
                               </tr>
                               <?php }
@@ -153,24 +153,8 @@
                                   </tr>
                               </thead>
                               <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>Belum Dikonfirmasi</td>
-                                  <td style="text-align: center"><?php echo $this->db->where('status','Belum Dikonfirmasi')->count_all_results('order')?></td>
-                                  <td><span class="badge badge-info">
-                                    <?php
-                                    $num = $this->db->where('status','Belum Dikonfirmasi')->count_all_results('order');
-                                    $total = $this->db->count_all_results('order');
-                                    if (empty($total)) {
-                                      echo '0' . '%';
-                                    } else {
-                                      echo number_format((($num/$total)*100),2) . '%';
-                                    }
-                                    ?>
-                                  </span></td>
-                              </tr>
                               <tr>
-                                  <td>2</td>
+                                  <td>1</td>
                                   <td>Menunggu Pembayaran</td>
                                   <td style="text-align: center"><?php echo $this->db->where('status','Menunggu Pembayaran')->count_all_results('order')?></td>
                                   <td><span class="badge badge-info">
@@ -186,7 +170,7 @@
                                   </span></td>
                               </tr>
                               <tr>
-                                  <td>3</td>
+                                  <td>2</td>
                                   <td>Pembayaran Telah Dilakukan</td>
                                   <td style="text-align: center"><?php echo $this->db->where('status','Pembayaran Telah Dilakukan')->count_all_results('order')?></td>
                                   <td><span class="badge badge-info">
@@ -202,7 +186,7 @@
                                   </span></td>
                               </tr>
                               <tr>
-                                  <td>4</td>
+                                  <td>3</td>
                                   <td>Pesanan Dalam Proses</td>
                                   <td style="text-align: center"><?php echo $this->db->where('status','Pesanan Dalam Proses')->count_all_results('order')?></td>
                                   <td><span class="badge badge-info">
@@ -216,24 +200,8 @@
                                     }
                                     ?>
                                   </span></td>
-                             <tr>
-                              <td>5</td>
-                                <td>Pesanan Dalam Pengantaran</td>
-                                <td style="text-align: center"><?php echo $this->db->where('status','Pesanan Dalam Pengantaran')->count_all_results('order')?></td>
-                                  <td><span class="badge badge-info">
-                                   <?php
-                                    $num = $this->db->where('status','Pesanan Dalam Pengantaran')->count_all_results('order');
-                                    $total = $this->db->count_all_results('order');
-                                    if (empty($total)) {
-                                      echo '0' . '%';
-                                    } else {
-                                      echo number_format((($num/$total)*100),2) . '%';
-                                    }
-                                    ?>
-                                  </span></td>
-                              </tr>
                               <tr>
-                              <td>6</td>
+                              <td>4</td>
                                 <td>Pesanan Telah Selesai</td>
                                 <td style="text-align: center"><?php echo $this->db->where('status','Pesanan Telah Selesai')->count_all_results('order')?></td>
                                   <td><span class="badge badge-info">
@@ -248,7 +216,7 @@
                                     ?>
                                   </span></td>
                               </tr>
-                              <td>7</td>
+                              <td>5</td>
                                 <td>Pesanan Ditolak/Dibatalkan</td>
                                 <td style="text-align: center"><?php echo $this->db->where('status','Pesanan Ditolak/Dibatalkan')->count_all_results('order')?></td>
                                   <td><span class="badge badge-info">

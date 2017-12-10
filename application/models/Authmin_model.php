@@ -106,12 +106,12 @@ class Authmin_model extends CI_Model {
 	}
 
 	public function getTopMenu() {
-		$this->db->select('*');
+		$this->db->select('kodebarang, nama, sum(kuantitas)');
 		$this->db->join('menu', 'detil_order.kodebarang=menu.kode');
 		$this->db->from('detil_order');
 		$this->db->group_by('kodebarang');
-		$this->db->order_by('kuantitas', 'DESC');
-		$this->db->limit(7);
+		$this->db->order_by('sum(kuantitas)', 'DESC');
+		$this->db->limit(5);
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
 			return $query->result_array();

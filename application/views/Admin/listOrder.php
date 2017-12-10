@@ -37,7 +37,7 @@
                   <td><?php echo $o['tanggalkirim']; ?></td>
                   <td><?php echo $o['totalbayar']; ?></td>
                   <td><?php echo $o['status']; ?>
-                <?php if($o['status'] == 'Belum Dibayar') {?>
+                <?php if($o['status'] == 'Menunggu Pembayaran') {?>
                     <br>
                     <a href="<?php echo site_url('admin/Dashboard/tolakorders/' . $o['kode_order']) ?>" style="width: auto" data-toggle="tooltip" title="Batalkan Pesanan" 
                     class="btn btn-danger" onclick="javascript:confirmationTolak($(this));return false;"><i class="fa fa-fw fa-trash"></i></a>
@@ -45,7 +45,7 @@
                 <?php } else if($o['status'] == 'Pembayaran Telah Dilakukan') { ?>
                     <br>
                     <a href="<?php echo site_url('admin/Dashboard/bayarorders/' . $o['kode_order']) ?>" style="width: auto" data-toggle="tooltip" title="Konfirmasi Pembayaran" 
-                    class="btn btn-primary" onclick="javascript:confirmationTerima($(this));return false;"><i class="fa fa-fw fa-reply"></i></a>
+                    class="btn btn-primary" onclick="javascript:confirmationTerima($(this));return false;"><i class="fa fa-fw fa-check"></i></a>
                     <a href="<?php echo site_url('admin/Dashboard/tolakorders/' . $o['kode_order']) ?>" style="width: auto" data-toggle="tooltip" title="Batalkan Pesanan" 
                     class="btn btn-danger" onclick="javascript:confirmationTolak($(this));return false;"><i class="fa fa-fw fa-trash"></i></a>
 
