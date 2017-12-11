@@ -3,9 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Dec 11, 2017 at 11:08 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
+=======
+-- Generation Time: 11 Des 2017 pada 09.00
+-- Versi Server: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
+>>>>>>> e03f62f69dbe1c6e947fb7f1e1a7b8bb3fc5a57b
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -43,7 +49,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `adminName`, `role`, `timeCreated`, `lastLogin`) VALUES
-(1, 'mimintamvan@baleni', '2779d16cd82a84b1efe928fbd758f6c2', 'Super Admin', 1, '2017-11-29 15:01:42', '2017-12-10 04:17:56'),
+(1, 'mimintamvan@baleni', '2779d16cd82a84b1efe928fbd758f6c2', 'Super Admin', 1, '2017-11-29 15:01:42', '2017-12-11 07:47:27'),
 (2, 'adminbiasa@gmail.com', '2779d16cd82a84b1efe928fbd758f6c2', 'Admin Biasa Aja Doang', 0, '2017-11-30 03:12:35', '2017-12-09 00:01:09'),
 (3, 'testenc@gmail.com', '2779d16cd82a84b1efe928fbd758f6c2', 'Test Enc', 0, '2017-12-10 04:16:33', '2017-12-10 04:16:33');
 
@@ -186,9 +192,14 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `nama`, `timeCreated`, `lastLogin`) VALUES
+<<<<<<< HEAD
 (1, 'ahsanulmarom', 'ahsanulmarom@gmail.com', '2779d16cd82a84b1efe928fbd758f6c2', 'Ahsanul Marom', '2017-11-29 14:28:42', '2017-11-29 15:05:48'),
 (6, 'userenc', 'user1@gmail.com', '50bfb44558265ad517f1906032aad168', 'User Enc', '2017-12-10 04:22:02', '2017-12-10 04:22:02'),
 (7, 'Savirajatnika', 'savirajatnika@gmail.com', '0cef45fd8063be400498e678dd44b404', 'savirajatnika', '2017-12-11 09:32:36', '2017-12-11 09:49:53');
+=======
+(1, 'ahsanulmarom', 'ahsanulmarom@gmail.com', '2779d16cd82a84b1efe928fbd758f6c2', 'Ahsanul Marom', '2017-11-29 14:28:42', '2017-12-11 01:41:12'),
+(6, 'userenc', 'user1@gmail.com', '50bfb44558265ad517f1906032aad168', 'User Enc', '2017-12-10 04:22:02', '2017-12-10 04:22:02');
+>>>>>>> e03f62f69dbe1c6e947fb7f1e1a7b8bb3fc5a57b
 
 -- --------------------------------------------------------
 

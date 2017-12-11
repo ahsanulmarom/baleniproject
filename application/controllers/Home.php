@@ -121,18 +121,4 @@ class Home extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('Home/index');
 	}
-
-	public function orderdetilinfo($id) {
-        $order = $this->Authmin_model->get_order_id($id);
-        $order_det = $this->Authmin_model->getDetilOrder($id);
-        $data =array(
-            'kode'=>$order[0]->kode_order,
-            'tanggal'=>$order[0]->tanggalorder,
-            'alamat'=>$order[0]->alamat,
-            'total'=>$order[0]->totalbayar,
-            'status'=>$order[0]->status,
-            'barang'=>$order_det
-            );
-        echo json_encode($data);
-	}
 }

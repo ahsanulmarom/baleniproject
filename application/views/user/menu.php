@@ -26,7 +26,8 @@
                                 <h2><?php echo $m['nama']; ?></h2>
                                 <div id="owl-breakfast" class="owl-carousel owl-theme">
                                 </div>
-                                 <form method="post" action="<?php echo base_url()?>Order/add">
+                                
+                    <form method="post" action="<?php echo base_url()?>Order/add">
                                 <table width="400px">
                                 <tr>
                                     <td>Harga</td>

@@ -23,6 +23,7 @@
 			<?php
 			$cart = $this->cart->contents();
 			 if ($cart) {?>
+
 				<form method="post" action="<?php echo base_url()?>Order/update_cart">
 				<table id="cart" class="table table-hover table-condensed">
 					<tr>
@@ -44,7 +45,7 @@
 						?>
 					<tr>
 
-						<td><input name="<?php echo 'cart['.$c['id'].'][qty]'?>" type="number" class="form-control text-center" value="<?php echo $c['qty'];?>" style="width: 80%;"></td>
+						<td><input name="<?php echo 'cart['.$c['id'].'][qty]'?>" type="number" min='0' class="form-control text-center" value="<?php echo $c['qty'];?>" style="width: 80%;"></td>
 						<td><?php echo $c['name'];?></td>
 						<td>IDR <?php echo number_format($c['price'],2);?></td>
 						<?php $total = $total+$c['subtotal'];?>
@@ -63,6 +64,7 @@
 				</table>
 				</form>
 				<?php } ?>
+				
 			</div>
 			</div>
 

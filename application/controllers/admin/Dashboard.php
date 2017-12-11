@@ -24,6 +24,14 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/headfoot/footer');
 	}
 
+	public function myprofile() {
+		$data['title'] = 'My Profile';
+		$this->load->view('admin/headfoot/sider',$data);
+		$this->load->view('admin/headfoot/header');
+		$this->load->view('admin/profil');
+		$this->load->view('admin/headfoot/footer');
+	}
+
 	public function manageAdmin() {
 		$data['title'] = 'Manage Admin';
 		$dataadmin = array(
@@ -245,37 +253,23 @@ class Dashboard extends CI_Controller {
             'total'=>$order[0]->totalbayar,
             'status'=>$order[0]->status,
             'buktibayar'=>$order[0]->image,
+            'sudahbayar'=>$order[0]->jumlahbayar,
             'barang'=>$order_det
             );
         echo json_encode($data);
 	}
 
-	public function tolakorders($kode) {
-		$dataupdate = array(
-			'status' => 'Pesanan Ditolak/Dibatalkan');
-		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
-		redirect('admin/Dashboard/manageorders');
-	}
-
-	public function antarorders($kode) {
-		$dataupdate = array(
-			'status' => 'Pesanan Dalam Pengantaran');
-		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
-		redirect('admin/Dashboard/manageorders');
-	}
-
-	public function bayarorders($kode) {
-		$dataupdate = array(
-			'status' => 'Pesanan Dalam Proses');
-		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
-		redirect('admin/Dashboard/manageorders');
-	}
-
-	public function doneorders($kode) {
-		$dataupdate = array(
-			'status' => 'Pesanan Telah Selesai');
-		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
-		redirect('admin/Dashboard/manageorders');
+	public function updatestatus($kode) {
+		$data = array(
+			'status' => $this->input->post('status')
+			);
+		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $data);
+		if ($this->input->post('status') == 'Pesanan Ditolak/Dibatalkan') {
+			$flash = $this->session->set_flashdata('error', 'Status Pemesanan ' . $kode . ' diubah menjadi ' . $this->input->post('status'));
+		} else {
+			$flash = $this->session->set_flashdata('success', 'Status Pemesanan ' . $kode . ' berhasil diubah menjadi ' . $this->input->post('status'));
+		}
+		redirect('admin/Dashboard/manageorders', $flash);
 	}
 
 }

@@ -11,6 +11,11 @@
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>Success!</strong> '.$this->session->flashdata('success').'.
               </div>';
+            } elseif ($this->session->flashdata('error')) {
+                echo '<div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Waduh!</strong> '.$this->session->flashdata('error').'.
+              </div>';
             } ?>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
@@ -34,36 +39,23 @@
                   <td><?php echo $o->tanggalorder ?></td>
                   <td><?php echo $o->alamat ?></td>
                   <td><?php echo $o->tanggalkirim ?></td>
-                  <td><?php echo $o->status; ?> </td>
+                  <form method="POST" action="<?php echo base_url()."admin/Dashboard/updateStatus/"."$o->kode_order"?>">
+                      <td>
+                        <select class="input-group" name="status">
+                          <option <?php if('Menunggu Pembayaran' == $o->status){ echo 'selected="selected"'; } ?> value="Menunggu Pembayaran">Menunggu Pembayaran</option>
+                          <option <?php if('Pembayaran Telah Dilakukan' == $o->status){ echo 'selected="selected"'; } ?> value="Pembayaran Telah Dilakukan"> Pembayaran Telah Dilakukan</option>
+                          <option <?php if('Pesanan Dalam Proses' == $o->status){ echo 'selected="selected"'; } ?> value="Pesanan Dalam Proses">Pesanan Dalam Proses</option>
+                          <option <?php if('Pesanan Telah Selesai' == $o->status){ echo 'selected="selected"'; } ?> value="Pesanan Telah Selesai">Pesanan Telah Selesai</option>
+                          <option style="color: #FF0000" <?php if('Pesanan Ditolak/Dibatalkan' == $o->status){ echo 'selected="selected"'; } ?> value="Pesanan Ditolak/Dibatalkan">Pesanan Ditolak/Dibatalkan</option>
+                        </select>
+                        <input style="width: auto" class="btn btn-primary" type="submit" name="submit" value="Ubah Status">
+                        </td>
+                      </form>
                   <td><a data-toggle="modal" data-target="#detilorder" class="btn btn-primary" href="#" onclick="barang_more('<?php echo $o->kode_order?>')" >View More</a></td>
-                <?php /*if($o['status'] == 'Menunggu Pembayaran') {?>
-                    <br>
-                    <a href="<?php echo site_url('admin/Dashboard/tolakorders/' . $o['kode_order']) ?>" style="width: auto" data-toggle="tooltip" title="Batalkan Pesanan" 
-                    class="btn btn-danger" onclick="javascript:confirmationTolak($(this));return false;"><i class="fa fa-fw fa-trash"></i></a>
-
-                <?php } else if($o['status'] == 'Pembayaran Telah Dilakukan') { ?>
-                    <br>
-                    <a href="<?php echo site_url('admin/Dashboard/bayarorders/' . $o['kode_order']) ?>" style="width: auto" data-toggle="tooltip" title="Konfirmasi Pembayaran" 
-                    class="btn btn-primary" onclick="javascript:confirmationTerima($(this));return false;"><i class="fa fa-fw fa-check"></i></a>
-                    <a href="<?php echo site_url('admin/Dashboard/tolakorders/' . $o['kode_order']) ?>" style="width: auto" data-toggle="tooltip" title="Batalkan Pesanan" 
-                    class="btn btn-danger" onclick="javascript:confirmationTolak($(this));return false;"><i class="fa fa-fw fa-trash"></i></a>
-
-                <?php } else if($o['status'] == 'Pesanan Dalam Proses') { ?>
-                    <br>
-                    <a href="<?php echo site_url('admin/Dashboard/antarorders/' . $o['kode_order']) ?>" style="width: auto" data-toggle="tooltip" title="Antar Pesanan" 
-                    class="btn btn-primary" onclick="javascript:confirmationTerima($(this));return false;"><i class="fa fa-fw fa-car"></i></a>
-                    <a href="<?php echo site_url('admin/Dashboard/tolakorders/' . $o['kode_order']) ?>" style="width: auto" data-toggle="tooltip" title="Batalkan Pesanan" 
-                    class="btn btn-danger" onclick="javascript:confirmationTolak($(this));return false;"><i class="fa fa-fw fa-trash"></i></a>
-
-                <?php } else if($o['status'] == 'Pesanan Dalam Pengantaran') { ?>
-                    <br>
-                    <a href="<?php echo site_url('admin/Dashboard/doneorders/' . $o['kode_order']) ?>" style="width: auto" data-toggle="tooltip" title="Selesaikan Pesanan" 
-                    class="btn btn-primary" onclick="javascript:confirmationTerima($(this));return false;"><i class="fa fa-fw fa-flag-checkered"></i></a>
-                  <?php }*/
+                <?php 
                   }
                 }
                 ?>
-                </td>
                 </tr>
               </tbody>
             </table>
@@ -150,6 +142,20 @@
                             <td></td>
                             <th>Total</th>
                             <td id="total"></td>
+                        </tr>
+                        <tr> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>Sudah Bayar</th>
+                            <td id="sudahbayar"></td>
+                        </tr>
+                        <tr> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>Sisa</th>
+                            <td id="sisabayar"></td>
                         </tr>
             </table>
         </div>

@@ -1,5 +1,6 @@
 function barang_more(id) {
   $('.bsm1').remove();
+  $('.sb').remove();
   $.ajax({
       url:BASE_URL+"admin/Dashboard/orderdetilinfo/"+id,
       type:"GET",
@@ -51,8 +52,10 @@ function barang_more(id) {
                             '</td></tr>');
         }
                 
-        $('#kodeunik').html('Rp' + toNum(data.kode));
-        $('#total').html('Rp' + toNum(barang['totalbayar']));
+        $('#kodeunik').html('Rp ' + toNum(data.kode));
+        $('#total').html('Rp ' + toNum(barang['totalbayar']));
+        $('#sudahbayar').html('<div class="sb"> Rp ' + toNum(data.sudahbayar) + '</div>');
+        $('#sisabayar').html('<div class="sb"> Rp ' + toNum(barang['totalbayar'] - data.sudahbayar) + '</div>');
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
