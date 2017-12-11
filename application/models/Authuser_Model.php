@@ -27,7 +27,7 @@ class Authuser_model extends CI_Model {
 	}
 
 	public function GetProfile($where){
-			$data = $this->db->get('user '. $where);
+			$data = $this->db->get('user ' . $where);
 			return $data->result_array();
 	}	
 

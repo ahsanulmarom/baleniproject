@@ -80,6 +80,8 @@ class Home_Dashboard extends CI_Controller {
 	}
 
 	public function history() {
+		$this->load->view("user/headfoot/headerlogin");
+
 		if (empty($this->session->userdata('masukin'))) {
 			redirect('Home/index');
 		} else {
@@ -89,5 +91,6 @@ class Home_Dashboard extends CI_Controller {
 				);
 			$this->load->view('user/orderhistory', $order);
 		}
-	}
+		$this->load->view("user/headfoot/footer");
+	}	
 }

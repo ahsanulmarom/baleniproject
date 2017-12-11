@@ -103,17 +103,17 @@ class Home extends CI_Controller {
 
 	public function viewProfile(){
 		$session = (string)($this->session->userdata('nama'));
-		$profil = $this->mymodel->GetProfile("where username = '$session'");
+		$profil = $this->Authuser_Model->GetProfile("where username = '$session'");
 		$data = array(
 			"username" => $profil[0]['username'],
 			"email" => $profil[0]['email'],
 			"nama" => $profil[0]['nama'],
-			"alamat" => $profil[0]['alamat'],
+			// "alamat" => $profil[0]['alamat'],
 			 );
-		$this->load->view('user/Profile', $data);
-		// var_dump($session);
-		// var_dump($data);
-		// var_dump($profil);
+		$this->load->view('user/orderhistory', $data);
+		var_dump($session);
+		var_dump($data);
+		var_dump($profil);
 	}	
 
 	public function logout(){

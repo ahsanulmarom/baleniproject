@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 10 Des 2017 pada 05.22
--- Versi Server: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- Generation Time: Dec 11, 2017 at 11:08 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -37,7 +39,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `adminName`, `role`, `timeCreated`, `lastLogin`) VALUES
@@ -48,7 +50,7 @@ INSERT INTO `admin` (`id`, `username`, `password`, `adminName`, `role`, `timeCre
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `buktibayar`
+-- Table structure for table `buktibayar`
 --
 
 CREATE TABLE `buktibayar` (
@@ -61,7 +63,7 @@ CREATE TABLE `buktibayar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `buktibayar`
+-- Dumping data for table `buktibayar`
 --
 
 INSERT INTO `buktibayar` (`id`, `kode`, `username`, `namabayar`, `jumlahbayar`, `image`) VALUES
@@ -70,7 +72,7 @@ INSERT INTO `buktibayar` (`id`, `kode`, `username`, `namabayar`, `jumlahbayar`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detil_order`
+-- Table structure for table `detil_order`
 --
 
 CREATE TABLE `detil_order` (
@@ -83,7 +85,7 @@ CREATE TABLE `detil_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detil_order`
+-- Dumping data for table `detil_order`
 --
 
 INSERT INTO `detil_order` (`id`, `orderid`, `kodebarang`, `kuantitas`, `harga`, `deskripsi_order`) VALUES
@@ -95,7 +97,7 @@ INSERT INTO `detil_order` (`id`, `orderid`, `kodebarang`, `kuantitas`, `harga`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -104,7 +106,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`id`, `namaKategori`) VALUES
@@ -115,7 +117,7 @@ INSERT INTO `kategori` (`id`, `namaKategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `menu`
+-- Table structure for table `menu`
 --
 
 CREATE TABLE `menu` (
@@ -129,7 +131,7 @@ CREATE TABLE `menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `menu`
+-- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`id`, `kode`, `nama`, `kategori`, `harga`, `deskripsi`, `image`) VALUES
@@ -140,7 +142,7 @@ INSERT INTO `menu` (`id`, `kode`, `nama`, `kategori`, `harga`, `deskripsi`, `ima
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `order`
+-- Table structure for table `order`
 --
 
 CREATE TABLE `order` (
@@ -156,7 +158,7 @@ CREATE TABLE `order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `order`
+-- Dumping data for table `order`
 --
 
 INSERT INTO `order` (`id`, `kode_order`, `tanggalorder`, `usercustomer`, `alamat`, `noTelp`, `tanggalkirim`, `totalbayar`, `status`) VALUES
@@ -166,7 +168,7 @@ INSERT INTO `order` (`id`, `kode_order`, `tanggalorder`, `usercustomer`, `alamat
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -180,17 +182,18 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `nama`, `timeCreated`, `lastLogin`) VALUES
 (1, 'ahsanulmarom', 'ahsanulmarom@gmail.com', '2779d16cd82a84b1efe928fbd758f6c2', 'Ahsanul Marom', '2017-11-29 14:28:42', '2017-11-29 15:05:48'),
-(6, 'userenc', 'user1@gmail.com', '50bfb44558265ad517f1906032aad168', 'User Enc', '2017-12-10 04:22:02', '2017-12-10 04:22:02');
+(6, 'userenc', 'user1@gmail.com', '50bfb44558265ad517f1906032aad168', 'User Enc', '2017-12-10 04:22:02', '2017-12-10 04:22:02'),
+(7, 'Savirajatnika', 'savirajatnika@gmail.com', '0cef45fd8063be400498e678dd44b404', 'savirajatnika', '2017-12-11 09:32:36', '2017-12-11 09:49:53');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `wilayah_desa`
+-- Table structure for table `wilayah_desa`
 --
 
 CREATE TABLE `wilayah_desa` (
@@ -200,7 +203,7 @@ CREATE TABLE `wilayah_desa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `wilayah_desa`
+-- Dumping data for table `wilayah_desa`
 --
 
 INSERT INTO `wilayah_desa` (`id`, `kecamatan_id`, `nama`) VALUES
@@ -445,7 +448,7 @@ INSERT INTO `wilayah_desa` (`id`, `kecamatan_id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `wilayah_kabupaten`
+-- Table structure for table `wilayah_kabupaten`
 --
 
 CREATE TABLE `wilayah_kabupaten` (
@@ -455,7 +458,7 @@ CREATE TABLE `wilayah_kabupaten` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `wilayah_kabupaten`
+-- Dumping data for table `wilayah_kabupaten`
 --
 
 INSERT INTO `wilayah_kabupaten` (`id`, `provinsi_id`, `nama`) VALUES
@@ -467,7 +470,7 @@ INSERT INTO `wilayah_kabupaten` (`id`, `provinsi_id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `wilayah_kecamatan`
+-- Table structure for table `wilayah_kecamatan`
 --
 
 CREATE TABLE `wilayah_kecamatan` (
@@ -477,7 +480,7 @@ CREATE TABLE `wilayah_kecamatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `wilayah_kecamatan`
+-- Dumping data for table `wilayah_kecamatan`
 --
 
 INSERT INTO `wilayah_kecamatan` (`id`, `kabupaten_id`, `nama`) VALUES
@@ -629,7 +632,8 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

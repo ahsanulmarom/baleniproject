@@ -46,7 +46,7 @@
                                 <input type="hidden" name="id" value="<?php echo $m['kode']?>">
 
                                 <td>Banyaknya</td>
-                                <td style="padding: 5px"><input type="number" min="0" max="1000" class="form-control" name="qty"></td>
+                                <td style="padding: 5px"><input type="number" min="0" max="1000" placeholder="min. 15 box " class="form-control" name="qty"></td>
                             </tr>
                             <tr>
                                 <td>Pesan</td>
