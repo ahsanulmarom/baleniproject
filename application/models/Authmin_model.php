@@ -23,6 +23,18 @@ class Authmin_model extends CI_Model {
 		}
 	}
 
+	public function getColomn($user){
+		$query = $this->db->select('*')
+			->from('admin')
+			->where('username',$user)
+			->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}else{
+			return false;
+		}
+	}
+
 
 	public function getAllData($namaTabel, $urut, $asc) {
 		$this->db->select('*');

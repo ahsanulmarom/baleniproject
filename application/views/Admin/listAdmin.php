@@ -33,9 +33,9 @@
                   <td><?php echo $adm['adminName'] ?></td>
                   <td><?php 
                     if($adm['role'] == 1) {
-                      echo 'Super Admin';
+                      echo 'Super Mimin';
                     } else {
-                    echo 'Admin';
+                    echo 'Mimin';
                     } ?></td>
                   <td><?php echo $adm['timeCreated']; ?></td>
                   <td><?php echo $adm['lastLogin']; ?></td>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 10 Des 2017 pada 05.22
+-- Generation Time: 11 Des 2017 pada 09.00
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `adminName`, `role`, `timeCreated`, `lastLogin`) VALUES
-(1, 'mimintamvan@baleni', '2779d16cd82a84b1efe928fbd758f6c2', 'Super Admin', 1, '2017-11-29 15:01:42', '2017-12-10 04:17:56'),
+(1, 'mimintamvan@baleni', '2779d16cd82a84b1efe928fbd758f6c2', 'Super Admin', 1, '2017-11-29 15:01:42', '2017-12-11 07:47:27'),
 (2, 'adminbiasa@gmail.com', '2779d16cd82a84b1efe928fbd758f6c2', 'Admin Biasa Aja Doang', 0, '2017-11-30 03:12:35', '2017-12-09 00:01:09'),
 (3, 'testenc@gmail.com', '2779d16cd82a84b1efe928fbd758f6c2', 'Test Enc', 0, '2017-12-10 04:16:33', '2017-12-10 04:16:33');
 
@@ -184,7 +184,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `nama`, `timeCreated`, `lastLogin`) VALUES
-(1, 'ahsanulmarom', 'ahsanulmarom@gmail.com', '2779d16cd82a84b1efe928fbd758f6c2', 'Ahsanul Marom', '2017-11-29 14:28:42', '2017-11-29 15:05:48'),
+(1, 'ahsanulmarom', 'ahsanulmarom@gmail.com', '2779d16cd82a84b1efe928fbd758f6c2', 'Ahsanul Marom', '2017-11-29 14:28:42', '2017-12-11 01:41:12'),
 (6, 'userenc', 'user1@gmail.com', '50bfb44558265ad517f1906032aad168', 'User Enc', '2017-12-10 04:22:02', '2017-12-10 04:22:02');
 
 -- --------------------------------------------------------

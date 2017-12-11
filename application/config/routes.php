@@ -51,5 +51,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'Home';
 $route['cportal'] = 'admin/Auth';
-$route['404_override'] = 'Home';
+$route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

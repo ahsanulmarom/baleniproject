@@ -24,6 +24,14 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/headfoot/footer');
 	}
 
+	public function myprofile() {
+		$data['title'] = 'My Profile';
+		$this->load->view('admin/headfoot/sider',$data);
+		$this->load->view('admin/headfoot/header');
+		$this->load->view('admin/profil');
+		$this->load->view('admin/headfoot/footer');
+	}
+
 	public function manageAdmin() {
 		$data['title'] = 'Manage Admin';
 		$dataadmin = array(

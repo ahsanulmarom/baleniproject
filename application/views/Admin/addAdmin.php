@@ -35,8 +35,8 @@
                   <td style="padding: 5px">Role</td>
                   <td style="padding: 5px">
                     <select name="rolenewadmin" class="form-control" required>
-                      <option value="1">Super Admin</option>
-                      <option value="0">Admin</option>
+                      <option value="1">Super Mimin</option>
+                      <option value="0">Mimin</option>
                     </select>
                   </td>
                 </tr>
