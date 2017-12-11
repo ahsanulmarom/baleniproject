@@ -1,4 +1,5 @@
 function barang_more(id) {
+  $('.bsm1').remove();
   $.ajax({
       url:BASE_URL+"admin/Dashboard/orderdetilinfo/"+id,
       type:"GET",
@@ -7,23 +8,33 @@ function barang_more(id) {
         $('#headeratas').html('<table>'+
                 '<tr>'+
                     '<td>Kode Order</td>'+
+                    '<td> : </td>'+
                     '<td>'+data.kode+'</td>'+
                 '</tr>'+
                 '<tr>'+
                     '<td>Tanggal Order</td>'+
+                    '<td> : </td>'+
                     '<td>'+data.tanggal+'</td>'+
                 '</tr>'+
                 '<tr>'+
                     '<td>Alamat Kirim</td>'+
+                    '<td> : </td>'+
                     '<td>'+data.alamat+'</td>'+
                 '</tr>'+
                 '<tr>'+
                     '<td>Tanggal Kirim</td>'+
+                    '<td> : </td>'+
                     '<td>'+data.tanggalkirim+'</td>'+
                 '</tr>'+
                 '<tr>'+
                     '<td>Status</td>'+
+                    '<td> : </td>'+
                     '<td>'+data.status+'</td>'+
+                '</tr>'+
+                '<tr>'+
+                    '<td>Bukti Bayar</td>'+
+                    '<td> : </td>'+
+                    '<td> <a href="' + BASE_URL+data.buktibayar+ '" target="_blank">'+data.buktibayar+'</td>'+
                 '</tr>'+
             '</table>');
         var dat = data.barang;
@@ -40,8 +51,8 @@ function barang_more(id) {
                             '</td></tr>');
         }
                 
-        $('#kodeunik').html(toNum(data.kode));
-        $('#total').html(toNum(data.totalbayar));
+        $('#kodeunik').html('Rp' + toNum(data.kode));
+        $('#total').html('Rp' + toNum(barang['totalbayar']));
       },
       error: function (jqXHR, textStatus, errorThrown)
       {

@@ -76,6 +76,7 @@ class Authmin_model extends CI_Model {
 
 	function get_order_id($id){
 		$this->db->select('*');
+		$this->db->join('buktibayar', 'buktibayar.kode = order.kode_order', 'left');
 		$this->db->where('kode_order', $id);
 		$this->db->from('order');
 		$query = $this->db->get();

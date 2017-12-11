@@ -240,9 +240,11 @@ class Dashboard extends CI_Controller {
         $data =array(
             'kode'=>$order[0]->kode_order,
             'tanggal'=>$order[0]->tanggalorder,
+            'tanggalkirim'=>$order[0]->tanggalkirim,
             'alamat'=>$order[0]->alamat,
             'total'=>$order[0]->totalbayar,
             'status'=>$order[0]->status,
+            'buktibayar'=>$order[0]->image,
             'barang'=>$order_det
             );
         echo json_encode($data);
