@@ -1,5 +1,4 @@
-<?php $this->load->view("user/headfoot/headerlogin")?>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/shoppingcart.css"/>
+<section>
 <div style="min-height: 80vh">
 		<div class="container-fluid text-center" style="margin-top: 20px;">
 			<ol class="breadcrumb">
@@ -140,25 +139,5 @@
 			</div>
 		</form>
 		</div>
-</div>		
-		<!-- JavaScript includes -->
-		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
-		<script src="<?php echo base_url()?>assets/js/shoppingcart.js"></script>
-		<?php $this->load->view("user/headfoot/footer")?>
-
-	<script src="<?php echo base_url()?>assets/js/jquery.min.js"></script>
-	<script>
-        $(document).ready(function(){
-			$("#kabupaten").change(function (){
-                var url = "<?php echo site_url('Order/add_ajax_kec');?>/"+$(this).val();
-                $('#kecamatan').load(url);
-                return false;
-            })
-			
-			$("#kecamatan").change(function (){
-                var url = "<?php echo site_url('Order/add_ajax_des');?>/"+$(this).val();
-                $('#desa').load(url);
-                return false;
-            })
-        });
-    </script>
+</div>	
+</section>

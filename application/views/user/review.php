@@ -1,11 +1,10 @@
-<?php $this->load->view("user/headfoot/headerlogin")?>
-<link href="<?php echo base_url()?>assets/css/profileuser.css" rel="stylesheet" type="text/css" media="all">
+<section><br><br><br>
 		<div class="container">
 			<div class="row mb40">
     		<div class="chute chute-center text-center">
-			<div class="col-md-12 mb5">
+			<div class="col-md-6">
 				<div class="demo-grid">
-					<strong>Silahkan lihat dan konfirmasi detil pesananmu</strong>
+					<h2>DETAIL PESANAN</h2><br>
 					<div class="secdiri table-responsive">
 						<table class="table table-condensed no-border" style="text-align: left">
 							<tr class="no-border">
@@ -26,12 +25,14 @@
 							</tr>
 						</table>
 					</div>
+                    </div>
+                    </div>
+
     
     <div class="row">
-    	<div class="col-md-12">
+    	<div class="col-md-6">
     		<div class="paneledit panel-default">
-    			<div class="panel-heading">
-    				<h3 class="panel-title"><strong>Rangkuman Order</strong></h3>
+    				<h3>RANGKUMAN ORDER</h3>
     			</div>
     			<div class="panel-body">
     				<div class="table-responsive">
@@ -83,6 +84,7 @@
     </div>
 
 					</div>
+                    <div>
 					<br /><br />
                     <?php if (strcmp($status,"Menunggu Pembayaran")!=0) { ?>
                     <div class="col-md-12">
@@ -92,21 +94,23 @@
                     </div>
 					<?php echo '';
 					}else{ ?>
-                    <p>Silahkan Melakukan Pembayaran Melalui:</p>
+                    <h5>Pembayaran Melalui:</h5>
                     <div class="col-md-12">
                         <div class="demo-grid">
                             <img height=50px width=50px src="https://www.alamatbank.com/wp-content/uploads/2014/11/logo-bni-300x250.gif"/>
-                            <p><strong>0635482462</strong></p>
-                            <p>Incik Zairina</p>
+                            <h5><strong>0635482462</strong></h5>
+                            <h4>Incik Zairina</4>
                         </div>
-                    <h4>Segera lakukan pembayaran. Pesanan tidak akan diproses jika tidak melakukan pembayaran.</h4>
+                    <h6>Segera lakukan pembayaran. Pesanan tidak akan diproses jika tidak melakukan pembayaran.</h6>
 					<?php echo '<a href="'.base_url().'Home_Dashboard/confirm/'.$kode.'"><button class="btn btn-primary">Konfirmasikan Pembayaran</button></a>';
 					}?>
+                    <br><br>
 				</div>
+                </div>
 			</div>
 			</div>
 		    </div>
         </div>
     <div>
-
-    	<?php $this->load->view("user/headfoot/footer")?>
+</div>
+</section>

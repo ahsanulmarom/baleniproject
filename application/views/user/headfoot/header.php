@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/hero-slider.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/owl-carousel.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/templatemo-style.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/shoppingcart.css">
 
         <link href="https://fonts.googleapis.com/css?family=Spectral:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">

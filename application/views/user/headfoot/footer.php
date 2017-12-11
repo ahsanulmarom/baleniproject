@@ -7,10 +7,8 @@
                 <div class="col-md-4">
                     <ul class="social-icons">
                         <li><a rel="nofollow" href="#" target="_parent"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="http://instagram.com/baleni_id"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -19,6 +17,28 @@
             </div>
         </div>
     </footer>
+
+        
+        <!-- JavaScript includes -->
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+        <script src="<?php echo base_url()?>assets/js/shoppingcart.js"></script>
+
+    <script src="<?php echo base_url()?>assets/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#kabupaten").change(function (){
+                var url = "<?php echo site_url('Order/add_ajax_kec');?>/"+$(this).val();
+                $('#kecamatan').load(url);
+                return false;
+            })
+            
+            $("#kecamatan").change(function (){
+                var url = "<?php echo site_url('Order/add_ajax_des');?>/"+$(this).val();
+                $('#desa').load(url);
+                return false;
+            })
+        });
+    </script>
 
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

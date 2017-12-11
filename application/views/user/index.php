@@ -19,18 +19,21 @@
                 <div class="col-md-6">
                     <div class="section-heading contact-info">
                         <h2>Contact Info</h2>
-                        <p>Pellentesque nec orci in erat venenatis viverra. Vivamus in lorem et leo feugiat ullamcorper. Donec volutpat fermentum erat non aliquet. Cras fermentum, risus a blandit sodales, erat turpis eleifend lacus, venenatis mollis leo lorem vel eros. Quisque et sem tempus, feugiat urna iaculis, tempor metus.<br><br><em>30 Raffles Ave, <br>Singapore 039803</em></p>
+                        <p>Baleni, nama yang berasal dari bahasa jawa ini memiliki arti kembali lagi, merupakan doa agar para pelanggan selalu baleni. Online resto dengan spesialisasi Iga Bakar Madu Lada Hitam dan Ayam Bakar Madu Lada Hitam ini pada awalnya berdiri dengan nama Dapoer Kemangi.<br><br>
+
+                        Iga Bakar Madu Lada Hitam disajikan dengan kentang, sambal dan selada sebagai primadona Baleni yang baru merupakan jawaban bagi para dieters yang menghindari konsumsi nasi putih, atau mengurangi karbo, yang kerap kali nongkrong di Kemang. Hingga akhirnya kini Baleni menjadi Online Resto, Iga Bakar Madu Lada Hitam tetap menjadi menu andalan. Sementara, Ayam Bakar Madu Lada Hitam, tersedia buat orang indonesia sejati yang gabisa lepas dari nasi. 
+                        <br><br><em>Bumi Mega Cinere <br>Cinere, Depok</em></p><br><br>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="section-heading">
-                        <img src="<?php echo base_url(); ?>assets/img/logo.jpg" class="img-responsive" alt=""> 
-
+                    <div class="section-heading"><br><br><br>
+                        <a href="http://instagram.com/baleni_id"> <img href="" src="<?php echo base_url(); ?>assets/img/logo.jpg" class="img-responsive" alt=""></a> <br>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
 
 

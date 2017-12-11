@@ -23,6 +23,7 @@ class Home_Dashboard extends CI_Controller {
 	}	
 
 	public function shoppingcart() {
+		$this->load->view("user/headfoot/headerlogin");
 		if (empty($this->session->userdata('masukin'))) {
 			redirect('Home/login');
 		} else {
@@ -31,9 +32,11 @@ class Home_Dashboard extends CI_Controller {
 			$data['kota'] = $this->Authuser_Model->get_all_kabupaten();
 			$this->load->view("user/shoppingcart",$data);
 		}
+		$this->load->view("user/headfoot/footer");
 	}
 
 	public function review($kodeorder) { 
+		$this->load->view("user/headfoot/headerlogin");
 		if (empty($this->session->userdata('masukin'))) {
 			redirect('Home/index');
 		} else {
@@ -60,9 +63,11 @@ class Home_Dashboard extends CI_Controller {
 				$this->load->view("user/review",$i); 
 			} 
 		}
+	  $this->load->view("user/headfoot/footer");
 	} 
 
 	public function confirm($kode) {
+		$this->load->view('user/headfoot/headerlogin');
 		if (empty($this->session->userdata('masukin'))) {
 			redirect('Home/index');
 		} else {
@@ -76,7 +81,7 @@ class Home_Dashboard extends CI_Controller {
 				);
 		$this->load->view("user/konfirmasi", $detilorder);
 		}
-
+		$this->load->view('user/headfoot/footer');
 	}
 
 	public function history() {
