@@ -245,37 +245,19 @@ class Dashboard extends CI_Controller {
             'total'=>$order[0]->totalbayar,
             'status'=>$order[0]->status,
             'buktibayar'=>$order[0]->image,
+            'sudahbayar'=>$order[0]->jumlahbayar,
             'barang'=>$order_det
             );
         echo json_encode($data);
 	}
 
-	public function tolakorders($kode) {
-		$dataupdate = array(
-			'status' => 'Pesanan Ditolak/Dibatalkan');
-		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
-		redirect('admin/Dashboard/manageorders');
-	}
-
-	public function antarorders($kode) {
-		$dataupdate = array(
-			'status' => 'Pesanan Dalam Pengantaran');
-		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
-		redirect('admin/Dashboard/manageorders');
-	}
-
-	public function bayarorders($kode) {
-		$dataupdate = array(
-			'status' => 'Pesanan Dalam Proses');
-		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
-		redirect('admin/Dashboard/manageorders');
-	}
-
-	public function doneorders($kode) {
-		$dataupdate = array(
-			'status' => 'Pesanan Telah Selesai');
-		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $dataupdate);
-		redirect('admin/Dashboard/manageorders');
+	public function updatestatus($kode) {
+		$data = array(
+			'status' => $this->input->post('status')
+			);
+		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $data);
+		$flash = $this->session->set_flashdata('success', 'Status Pemesanan ' . $kode . ' Berhasil Diubah menjadi ' . $this->input->post('status'));
+		redirect('admin/Dashboard/manageorders', $flash);
 	}
 
 }
