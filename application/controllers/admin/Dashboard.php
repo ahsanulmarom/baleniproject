@@ -256,7 +256,11 @@ class Dashboard extends CI_Controller {
 			'status' => $this->input->post('status')
 			);
 		$update = $this->Authmin_model->updateData('kode_order', $kode, 'order', $data);
-		$flash = $this->session->set_flashdata('success', 'Status Pemesanan ' . $kode . ' Berhasil Diubah menjadi ' . $this->input->post('status'));
+		if ($this->input->post('status') == 'Pesanan Ditolak/Dibatalkan') {
+			$flash = $this->session->set_flashdata('error', 'Status Pemesanan ' . $kode . ' diubah menjadi ' . $this->input->post('status'));
+		} else {
+			$flash = $this->session->set_flashdata('success', 'Status Pemesanan ' . $kode . ' berhasil diubah menjadi ' . $this->input->post('status'));
+		}
 		redirect('admin/Dashboard/manageorders', $flash);
 	}
 

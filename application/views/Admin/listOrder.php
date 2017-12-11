@@ -11,6 +11,11 @@
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>Success!</strong> '.$this->session->flashdata('success').'.
               </div>';
+            } elseif ($this->session->flashdata('error')) {
+                echo '<div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Waduh!</strong> '.$this->session->flashdata('error').'.
+              </div>';
             } ?>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
