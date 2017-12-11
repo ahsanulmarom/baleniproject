@@ -1,4 +1,5 @@
 <!-- Example DataTables Card-->
+<script src="<?php echo base_url()?>assets/js/order.js"></script> 
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i>   List of Order</div>
@@ -17,11 +18,10 @@
                   <th>Kode Pesan</th>
                   <th>Pemesan</th>
                   <th>Tanggal Pesan</th>
-                  <th colspan=3>Menu Pesanan</th>
                   <th>Alamat Kirim</th>
                   <th>Tanggal Kirim</th>
-                  <th>Harga Total</th>
                   <th>Status</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -29,15 +29,14 @@
                 if(!empty($orderan)) {
                   foreach ($orderan as $o) { ?>
                 <tr>
-                  <td><?php echo $o['kode_order'] ?></td>
-                  <td><?php echo $o['usercustomer'] ?></td>
-                  <td><?php echo $o['tanggalorder'] ?></td>
-                  <td><?php echo $o['nama'] ?> </td><td><?php echo $o['kuantitas'] ?></td><td><?php echo $o['deskripsi_order'] ?></td>
-                  <td><?php echo $o['alamat']; ?></td>
-                  <td><?php echo $o['tanggalkirim']; ?></td>
-                  <td><?php echo $o['totalbayar']; ?></td>
-                  <td><?php echo $o['status']; ?>
-                <?php if($o['status'] == 'Menunggu Pembayaran') {?>
+                  <td><?php echo $o->kode_order ?></td>
+                  <td><?php echo $o->usercustomer ?></td>
+                  <td><?php echo $o->tanggalorder ?></td>
+                  <td><?php echo $o->alamat ?></td>
+                  <td><?php echo $o->tanggalkirim ?></td>
+                  <td><?php echo $o->status; ?> </td>
+                  <td><a data-toggle="modal" data-target="#detilorder" class="btn btn-primary" href="#" onclick="barang_more('<?php echo $o->kode_order?>')" >View More</a></td>
+                <?php /*if($o['status'] == 'Menunggu Pembayaran') {?>
                     <br>
                     <a href="<?php echo site_url('admin/Dashboard/tolakorders/' . $o['kode_order']) ?>" style="width: auto" data-toggle="tooltip" title="Batalkan Pesanan" 
                     class="btn btn-danger" onclick="javascript:confirmationTolak($(this));return false;"><i class="fa fa-fw fa-trash"></i></a>
@@ -60,7 +59,7 @@
                     <br>
                     <a href="<?php echo site_url('admin/Dashboard/doneorders/' . $o['kode_order']) ?>" style="width: auto" data-toggle="tooltip" title="Selesaikan Pesanan" 
                     class="btn btn-primary" onclick="javascript:confirmationTerima($(this));return false;"><i class="fa fa-fw fa-flag-checkered"></i></a>
-                  <?php }
+                  <?php }*/
                   }
                 }
                 ?>
@@ -109,3 +108,56 @@
       window.location=anchor.attr("href");
   }
 </script>
+
+<!-- Modal Edit SLIDER -->
+<div id="detilorder" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Detil Order</h4>
+      </div>
+      <div class="modal-body">
+        <div id="headeratas">
+
+        </div>
+        <div>
+            <table class="table">
+                    <thead>
+                        <tr>
+                        <th>Kuantitas</th>
+                        <th>Barang</th>
+                        <th>Keterangan</th>
+                        <th>Harga</th>
+                        <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody  id="ket_barang">
+                        
+                    </tbody>
+                        <tr> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>Kode Unik</th>
+                            <td id="kodeunik"></td>
+                        </tr>
+                        <tr> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>Total</th>
+                            <td id="total"></td>
+                        </tr>
+            </table>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

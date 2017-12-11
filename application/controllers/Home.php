@@ -5,6 +5,7 @@ class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Authuser_Model');
+		$this->load->model('Authmin_model');
 		$this->load->helper('url');
 
 		$loggedin = $this->session->userdata('masukin');
@@ -88,12 +89,12 @@ class Home extends CI_Controller {
 			if($cek > 0){
 				$data_session = array(
 					'username' => $username,
-					'status' => "login"
-					);
-	 
+					'status' => "login");
+				$datanow = array(
+					'lastLogin' => $this->Authmin_model->now());
+				$this->Authuser_Model->updateData('username', $username, 'user', $datanow);
 				$this->session->set_userdata('masukin', $data_session);
 				redirect(base_url('Home/indexlogin'));
-	 
 			}else{
 				$data['error'] = 'Password Salah!';
 				$this->load->view('user/login', $data);
@@ -119,5 +120,19 @@ class Home extends CI_Controller {
 		$this->session->unset_userdata('masukin');
 		$this->session->sess_destroy();
 		redirect('Home/index');
+	}
+
+	public function orderdetilinfo($id) {
+        $order = $this->Authmin_model->get_order_id($id);
+        $order_det = $this->Authmin_model->getDetilOrder($id);
+        $data =array(
+            'kode'=>$order[0]->kode_order,
+            'tanggal'=>$order[0]->tanggalorder,
+            'alamat'=>$order[0]->alamat,
+            'total'=>$order[0]->totalbayar,
+            'status'=>$order[0]->status,
+            'barang'=>$order_det
+            );
+        echo json_encode($data);
 	}
 }

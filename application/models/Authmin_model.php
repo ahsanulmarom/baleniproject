@@ -64,14 +64,40 @@ class Authmin_model extends CI_Model {
 
 	public function getOrder() {
 		$this->db->select('*');
-		$this->db->join('detil_order', 'order.kode_order=detil_order.orderid');
-		$this->db->join('menu', 'detil_order.kodebarang=menu.kode');
 		$this->db->from('order');
 		$this->db->order_by('tanggalkirim');
 		$query = $this->db->get();
 		if($query->num_rows() > 0) {
-			return $query->result_array();
+			return $query->result();
 		} else {
+			return false;
+		}
+	}
+
+	function get_order_id($id){
+		$this->db->select('*');
+		$this->db->where('kode_order', $id);
+		$this->db->from('order');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function getDetilOrder($id) {
+		$this->db->select('*');
+		$this->db->join('menu','menu.kode=detil_order.kodebarang');
+		$this->db->join('order', 'order.kode_order=detil_order.orderid');
+		$this->db->where('orderid', $id);
+		$this->db->from('detil_order');
+		$query = $this->db->get();
+		if ($query && $query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
 			return false;
 		}
 	}
@@ -99,12 +125,6 @@ class Authmin_model extends CI_Model {
 		$this->db->update($namaTabel, $data);
 	}
 
-	public function now() {
-		$dtz = new DateTimeZone("Asia/Jakarta");
-		$dateTime = date_create('now', $dtz)->format('Y-m-d H:i:s');
-		return$dateTime;
-	}
-
 	public function getTopMenu() {
 		$this->db->select('kodebarang, nama, sum(kuantitas)');
 		$this->db->join('menu', 'detil_order.kodebarang=menu.kode');
@@ -126,6 +146,12 @@ class Authmin_model extends CI_Model {
 		$this->db->from('detil_order');
 		$query = $this->db->get();
 		return $query->row()->kuantitas;
+	}
+
+	public function now() {
+		$dtz = new DateTimeZone("Asia/Jakarta");
+		$dateTime = date_create('now', $dtz)->format('Y-m-d H:i:s');
+		return$dateTime;
 	}
 }
 ?>
