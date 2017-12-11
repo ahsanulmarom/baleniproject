@@ -44,7 +44,7 @@
 						?>
 					<tr>
 
-						<td><input name="<?php echo 'cart['.$c['id'].'][qty]'?>" type="number" class="form-control text-center" value="<?php echo $c['qty'];?>" style="width: 80%;"></td>
+						<td><input name="<?php echo 'cart['.$c['id'].'][qty]'?>" type="number" min=0 class="form-control text-center" value="<?php echo $c['qty'];?>" style="width: 80%;"></td>
 						<td><?php echo $c['name'];?></td>
 						<td>IDR <?php echo number_format($c['price'],2);?></td>
 						<?php $total = $total+$c['subtotal'];?>
