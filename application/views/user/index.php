@@ -3,8 +3,8 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <h4>Here you can find delecious foods</h4>
-                    <h2>Asian Restaurant</h2>
-                    <p>Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.</p>
+                    <h2>Baleni Soup & Grill</h2>
+                    <p></p>
                     <div class="primary-button">
                         <a href="<?php echo base_url()?>Home_Dashboard/menu" >Order Right Now</a>
                     </div>

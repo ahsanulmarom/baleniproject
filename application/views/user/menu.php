@@ -3,7 +3,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1>Our Menus</h1>
-                    <p>BALENI menawarkan makanan - makanan yang fresh from the oven. Selain beragam menu, BALENI juga memiliki cita rasa khas yang sangat menyirikan Indonesia.</p>
+                    
                 </div>
             </div>
         </div>
